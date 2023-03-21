@@ -11,7 +11,7 @@ El juego que hya que elaborar es una de las variantes del cinquillo, denominada 
 ![image](https://user-images.githubusercontent.com/90091466/226657303-e5799d83-6f5b-4176-85d0-ff8396225b81.png)
 > Ejemplo del cinquillo
 
-En el Cinquillo-oro el primer jugador es el cual tenga el 5 de oros y los turnos van en orden levogiro (bet I've invented the word and idgaf).
+En el Cinquillo-oro el primer jugador es un jugador aleatorio que debe poner un 5 y los turnos van en orden levogiro (bet I've invented the word and idgaf)(dibujo momento).
 
 Para este proyecto la baraja empleada no es la española, sino una baraja random de los chinos que tiene 12 cartas por mazo, un total de 48 cartas. El primer jugador se escoge de forma aleatoria y se continuan los turnos en sentido levogiro (r\idkifiinventedthewordbutidc).
 
@@ -40,15 +40,12 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
 - Abierto a más sugerencias mientras que no sean burradas.
 
+- Ante la duda pedid ayuda con el codigo, hay que asegurar que funciona.
+
 **Nota:** el que no trabaje o cause bulla, lo más probable es que se le eche del grupo y que se quede solo el resto de la carrera.
 
 #### Dependencias de apartados (captura de pantalla pq jaja pereza, ya lo edito después)
 
 ![image](https://user-images.githubusercontent.com/90091466/226666310-2f1a4fda-3c46-456f-a404-345734f13b2a.png)
-
-##### The original description (by fabi) 
-Esto es el proyecto de aedi (Joder bonita descripcion macho) SI
-Cuando hagas la presentacion de github mete al resto (ns si puedes meterlos, si no puedes pasame sus correos y los meto)
-Anyways, mi parte esta hecha, la siguiente es lo de barajar y los jugadores(hasta q demos listas nada)
 
 Me quiero ir a dormir pero como tengo planeado lo de las 3-4h de media, buenas noches.
