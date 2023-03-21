@@ -25,11 +25,11 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
   - [ ] Preguntar cuántos jugadores/as van a jugar (3 o 4) y, a continuación, crear los/as jugadores/as. Cada jugador/a se identifica por un nombre que se debe saber en el momento de crearlo. @Akanenosketch
 
-  - [ ] Una vez que ya se dispone de la baraja de cartas y los/as jugadores/as, la siguiente tarea es barajar y repartir todas las cartas de la bajara entre los/as jugadores/as. (persona sin cuenta)
+  - [ ] Una vez que ya se dispone de la baraja de cartas y los/as jugadores/as, la siguiente tarea es barajar y repartir todas las cartas de la bajara entre los/as jugadores/as. @thekingofwar03
 
-  - [ ] Hecho el reparto, para cada jugador/a se debe mostrar por pantalla su nombre y las cartas que le han tocado para jugar. (persona sin cuenta) 
+  - [ ] Hecho el reparto, para cada jugador/a se debe mostrar por pantalla su nombre y las cartas que le han tocado para jugar. @adrixprietox
 
-  - [ ] Finalmente, se indicará el nombre del jugador/a que empieza la partida, que será un/a jugador/a elegido/a al azar. (persona sin cuenta)
+  - [ ] Finalmente, se indicará el nombre del jugador/a que empieza la partida, que será un/a jugador/a elegido/a al azar. @SugarStorm22
 
 ### Recomendaciones (antes de que alguien la cague y tenga que dar hostias)
 - Cada punto en una branch y cuando se confirme que funciona se hace pull request al main/stable/master lo que os aparezca que parezca la branch principal.
