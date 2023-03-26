@@ -1,19 +1,19 @@
 # Proyecto-AEDI-12-de-Espadas
 Este repositorio se empleará para el desarrollo del proyecto de AEDI que es una versión sin GUI(menudos aburridos) y modificada para la realización del programa.
 
-**Nota:** Solo los colaboradores tendrán acceso al repositorio (sujeto a cambios a finales de cuatri, el quien lo pase a publico antes del fin del proyecto le doy de hostias).
+**Nota:** Solo los colaboradores tendrán acceso al repositorio (sujeto a cambios a finales de cuatri, el quien lo pase a publico antes del fin del proyecto le damos de hostias).
 
 ## ¿En qué consiste el juego?
 
 Si muy bien, ¿qué diablos hace esto aquí? Para no tener que abrir los pdfs cada 5 minutos para saber que hay que hacer.
-El juego que hya que elaborar es una de las variantes del cinquillo, denominada ***Cinquillo-Oro*** y consiste en abrir los mazos que tenemos dentro de una baraja española con los 5's de cada mazo (espadas, oros, palos, copas para el que no sepa). Los jugadores deberán de colocar una carta con un valor inmediatamente superior o inferior a las que se encuentran en la mesa de juego o, si tienen un cinco, abrir otro mazo.
+El juego que hay que elaborar es una de las variantes del cinquillo, denominada ***Cinquillo-Oro*** y consiste en abrir los mazos que tenemos dentro de una baraja española con los 5's de cada mazo (espadas, oros, palos, copas para el que no sepa). Los jugadores deberán de colocar una carta con un valor inmediatamente superior o inferior a las que se encuentran en la mesa de juego o, si tienen un cinco, abrir otro mazo.
 
 ![image](https://user-images.githubusercontent.com/90091466/226657303-e5799d83-6f5b-4176-85d0-ff8396225b81.png)
 > Ejemplo del cinquillo
 
-En el Cinquillo-oro el primer jugador es un jugador aleatorio que debe poner un 5 y los turnos van en orden levogiro, los jugadores podrán pasar (perder turno) cuando to tengan cartas para añadir a los mazos o un 5 para abrir uno nuevo(se sabe por experiencia).
+En el Cinquillo-Oro el primer jugador es un jugador aleatorio que debe poner un 5 y los turnos van en orden levogiro, los jugadores podrán pasar (perder turno) cuando no tengan cartas para añadir a los mazos o un 5 para abrir uno nuevo(se sabe por experiencia).
 
-Para este proyecto la baraja empleada no es la española, sino una baraja random de los chinos que tiene 12 cartas por mazo, un total de 48 cartas. El primer jugador se escoge de forma aleatoria y se continuan los turnos en sentido levogiro.
+Para este proyecto la baraja empleada no es la española, sino una baraja random de los chinos que tiene 12 cartas por mazo, un total de 48 cartas. El primer jugador. que debe poner un 5 cualquiera, se escoge de forma aleatoria y se continuan los turnos en sentido levogiro.
 
 ### Primera entrega 
 
@@ -31,7 +31,7 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
   - [ ] Finalmente, se indicará el nombre del jugador/a que empieza la partida, que será un/a jugador/a elegido/a al azar. @SugarStorm22
 
-### Recomendaciones (antes de que alguien la cague y tenga que dar hostias)
+### Recomendaciones (antes de que alguien la cague y tengamos que dar hostias)
 - Cada punto en una branch y cuando se confirme que funciona se hace pull request al main/stable/master lo que os aparezca que parezca la branch principal.
 
 - No lo hagais a última hora, un fallo 20 minutos antes de la entrega es un asesinato asegurado.
@@ -50,3 +50,5 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 Me quiero ir a dormir pero como tengo planeado lo de las 3-4h de media, buenas noches (mierda tengo media de 6h).
 
 **P.S:** Buena idea jugar un cinquillo en el secuestro colectivo para que el equipo se familiarice un poco? 
+
+SI
