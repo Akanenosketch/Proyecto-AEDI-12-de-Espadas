@@ -10,8 +10,8 @@ package es.uvigo.esei.aed1.core;
  */
 public class Carta {
     public static enum Palos {OROS,ESPADAS,COPAS,BASTOS};
-    private int numero;
-    private Palos palo;
+    private final int numero;
+    private final Palos palo;
     
     /**
     * Crea una carta
@@ -45,7 +45,7 @@ public class Carta {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(numero).append(" de ").append(palo);
+        sb.append(numero).append(" de ").append(palo.name().toLowerCase());
         return sb.toString();
     }   
 }
