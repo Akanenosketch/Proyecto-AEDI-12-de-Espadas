@@ -52,4 +52,6 @@ Me quiero ir a dormir pero como tengo planeado lo de las 3-4h de media, buenas n
 **P.S:** Buena idea jugar un cinquillo en el secuestro colectivo para que el equipo se familiarice un poco? 
 
 SI
-HOLA
+HOLA 
+
+fuck you bitch
