@@ -6,7 +6,7 @@
 package es.uvigo.esei.aed1.iu;
 
 import es.uvigo.esei.aed1.core.Jugador;
-import lista.*;
+import java.util.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -56,8 +56,8 @@ public class IU {
 
 
 
-    public Lista<Jugador> pedirDatosJugadores(){
-        Lista<Jugador> jugadores = new ListaEnlazada<>();    
+    public Collection<Jugador> pedirDatosJugadores(){
+        Collection<Jugador> jugadores = new LinkedList<>();    
         int numJugadores, numJugador = 0;
         String nombre;
         do{
@@ -68,8 +68,8 @@ public class IU {
         for (int i = 0; i < numJugadores; i++) {
             nombre = leeString("Introduce el nombre del jugador " + (i+1));
             numJugador++;
-            Jugador nuevo = new Jugador(nombre, i+1);
-            jugadores.insertarFinal(nuevo);
+            Jugador nuevo = new Jugador(nombre);
+            jugadores.add(nuevo);
         }
         return jugadores;
     }
@@ -80,7 +80,7 @@ public class IU {
 
     }
 
-    public void mostrarJugadores(Lista<Jugador> jugadores){
+    public void mostrarJugadores(Collection<Jugador> jugadores){
         
     }
    

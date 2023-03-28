@@ -5,32 +5,31 @@
  */
 package es.uvigo.esei.aed1.core;
 
-import lista.*;
+import java.util.*;
 
 public class Jugador {
 
     private String nombre;
-    private int numJugador;
-    private Lista<Carta> manoDeCartas;
+
+    private Collection<Carta> manoDeCartas;
 
     /*
     *Método constructor para la clase jugador, crea cada jugador para que todos 
     *no tengan cartas.
      */
-    public Jugador(String nombre, int numJugador) {
+    public Jugador(String nombre) {
         this.nombre = nombre;
-        this.numJugador = numJugador;
-        this.manoDeCartas = new ListaEnlazada<>();// crea una mano vací
+        this.manoDeCartas = new LinkedList<>();// crea una mano vacía
     }
-
+    
     public void insertarCartaALaMano(Carta carta) {
-        manoDeCartas.insertarFinal(carta);
+        manoDeCartas.add(carta);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Jugador ").append(this.numJugador).append(" : ");
+        sb.append("Jugador ").append(" : ");
         sb.append(this.nombre).append("\n");
         for (Carta i : manoDeCartas) {
             sb.append(i).append("\n");
