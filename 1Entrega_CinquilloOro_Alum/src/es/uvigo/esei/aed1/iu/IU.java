@@ -56,11 +56,11 @@ public class IU {
 
 
 
-    public Collection<String> pedirDatosJugadores(){
+    //public Collection<String> pedirDatosJugadores(){
+        
 
 
-
-    }
+    //}
 
 
 
