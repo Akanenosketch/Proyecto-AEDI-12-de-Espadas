@@ -46,10 +46,3 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
 ![test](https://user-images.githubusercontent.com/90091466/227764158-587736a8-2cec-4e97-a96f-e558a34f22fe.png)
 > Gráfica de dependencia de los apartados (si muy simple, pero muy necesario)
-
-Me quiero ir a dormir pero como tengo planeado lo de las 3-4h de media, buenas noches (mierda tengo media de 6h).
-
-**P.S:** Buena idea jugar un cinquillo en el secuestro colectivo para que el equipo se familiarice un poco? 
-
-SI
-HOLA
