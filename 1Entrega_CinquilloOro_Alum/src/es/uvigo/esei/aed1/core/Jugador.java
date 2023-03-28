@@ -11,7 +11,7 @@ public class Jugador {
 
     private String nombre;
 
-    private Collection<Carta> manoDeCartas;
+    private List<Carta> manoDeCartas;
 
     /*
     *Método constructor para la clase jugador, crea cada jugador para que todos 
