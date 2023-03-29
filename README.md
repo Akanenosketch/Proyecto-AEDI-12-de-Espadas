@@ -15,7 +15,7 @@ En el Cinquillo-Oro el primer jugador es un jugador aleatorio que debe poner un 
 
 Para este proyecto la baraja empleada no es la española, sino una baraja random de los chinos que tiene 12 cartas por mazo, un total de 48 cartas. El primer jugador. que debe poner un 5 cualquiera, se escoge de forma aleatoria y se continuan los turnos en sentido levogiro.
 
-### Primera entrega 
+### Primera entrega
 
 La primera práctica tiene como fecha límite el 10 de abril, y la defenderemos en una tutoría grupal durante esa semana (pptx? no? ok boomer, p.s: esto se queda por lo que no touchy). Dentro de esa tutoría grupal se valorará también el **grado de implicación de cada miembro del grupo en el proyecto** es decir, las notas de cada uno afecta a la nota grupal. Esta primera parte consiste en la definición de clases y con el comienzo del juego.
 
