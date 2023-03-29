@@ -5,7 +5,9 @@
  */
 package es.uvigo.esei.aed1.core;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Jugador {
 
@@ -21,7 +23,7 @@ public class Jugador {
         this.nombre = nombre;
         this.manoDeCartas = new LinkedList<>();// crea una mano vacía
     }
-    
+
     public void insertarCartaALaMano(Carta carta) {
         manoDeCartas.add(carta);
     }
