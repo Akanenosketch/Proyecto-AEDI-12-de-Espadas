@@ -4,7 +4,7 @@
 * Funcionalidad: barajar las cartas, devolver la carta situada encima del montón de cartas
  */
 package es.uvigo.esei.aed1.core;
-import pila.*;
+import java.util.Stack;
 
 
 /**
@@ -12,13 +12,13 @@ import pila.*;
  * @author Daniel Fabián Rodriguez Lorenzo && Adrian Rey Perez
  */
 public class Baraja {
-    private Pila<Carta> cartas; 
+    private Stack<Carta> cartas; 
     
     /**
      * Crea una nueva Baraja 
      */
     public Baraja(){
-        cartas = new EnlazadaPila<>();
+        cartas = new Stack<>();
         Carta.Palos palos[] = Carta.Palos.values();
         for (int i = 1; i <= 12; i++) {
             for (int j = 0; j < 4; j++) {
@@ -31,7 +31,7 @@ public class Baraja {
      * @return Una carta de la baraja 
      */
     public Carta sacarCarta(){
-        if(cartas.tamaño() == 0){ 
+        if(cartas.empty()){ 
             throw new NoQuedanCartasExcepcion("No puedes cojer "
                     + "cartas de una baraja vacia");
         }
