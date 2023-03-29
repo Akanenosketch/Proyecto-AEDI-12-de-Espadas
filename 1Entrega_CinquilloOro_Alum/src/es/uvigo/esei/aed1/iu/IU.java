@@ -57,7 +57,7 @@ public class IU {
 
     public Collection<Jugador> pedirDatosJugadores() {
         Collection<Jugador> jugadores = new LinkedList<>();
-        int numJugadores, numJugador = 0;
+        int numJugadores;
         String nombre;
         do {
             numJugadores = Integer.parseInt(leeString("Introduce el numero"
@@ -66,7 +66,6 @@ public class IU {
 
         for (int i = 0; i < numJugadores; i++) {
             nombre = leeString("Introduce el nombre del jugador " + (i + 1));
-            numJugador++;
             Jugador nuevo = new Jugador(nombre);
             jugadores.add(nuevo);
         }
