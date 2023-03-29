@@ -15,7 +15,7 @@ En el Cinquillo-Oro el primer jugador es un jugador aleatorio que debe poner un 
 
 Para este proyecto la baraja empleada no es la española, sino una baraja random de los chinos que tiene 12 cartas por mazo, un total de 48 cartas. El primer jugador. que debe poner un 5 cualquiera, se escoge de forma aleatoria y se continuan los turnos en sentido levogiro.
 
-### Primera entrega 
+### Primera entrega
 
 La primera práctica tiene como fecha límite el 10 de abril, y la defenderemos en una tutoría grupal durante esa semana (pptx? no? ok boomer, p.s: esto se queda por lo que no touchy). Dentro de esa tutoría grupal se valorará también el **grado de implicación de cada miembro del grupo en el proyecto** es decir, las notas de cada uno afecta a la nota grupal. Esta primera parte consiste en la definición de clases y con el comienzo del juego.
 
@@ -23,9 +23,9 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
   - [x] Crear la baraja de 48 cartas. @DanielFabianRL
 
-  - [ ] Preguntar cuántos jugadores/as van a jugar (3 o 4) y, a continuación, crear los/as jugadores/as. Cada jugador/a se identifica por un nombre que se debe saber en el momento de crearlo. @Akanenosketch (Pending)
+  - [x] Preguntar cuántos jugadores/as van a jugar (3 o 4) y, a continuación, crear los/as jugadores/as. Cada jugador/a se identifica por un nombre que se debe saber en el momento de crearlo. @Akanenosketch
 
-  - [ ] Una vez que ya se dispone de la baraja de cartas y los/as jugadores/as, la siguiente tarea es barajar y repartir todas las cartas de la bajara entre los/as jugadores/as. @thekingofwar03 (Depende de la 2 pero se puede ir desarrollando)
+  - [ ] Una vez que ya se dispone de la baraja de cartas y los/as jugadores/as, la siguiente tarea es barajar y repartir todas las cartas de la bajara entre los/as jugadores/as. @thekingofwar03 (Pending)
 
   - [ ] Hecho el reparto, para cada jugador/a se debe mostrar por pantalla su nombre y las cartas que le han tocado para jugar. @adrixprietox
 
