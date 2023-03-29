@@ -15,27 +15,28 @@ public class Baraja {
     private Stack<Carta> cartas; 
     
     /**
-     * Crea una nueva Baraja 
+     * Crea una nueva Baraja con las 48 cartas 
      */
     public Baraja(){
-        cartas = new Stack<>();
+        this.cartas = new Stack<>();
         Carta.Palos palos[] = Carta.Palos.values();
         for (int i = 1; i <= 12; i++) {
             for (int j = 0; j < 4; j++) {
-                cartas.push(new Carta(i , palos[j]));
+                this.cartas.push(new Carta(i , palos[j]));
             }
         }
     }
     /**
-     * 
-     * @return Una carta de la baraja 
+     * Saca una carta de la baraja
+     * @return una Carta de la Baraja, como Carta
+     * @throws NoQuedanCartasExcepcion si la Baraja esta vacia
      */
-    public Carta sacarCarta(){
-        if(cartas.empty()){ 
+    public Carta sacarCarta() throws NoQuedanCartasExcepcion{
+        if(this.cartas.empty()){ 
             throw new NoQuedanCartasExcepcion("No puedes cojer "
                     + "cartas de una baraja vacia");
         }
-        return cartas.pop();
+        return this.cartas.pop();
     }
     
     public void barajar(){
