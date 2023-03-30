@@ -7,7 +7,6 @@
  */
 package es.uvigo.esei.aed1.core;
 
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,6 +27,10 @@ public class Jugador {
 
     public void insertarCartaALaMano(Carta carta) {
         manoDeCartas.add(carta);
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     @Override
