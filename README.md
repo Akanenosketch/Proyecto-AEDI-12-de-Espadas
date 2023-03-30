@@ -23,7 +23,7 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
   - [x] Crear la baraja de 48 cartas. @DanielFabianRL
 
-  - [ ] Preguntar cuántos jugadores/as van a jugar (3 o 4) y, a continuación, crear los/as jugadores/as. Cada jugador/a se identifica por un nombre que se debe saber en el momento de crearlo. @Akanenosketch (Pending codigo para ejecutar las funciones)
+  - [x] Preguntar cuántos jugadores/as van a jugar (3 o 4) y, a continuación, crear los/as jugadores/as. Cada jugador/a se identifica por un nombre que se debe saber en el momento de crearlo. @Akanenosketch 
 
   - [ ] Una vez que ya se dispone de la baraja de cartas y los/as jugadores/as, la siguiente tarea es barajar y repartir todas las cartas de la bajara entre los/as jugadores/as. @thekingofwar03 (Pending)
 
@@ -32,7 +32,7 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
   - [ ] Finalmente, se indicará el nombre del jugador/a que empieza la partida, que será un/a jugador/a elegido/a al azar. @SugarStorm22
 
 ### Recomendaciones (antes de que alguien la cague y tengamos que dar hostias)
-- Cada punto en una branch y cuando se confirme que funciona se hace pull request al main/stable/master lo que os aparezca que parezca la branch principal.
+- Cada punto en una branch y cuando se confirme que funciona se hace pull request al main.
 
 - No lo hagais a última hora, un fallo 20 minutos antes de la entrega es un asesinato asegurado.
 
