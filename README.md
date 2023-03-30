@@ -23,9 +23,9 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
   - [x] Crear la baraja de 48 cartas. @DanielFabianRL
 
-  - [ ] Preguntar cuántos jugadores/as van a jugar (3 o 4) y, a continuación, crear los/as jugadores/as. Cada jugador/a se identifica por un nombre que se debe saber en el momento de crearlo. @Akanenosketch (Pending)
+  - [ ] Preguntar cuántos jugadores/as van a jugar (3 o 4) y, a continuación, crear los/as jugadores/as. Cada jugador/a se identifica por un nombre que se debe saber en el momento de crearlo. @Akanenosketch (Pending codigo para ejecutar las funciones)
 
-  - [ ] Una vez que ya se dispone de la baraja de cartas y los/as jugadores/as, la siguiente tarea es barajar y repartir todas las cartas de la bajara entre los/as jugadores/as. @thekingofwar03 (Depende de la 2 pero se puede ir desarrollando)
+  - [ ] Una vez que ya se dispone de la baraja de cartas y los/as jugadores/as, la siguiente tarea es barajar y repartir todas las cartas de la bajara entre los/as jugadores/as. @thekingofwar03 (Pending)
 
   - [ ] Hecho el reparto, para cada jugador/a se debe mostrar por pantalla su nombre y las cartas que le han tocado para jugar. @adrixprietox
 

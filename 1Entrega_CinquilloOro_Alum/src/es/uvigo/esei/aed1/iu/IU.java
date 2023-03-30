@@ -36,25 +36,45 @@ public class IU {
             }
         } while (true);
     }
-
+    /**
+     * Lee un string. de teclado
+     *
+     * @param msg El mensaje a visualizar.
+     * @return El string
+     */
     public String leeString(String msg) {
         System.out.print(msg);
         return teclado.next();
     }
-
+    /**
+     * Lee un string. de teclado
+     * @param msg El mensaje a visualizar con formato
+     * @param args Los datos a incluir en el mensaje con formato
+     * @return 
+     */
     public String leeString(String msg, Object... args) {
         System.out.printf(msg, args);
         return teclado.next();
     }
-
+    /**
+     * Muesta un string por pantalla
+     * @param msg El mensaje a mostrar
+     */
     public void mostrarMensaje(String msg) {
         System.out.println(msg);
     }
-
+    /**
+     * Muestra un string con formato por pantalla
+     * @param msg El mensaje a visualizar con formato
+     * @param args Los datos a incluir en el mensaje con formato
+     */
     public void mostrarMensaje(String msg, Object... args) {
         System.out.printf(msg, args);
     }
-
+    /**
+     * Pide por pantalla el numero de jugadores y sus datos
+     * @return Una coleccion de jugadores
+     */
     public Collection<Jugador> pedirDatosJugadores() {
         Collection<Jugador> jugadores = new LinkedList<>();
         int numJugadores;
@@ -71,13 +91,19 @@ public class IU {
         }
         return jugadores;
     }
-
+    /**
+     * Muestra un jugador por pantalla
+     * @param jugador El jugador a mostrar
+     */
     public void mostrarJugador(Jugador jugador) {
-
+        //EL toString de jugador ya esta implementado creo
     }
-
+    /**
+     * Muestra una coleccion de jugadores por pantalla
+     * @param jugadores 
+     */
     public void mostrarJugadores(Collection<Jugador> jugadores) {
-
+        //Recomiendo hacer un bucle y usar la de arriba
     }
 
 }

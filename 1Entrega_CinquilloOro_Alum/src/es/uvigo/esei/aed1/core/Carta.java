@@ -5,10 +5,13 @@
 
 package es.uvigo.esei.aed1.core;
 /**
- * Una clase que representa una carta de la baraja española, con valor y palo
+ * Representa una carta de la baraja española, con valor y palo
  * @author Daniel Fabián Rodríguez Lorenzo
  */
 public class Carta {
+    /**
+     * Un enumerado que representa los Palos de la baraja española
+     */
     public static enum Palos {OROS,ESPADAS,COPAS,BASTOS};
     private final int numero;
     private final Palos palo;
@@ -24,19 +27,19 @@ public class Carta {
     }
     
     /**
-     * 
-     * @return El numero de la carta 
+     * Devuelve el numero de la carta
+     * @return El numero de la carta, como entero 
      */
     public int getNumero() {
-        return numero;
+        return this.numero;
     }
     
     /**
-     * 
-     * @return El palo de la carta
+     *  Devuelve el palo de la carta
+     * @return El palo de la carta, como Palo
      */
     public Palos getPalo() {
-        return palo;
+        return this.palo;
     }
 
     @Override
@@ -45,7 +48,7 @@ public class Carta {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(numero).append(" de ").append(palo.name().toLowerCase());
+        sb.append(this.getNumero()).append(" de ").append(this.getPalo().name().toLowerCase());
         return sb.toString();
     }   
 }
