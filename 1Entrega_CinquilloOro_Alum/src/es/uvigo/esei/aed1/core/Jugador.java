@@ -36,7 +36,10 @@ public class Jugador {
         this.manoDeCartas.add(carta);
     }
 
-    
+    public String getNombre() {
+        return nombre;
+    }
+   
     @Override
     /**
      * Devuelve el nombre del jugador y las cartas de su mano, como string
