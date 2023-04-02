@@ -4,6 +4,8 @@
 * Funcionalidad: barajar las cartas, devolver la carta situada encima del montón de cartas
  */
 package es.uvigo.esei.aed1.core;
+import java.util.Collection;
+import java.util.Random;
 import java.util.Stack;
 
 
@@ -40,9 +42,48 @@ public class Baraja {
     }
     
     public void barajar(){
-    //TODO
-    
+     Stack<Carta> aux = new Stack<>();
+        Stack<Carta> resultado = new Stack<>();
+        int chancla = 47;
+        Random rnd = new Random(System.currentTimeMillis());
+        boolean Hay = true;
+        try {
+            while (Hay) {
+                int n = rnd.nextInt(chancla);
+                for (int i = 0; i < n; i++) {
+                    Carta auxi = cartas.pop();
+                    aux.push(auxi);
+
+                }
+                resultado.push(cartas.pop());
+                for (int j = 0; j < n; j++) {
+                    Carta auxi = aux.pop();
+                    cartas.push(auxi);
+
+                }
+                chancla--;
+            }
+        } catch (NoQuedanCartasExcepcion exc) {
+            Hay = false;
+            cartas = resultado;
+        }
+
+    }
+    public void repartircartas(Collection<Jugador> jugadores) {
+        boolean hay = true;
+
+        while (hay) {
+            try {
+                for (Jugador jugadore : jugadores) {
+                    jugadore.insertarCartaALaMano(cartas.pop());
+                }
+            } catch (NoQuedanCartasExcepcion exc) {
+                hay = false;
+            }
+        }
+
+    }
     }
     
    
-}
+
