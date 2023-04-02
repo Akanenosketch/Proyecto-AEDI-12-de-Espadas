@@ -41,49 +41,58 @@ public class Baraja {
         return this.cartas.pop();
     }
     
+    /**
+     * Baraja la baraja
+     */
     public void barajar(){
-     Stack<Carta> aux = new Stack<>();
+        Stack<Carta> aux = new Stack<>();
         Stack<Carta> resultado = new Stack<>();
-        int chancla = 47;
+        int numCartas = 48; //Numero maximo de cartas
         Random rnd = new Random(System.currentTimeMillis());
-        boolean Hay = true;
-        try {
-            while (Hay) {
-                int n = rnd.nextInt(chancla);
-                for (int i = 0; i < n; i++) {
-                    Carta auxi = cartas.pop();
-                    aux.push(auxi);
-
-                }
-                resultado.push(cartas.pop());
-                for (int j = 0; j < n; j++) {
-                    Carta auxi = aux.pop();
-                    cartas.push(auxi);
-
-                }
-                chancla--;
-            }
-        } catch (NoQuedanCartasExcepcion exc) {
-            Hay = false;
-            cartas = resultado;
-        }
-
-    }
-    public void repartircartas(Collection<Jugador> jugadores) {
-        boolean hay = true;
-
-        while (hay) {
+        boolean quedanCartas = true;
+        int numCartasAQuitar;
+        while (quedanCartas) {
             try {
-                for (Jugador jugadore : jugadores) {
-                    jugadore.insertarCartaALaMano(cartas.pop());
+                numCartasAQuitar = rnd.nextInt(numCartas);
+                //Quitamos un num aleatorio de cartas entre 0 y el maximo -1
+                for (int i = 0; i < numCartasAQuitar; i++) {
+                    aux.push(this.sacarCarta());
+                }
+                
+                //Ponemos la siguiente carta en una baraja barajada
+                resultado.push(this.sacarCarta());
+                
+                //Devolvemos las cartas quitadas a aux al original
+                while (!aux.empty()) {
+                    this.cartas.push(aux.pop());
+                }
+                //Decrementamos el numero de cartas maximo que podemos quitar 
+                numCartas--;
+            
+            } catch (NoQuedanCartasExcepcion exc) {
+                quedanCartas = false;
+                this.cartas = resultado;
+            }
+        }
+    }
+
+        
+
+    /**
+     * Reparte todas las cartas de la baraja a los jugadores
+     * @param jugadores Los jugadores que reciben las cartas
+     */
+    public void repartircartas(Collection<Jugador> jugadores) {
+        boolean quedanCartas = true;
+
+        while (quedanCartas) {
+            try {
+                for (Jugador jugador : jugadores) {
+                    jugador.insertarCartaALaMano(this.sacarCarta());
                 }
             } catch (NoQuedanCartasExcepcion exc) {
-                hay = false;
+                quedanCartas = false;
             }
         }
-
     }
-    }
-    
-   
-
+}
