@@ -1,9 +1,5 @@
-/*
- * Representa una carta, formada por un número y su palo correspondiente
- */
-
-
 package es.uvigo.esei.aed1.core;
+
 /**
  * Representa una carta de la baraja española, con valor y palo
  * @author Daniel Fabián Rodríguez Lorenzo

@@ -1,13 +1,8 @@
-/*
-* Representa la baraja española pero con 8 y 9, en total 48 cartas, 4 palos, valores de las cartas de 1 a 12. 
-* Estructura: se utilizará un TAD adecuado
-* Funcionalidad: barajar las cartas, devolver la carta situada encima del montón de cartas
- */
 package es.uvigo.esei.aed1.core;
-import java.util.Collection;
+
 import java.util.Random;
 import java.util.Stack;
-
+import java.util.List;
 
 /**
  * Representa una Baraja española de 48 cartas con 4 palos y valores de 1 a 12 
@@ -28,6 +23,7 @@ public class Baraja {
             }
         }
     }
+
     /**
      * Saca una carta de la baraja
      * @return una Carta de la Baraja, como Carta
@@ -82,9 +78,8 @@ public class Baraja {
      * Reparte todas las cartas de la baraja a los jugadores
      * @param jugadores Los jugadores que reciben las cartas
      */
-    public void repartircartas(Collection<Jugador> jugadores) {
+    public void repartircartas(List<Jugador> jugadores) {
         boolean quedanCartas = true;
-
         while (quedanCartas) {
             try {
                 for (Jugador jugador : jugadores) {
