@@ -3,8 +3,6 @@ Este repositorio se empleará para el desarrollo del proyecto de AEDI que es una
 
 **Nota:** Solo los colaboradores tendrán acceso al repositorio (sujeto a cambios a finales de cuatri, el quien lo pase a publico antes del fin del proyecto le damos de hostias).
 
-### **Nota 2:** Si hay dudas pedir ayuda en el grupo antes de montar la marimorena
-
 ## ¿En qué consiste el juego?
 
 Si muy bien, ¿qué diablos hace esto aquí? Para no tener que abrir los pdfs cada 5 minutos para saber que hay que hacer.
@@ -19,22 +17,22 @@ Para este proyecto la baraja empleada no es la española, sino una baraja random
 
 ### Primera entrega
 
-La primera práctica tiene como fecha límite el 10 de abril, y la defenderemos en una tutoría grupal **el martes 11 a las 2:00** (pptx? no? ok boomer, p.s: esto se queda por lo que no touchy). Dentro de esa tutoría grupal se valorará también el **grado de implicación de cada miembro del grupo en el proyecto** es decir, las notas de cada uno afecta a la nota grupal. Esta primera parte consiste en la definición de clases y con el comienzo del juego.
+La primera práctica tiene como fecha límite el 10 de abril, y la defenderemos en una tutoría grupal durante esa semana (pptx? no? ok boomer, p.s: esto se queda por lo que no touchy). Dentro de esa tutoría grupal se valorará también el **grado de implicación de cada miembro del grupo en el proyecto** es decir, las notas de cada uno afecta a la nota grupal. Esta primera parte consiste en la definición de clases y con el comienzo del juego.
 
 Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega por pereza):
 
   - [x] Crear la baraja de 48 cartas. @DanielFabianRL
 
-  - [x] Preguntar cuántos jugadores/as van a jugar (3 o 4) y, a continuación, crear los/as jugadores/as. Cada jugador/a se identifica por un nombre que se debe saber en el momento de crearlo. @Akanenosketch 
+  - [x] Preguntar cuántos jugadores/as van a jugar (3 o 4) y, a continuación, crear los/as jugadores/as. Cada jugador/a se identifica por un nombre que se debe saber en el momento de crearlo. @Akanenosketch
 
-  - [x] Una vez que ya se dispone de la baraja de cartas y los/as jugadores/as, la siguiente tarea es barajar y repartir todas las cartas de la bajara entre los/as jugadores/as. @thekingofwar03 
+  - [ ] Una vez que ya se dispone de la baraja de cartas y los/as jugadores/as, la siguiente tarea es barajar y repartir todas las cartas de la bajara entre los/as jugadores/as. @thekingofwar03 (Pending)
 
-  - [ ] Hecho el reparto, para cada jugador/a se debe mostrar por pantalla su nombre y las cartas que le han tocado para jugar. @adrixprietox (Pending)
+  - [ ] Hecho el reparto, para cada jugador/a se debe mostrar por pantalla su nombre y las cartas que le han tocado para jugar. @adrixprietox
 
-  - [ ] Finalmente, se indicará el nombre del jugador/a que empieza la partida, que será un/a jugador/a elegido/a al azar. @SugarStorm22 (Pending)
+  - [ ] Finalmente, se indicará el nombre del jugador/a que empieza la partida, que será un/a jugador/a elegido/a al azar. @SugarStorm22
 
 ### Recomendaciones (antes de que alguien la cague y tengamos que dar hostias)
-- Cada punto en una branch y cuando se confirme que funciona se hace pull request al main.
+- Cada punto en una branch y cuando se confirme que funciona se hace pull request al main/stable/master lo que os aparezca que parezca la branch principal.
 
 - No lo hagais a última hora, un fallo 20 minutos antes de la entrega es un asesinato asegurado.
 
