@@ -1,9 +1,3 @@
-/*
- * Representa a un jugador, identificado por el nombre y sus cartas de la mano
- * Estructura mano: se utilizará un TAD adecuado
- * Funcionalidad: Añadir carta a la mano, convertir a String el objeto Jugador (toString)
- *
- */
 package es.uvigo.esei.aed1.core;
 
 import java.util.LinkedList;
@@ -16,7 +10,6 @@ import java.util.List;
 public class Jugador {
 
     private String nombre;
-
     private List<Carta> manoDeCartas;
 
     /**
@@ -48,9 +41,10 @@ public class Jugador {
         StringBuilder sb = new StringBuilder();
         sb.append("Jugador ").append(" : ");
         sb.append(this.nombre).append("\n");
-        for (Carta i : manoDeCartas) {
+        for (Carta i : this.manoDeCartas) {
             sb.append(i).append("\n");
         }
         return sb.toString();
+        //El toString seguramente tenga demasiados saltos de linea
     }
 }

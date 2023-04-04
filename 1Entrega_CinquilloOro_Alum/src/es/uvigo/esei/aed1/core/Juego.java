@@ -6,7 +6,7 @@
 package es.uvigo.esei.aed1.core;
 
 import es.uvigo.esei.aed1.iu.IU;
-import java.util.Collection; 
+import java.util.List; 
 
 
 public class Juego{
@@ -19,7 +19,8 @@ public class Juego{
     }
 
     public void jugar(){
-        Collection<Jugador> listaJugadores = iu.pedirDatosJugadores();
+        List<Jugador> listaJugadores = iu.pedirDatosJugadores();
+        
     }
 
         

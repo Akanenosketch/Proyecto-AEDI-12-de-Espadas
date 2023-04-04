@@ -5,7 +5,7 @@
 package es.uvigo.esei.aed1.iu;
 
 import es.uvigo.esei.aed1.core.Jugador;
-import java.util.Collection;
+import java.util.List;
 import java.util.LinkedList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -27,7 +27,6 @@ public class IU {
     public int leeNum(String msg) {
         do {
             System.out.print(msg);
-
             try {
                 return teclado.nextInt();
             } catch (InputMismatchException exc) {
@@ -36,6 +35,7 @@ public class IU {
             }
         } while (true);
     }
+    
     /**
      * Lee un string. de teclado
      *
@@ -46,6 +46,25 @@ public class IU {
         System.out.print(msg);
         return teclado.next();
     }
+    
+    /**
+     * Lee un string. de teclado
+     *
+     * @param msg El mensaje a visualizar.
+     * @param permiteVacio Si la string leida puede estar vacia
+     * @return El string
+     */
+    public String leeString(String msg, boolean permiteVacio) {
+        String toRet = " ";
+        do {
+            if(toRet.isEmpty()){
+                System.out.println("La cadena no puede estar vacia");
+            }
+            toRet = leeString(msg).trim();
+        } while (!permiteVacio && toRet.isEmpty());
+        return toRet;
+    }
+    
     /**
      * Lee un string. de teclado
      * @param msg El mensaje a visualizar con formato
@@ -56,6 +75,25 @@ public class IU {
         System.out.printf(msg, args);
         return teclado.next();
     }
+
+    /**
+     * Lee un string. de teclado
+     * @param msg El mensaje a visualizar con formato
+     * @param permiteVacio Si la string leida puede estar vacia
+     * @param args Los datos a incluir en el mensaje con formato
+     * @return 
+     */
+    public String leeString(String msg, boolean permiteVacio, Object... args) {
+        String toRet = " ";
+        do { 
+            if(toRet.isEmpty()){
+                System.out.println("La cadena no puede estar vacia");
+            }
+            toRet =leeString(msg,args).trim();
+        } while (!permiteVacio && toRet.isEmpty());
+        return toRet;
+    }
+    
     /**
      * Muesta un string por pantalla
      * @param msg El mensaje a mostrar
@@ -63,6 +101,7 @@ public class IU {
     public void mostrarMensaje(String msg) {
         System.out.println(msg);
     }
+    
     /**
      * Muestra un string con formato por pantalla
      * @param msg El mensaje a visualizar con formato
@@ -71,39 +110,43 @@ public class IU {
     public void mostrarMensaje(String msg, Object... args) {
         System.out.printf(msg, args);
     }
+    
     /**
      * Pide por pantalla el numero de jugadores y sus datos
      * @return Una coleccion de jugadores
      */
-    public Collection<Jugador> pedirDatosJugadores() {
-        Collection<Jugador> jugadores = new LinkedList<>();
+    public List<Jugador> pedirDatosJugadores() {
+        List<Jugador> jugadores = new LinkedList<>();
         int numJugadores;
         String nombre;
         do {
-            numJugadores = Integer.parseInt(leeString("Introduce el numero"
-                    + " de jugadores a introducir (3 o 4)"));
+            numJugadores = leeNum("Introduce el numero "
+                    + "de jugadores a introducir (3 o 4)");
         } while (numJugadores < 3 || numJugadores > 4);
 
         for (int i = 0; i < numJugadores; i++) {
-            nombre = leeString("Introduce el nombre del jugador " + (i + 1));
+            nombre = leeString("Introduce el nombre del jugador " + (i + 1), false);
             Jugador nuevo = new Jugador(nombre);
             jugadores.add(nuevo);
         }
         return jugadores;
     }
+    
     /**
      * Muestra un jugador por pantalla
      * @param jugador El jugador a mostrar
      */
     public void mostrarJugador(Jugador jugador) {
         //EL toString de jugador ya esta implementado creo
+        //En vez de usar sout usar la funcion de mostrarMensaje?
     }
+    
     /**
      * Muestra una coleccion de jugadores por pantalla
      * @param jugadores 
      */
-    public void mostrarJugadores(Collection<Jugador> jugadores) {
-        //Recomiendo hacer un bucle y usar la de arriba
+    public void mostrarJugadores(List<Jugador> jugadores) {
+        //Recomiendo hacer un buclecon StringBuilder y usar la de arriba al acabar
     }
 
 }
