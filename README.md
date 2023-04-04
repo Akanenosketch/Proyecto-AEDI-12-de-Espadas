@@ -3,7 +3,7 @@ Este repositorio se empleará para el desarrollo del proyecto de AEDI que es una
 
 **Nota:** Solo los colaboradores tendrán acceso al repositorio (sujeto a cambios a finales de cuatri, el quien lo pase a publico antes del fin del proyecto le damos de hostias).
 
-###**Nota 2:** Si hay dudas pedir ayuda en el grupo antes de montar la marimorena
+### **Nota 2:** Si hay dudas pedir ayuda en el grupo antes de montar la marimorena
 
 ## ¿En qué consiste el juego?
 
