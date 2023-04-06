@@ -10,6 +10,9 @@ import java.util.LinkedList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+
+
 public class IU {
 
     private final Scanner teclado;
@@ -119,16 +122,22 @@ public class IU {
      * @param jugador El jugador a mostrar
      */
     public void mostrarJugador(Jugador jugador) {
-        //EL toString de jugador ya esta implementado 
+        mostrarMensaje(jugador.toString());
+        
         //En vez de usar sout usar la funcion de mostrarMensaje?
     }
     
     /**
      * Muestra una coleccion de jugadores por pantalla
-     * @param jugadores 
+     * @param listaJugadores 
      */
-    public void mostrarJugadores(List<Jugador> jugadores) {
+    public void mostrarJugadores(List<Jugador> listaJugadores) {
+        for (Jugador jugador : listaJugadores ) {
+             mostrarJugador(jugador);
+        }
+        
         //Recomiendo hacer un bucle con StringBuilder y usar la funcion de arriba 
+        
     }
 
 }
