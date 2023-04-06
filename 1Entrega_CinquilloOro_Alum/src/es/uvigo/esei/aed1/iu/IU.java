@@ -122,9 +122,7 @@ public class IU {
      * @param jugador El jugador a mostrar
      */
     public void mostrarJugador(Jugador jugador) {
-        
-       String msg=jugador.toString();
-        mostrarMensaje(msg);
+        mostrarMensaje(jugador.toString());
         
         //En vez de usar sout usar la funcion de mostrarMensaje?
     }
