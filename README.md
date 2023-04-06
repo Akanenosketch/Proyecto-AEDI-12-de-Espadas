@@ -31,7 +31,7 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
   - [x] Una vez que ya se dispone de la baraja de cartas y los/as jugadores/as, la siguiente tarea es barajar y repartir todas las cartas de la bajara entre los/as jugadores/as. @thekingofwar03 
 
-  - [ ] Hecho el reparto, para cada jugador/a se debe mostrar por pantalla su nombre y las cartas que le han tocado para jugar. @adrixprietox (Pending)
+  - [x] Hecho el reparto, para cada jugador/a se debe mostrar por pantalla su nombre y las cartas que le han tocado para jugar. @adrixprietox 
 
   - [ ] Finalmente, se indicará el nombre del jugador/a que empieza la partida, que será un/a jugador/a elegido/a al azar. @SugarStorm22 (Pending)
 
