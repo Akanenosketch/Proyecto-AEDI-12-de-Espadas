@@ -33,7 +33,7 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
   - [x] Hecho el reparto, para cada jugador/a se debe mostrar por pantalla su nombre y las cartas que le han tocado para jugar. @adrixprietox 
 
-  - [ ] Finalmente, se indicará el nombre del jugador/a que empieza la partida, que será un/a jugador/a elegido/a al azar. @SugarStorm22 (Pending)
+  - [x] Finalmente, se indicará el nombre del jugador/a que empieza la partida, que será un/a jugador/a elegido/a al azar. @SugarStorm22 
 
 ### Recomendaciones (antes de que alguien la cague y tengamos que dar hostias)
 - Cada punto en una branch y cuando se confirme que funciona se hace pull request al main.
