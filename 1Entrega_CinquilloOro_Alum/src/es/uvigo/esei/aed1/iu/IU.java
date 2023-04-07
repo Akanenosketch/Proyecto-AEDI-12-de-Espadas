@@ -147,44 +147,49 @@ public class IU {
 
     public int numeroRandom(Random rnd, List<Jugador> listaJugadores) {
         int valor;
-        if(listaJugadores.size()==3){
-            valor=rnd.nextInt(3);
-        } else{
-            valor=rnd.nextInt(4);
+        if (listaJugadores.size() == 3) {
+            valor = rnd.nextInt(3);
+        } else {
+            valor = rnd.nextInt(4);
         }
         return valor;
     }
 
-    public int elegirJugadorInicial(int posicion, List<Jugador> listaJugadores) {
+    public int elegirJugadorInicial(List<Jugador> listaJugadores) {
 
-        boolean rep = false;
-        List<Carta> manoDeCartas;
-        
-        
+        Random rnd = new Random(System.currentTimeMillis());
+        int posicion = numeroRandom(rnd, listaJugadores);
+        boolean cinco;
+
         do {
-            
-            manoDeCartas=listaJugadores.get(posicion).getManoDeCartas();
-            Iterator<Carta> ite = manoDeCartas.iterator();
-            
-            while(ite.hasNext() && !rep){
-                if(ite.next().getNumero()==5){
-                    rep=true;
-                }
-            }
-            try{
-                if(!rep){
+
+            cinco = buscarCincos(posicion, listaJugadores);
+
+            try {
+                if (!cinco) {
                     posicion++;
-                    if(posicion>=listaJugadores.size()){
+                    if (posicion >= listaJugadores.size()) {
                         throw new IndexOutOfBoundsException();
                     }
                 }
-            } catch (IndexOutOfBoundsException exc){
+            } catch (IndexOutOfBoundsException exc) {
                 posicion = 0;
             }
-            
 
-        } while (!rep);
+        } while (!cinco);
 
         return posicion;
     }
+
+    public boolean buscarCincos(int posicion, List<Jugador> listaJugadores) {
+        boolean rep = false;
+        Iterator<Carta> ite = listaJugadores.get(posicion).getManoDeCartas().iterator();
+        while (ite.hasNext() && !rep) {
+            if (ite.next().getNumero() == 5) {
+                rep = true;
+            }
+        }
+        return rep;
+    }
+
 }
