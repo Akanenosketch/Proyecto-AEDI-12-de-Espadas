@@ -10,6 +10,9 @@ import java.util.LinkedList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+
+
 public class IU {
 
     private final Scanner teclado;
@@ -75,24 +78,6 @@ public class IU {
         System.out.printf(msg, args);
         return teclado.next();
     }
-
-    /**
-     * Lee un string. de teclado
-     * @param msg El mensaje a visualizar con formato
-     * @param permiteVacio Si la string leida puede estar vacia
-     * @param args Los datos a incluir en el mensaje con formato
-     * @return 
-     */
-    public String leeString(String msg, boolean permiteVacio, Object... args) {
-        String toRet = " ";
-        do { 
-            if(toRet.isEmpty()){
-                System.out.println("La cadena no puede estar vacia");
-            }
-            toRet =leeString(msg,args).trim();
-        } while (!permiteVacio && toRet.isEmpty());
-        return toRet;
-    }
     
     /**
      * Muesta un string por pantalla
@@ -137,16 +122,22 @@ public class IU {
      * @param jugador El jugador a mostrar
      */
     public void mostrarJugador(Jugador jugador) {
-        //EL toString de jugador ya esta implementado creo
+        mostrarMensaje(jugador.toString());
+        
         //En vez de usar sout usar la funcion de mostrarMensaje?
     }
     
     /**
      * Muestra una coleccion de jugadores por pantalla
-     * @param jugadores 
+     * @param listaJugadores 
      */
-    public void mostrarJugadores(List<Jugador> jugadores) {
-        //Recomiendo hacer un buclecon StringBuilder y usar la de arriba al acabar
+    public void mostrarJugadores(List<Jugador> listaJugadores) {
+        for (Jugador jugador : listaJugadores ) {
+             mostrarJugador(jugador);
+        }
+        
+        //Recomiendo hacer un bucle con StringBuilder y usar la funcion de arriba 
+        
     }
 
 }
