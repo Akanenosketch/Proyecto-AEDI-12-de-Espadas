@@ -1,2 +1,4 @@
 /1Entrega_CinquilloOro_Alum/build/
 /1Entrega_CinquilloOro_Alum/dist/
+*.properties
+*.xml
