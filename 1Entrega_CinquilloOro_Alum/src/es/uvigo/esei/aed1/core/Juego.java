@@ -20,7 +20,12 @@ public class Juego{
 
     public void jugar(){
         List<Jugador> listaJugadores = iu.pedirDatosJugadores();
-        
+        Baraja baraja = new Baraja();
+        baraja.barajar();
+        baraja.repartircartas(listaJugadores);
+        iu.mostrarJugadores(listaJugadores);
+        iu.mostrarMensaje("El jugador que comenzara la partida es: \n");
+        iu.mostrarMensaje(listaJugadores.get(iu.elegirJugadorInicial(listaJugadores)).getNombre());
     }
 
         

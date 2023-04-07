@@ -1,18 +1,20 @@
 package es.uvigo.esei.aed1.core;
 
-import java.util.Random;
 import java.util.Stack;
 import java.util.List;
+import es.uvigo.esei.aed1.iu.IU;
 
+ 
 /**
  * Representa una Baraja española de 48 cartas con 4 palos y valores de 1 a 12 
- * @author Daniel Fabián Rodriguez Lorenzo && Adrian Rey Perez
+ * 
  */
 public class Baraja {
     private Stack<Carta> cartas; 
     
     /**
      * Crea una nueva Baraja con las 48 cartas 
+     * 
      */
     public Baraja(){
         this.cartas = new Stack<>();
@@ -26,6 +28,7 @@ public class Baraja {
 
     /**
      * Saca una carta de la baraja
+     * 
      * @return una Carta de la Baraja, como Carta
      * @throws NoQuedanCartasExcepcion si la Baraja esta vacia
      */
@@ -39,17 +42,18 @@ public class Baraja {
     
     /**
      * Baraja la baraja
+     * 
      */
     public void barajar(){
         Stack<Carta> aux = new Stack<>();
         Stack<Carta> resultado = new Stack<>();
         int numCartas = 48; //Numero maximo de cartas
-        Random rnd = new Random(System.currentTimeMillis());
         boolean quedanCartas = true;
         int numCartasAQuitar;
         while (quedanCartas) {
             try {
-                numCartasAQuitar = rnd.nextInt(numCartas);
+                numCartasAQuitar = IU.numeroRandom(numCartas);
+       
                 //Quitamos un num aleatorio de cartas entre 0 y el maximo -1
                 for (int i = 0; i < numCartasAQuitar; i++) {
                     aux.push(this.sacarCarta());
@@ -72,10 +76,9 @@ public class Baraja {
         }
     }
 
-        
-
     /**
      * Reparte todas las cartas de la baraja a los jugadores
+     * 
      * @param jugadores Los jugadores que reciben las cartas
      */
     public void repartircartas(List<Jugador> jugadores) {

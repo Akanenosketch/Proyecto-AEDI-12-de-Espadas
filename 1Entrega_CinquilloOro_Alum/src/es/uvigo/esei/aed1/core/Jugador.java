@@ -1,23 +1,20 @@
 package es.uvigo.esei.aed1.core;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Representa un jugador, identificado por su nombre y su mano de cartas
- * @author Tatiana María Quintas Rodríguez
+ * 
  */
 public class Jugador {
-
     private String nombre;
     private List<Carta> manoDeCartas;
 
-    public List<Carta> getManoDeCartas() {
-        return manoDeCartas;
-    }
-
     /**
      * Crea un jugador sin cartas
+     * 
      * @param nombre el nombre del jugador
      */
     public Jugador(String nombre) {
@@ -27,28 +24,57 @@ public class Jugador {
 
     /**
      * Añade una carta a la mano del jugador
+     * 
      * @param carta la carta a añadir
      */
     public void insertarCartaALaMano(Carta carta) {
         this.manoDeCartas.add(carta);
     }
 
+    /**
+     * Devuelve el nombre del jugador
+     * 
+     * @return el nombre, como String
+     */
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
    
+    /**
+     * Devuelve la mano de cartas del jugador
+     * 
+     * @return la mano de cartas, como List
+     */
+    public List<Carta> getManoDeCartas() {
+        return this.manoDeCartas;
+    }
+    /**
+     * Busca si existe un cinco de cualquier palo en la mano del jugador
+     * @return Un booleano que indica si existe algun 5
+     */
+    public boolean tieneCincos() {
+        boolean encontrado = false;
+        Iterator<Carta> ite = this.getManoDeCartas().iterator();
+        while (ite.hasNext() && !encontrado) {
+            if (ite.next().getNumero() == 5) {
+                encontrado = true;
+            }
+        }        
+        return encontrado;
+    }
+    
     @Override
     /**
      * Devuelve el nombre del jugador y las cartas de su mano, como string
+     * 
+     * @return los datos del jugador como String
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Jugador ").append(" : ");
-        sb.append(this.nombre).append("\n");
+        sb.append("Jugador :  ").append(this.nombre).append("\n");
         for (Carta i : this.manoDeCartas) {
-            sb.append(i).append("\n");
+            sb.append(i.toString()).append("\t");
         }
         return sb.toString();
-        //El toString seguramente tenga demasiados saltos de linea
     }
 }

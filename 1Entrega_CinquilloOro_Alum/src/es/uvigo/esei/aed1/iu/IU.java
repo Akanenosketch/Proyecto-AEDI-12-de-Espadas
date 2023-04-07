@@ -13,10 +13,17 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Representacion de la interfaz de usuario
+ * 
+ */
 public class IU {
 
     private final Scanner teclado;
-
+    /**
+     * Inicializa un Scanner para lectura por teclado
+     * 
+     */
     public IU() {
         teclado = new Scanner(System.in).useDelimiter("\r?\n");
     }
@@ -110,11 +117,11 @@ public class IU {
         String nombre;
         do {
             numJugadores = leeNum("Introduce el numero "
-                    + "de jugadores a introducir (3 o 4)");
+                    + "de jugadores(3 o 4): ");
         } while (numJugadores < 3 || numJugadores > 4);
 
         for (int i = 0; i < numJugadores; i++) {
-            nombre = leeString("Introduce el nombre del jugador " + (i + 1), false);
+            nombre = leeString("Introduce el nombre del jugador " + (i + 1)+": ", false);
             Jugador nuevo = new Jugador(nombre);
             jugadores.add(nuevo);
         }
@@ -128,8 +135,6 @@ public class IU {
      */
     public void mostrarJugador(Jugador jugador) {
         mostrarMensaje(jugador.toString());
-
-        //En vez de usar sout usar la funcion de mostrarMensaje?
     }
 
     /**
@@ -141,55 +146,38 @@ public class IU {
         for (Jugador jugador : listaJugadores) {
             mostrarJugador(jugador);
         }
-
-        //Recomiendo hacer un bucle con StringBuilder y usar la funcion de arriba 
     }
-
-    public int numeroRandom(Random rnd, List<Jugador> listaJugadores) {
-        int valor;
-        if (listaJugadores.size() == 3) {
-            valor = rnd.nextInt(3);
-        } else {
-            valor = rnd.nextInt(4);
-        }
-        return valor;
+    
+    /**
+     * Genera un entero entre 0 (incluido) y el limite proporcionado (excluido)
+     * Si el limite no es superior a 0 genera 0 
+     * @param limite el limite del numero a generar
+     * @return El numero generado
+     */
+    public static int numeroRandom(int limite) {
+        Random rng = new Random(System.currentTimeMillis());
+        return (limite<=0) ? 0 : rng.nextInt(limite);
     }
-
+    
+    /**
+     * Devuelve la posicion del jugador aleaatorio que comenzara la partida
+     * @param listaJugadores El conjunto de jugadores
+     * @return La posicion del jugador a comenzar
+     */
     public int elegirJugadorInicial(List<Jugador> listaJugadores) {
-
-        Random rnd = new Random(System.currentTimeMillis());
-        int posicion = numeroRandom(rnd, listaJugadores);
+        final int size = listaJugadores.size();
+        int posicion = numeroRandom(size);
         boolean cinco;
-
         do {
-
-            cinco = buscarCincos(posicion, listaJugadores);
-
-            try {
-                if (!cinco) {
-                    posicion++;
-                    if (posicion >= listaJugadores.size()) {
-                        throw new IndexOutOfBoundsException();
-                    }
+            cinco = listaJugadores.get(posicion).tieneCincos();
+            if (!cinco) {
+                posicion++;
+                if (posicion >= size) {
+                        posicion = 0;
                 }
-            } catch (IndexOutOfBoundsException exc) {
-                posicion = 0;
-            }
-
+            }            
         } while (!cinco);
-
         return posicion;
     }
-
-    public boolean buscarCincos(int posicion, List<Jugador> listaJugadores) {
-        boolean rep = false;
-        Iterator<Carta> ite = listaJugadores.get(posicion).getManoDeCartas().iterator();
-        while (ite.hasNext() && !rep) {
-            if (ite.next().getNumero() == 5) {
-                rep = true;
-            }
-        }
-        return rep;
-    }
-
+    
 }
