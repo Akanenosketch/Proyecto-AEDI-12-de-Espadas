@@ -4,10 +4,13 @@
  */
 package es.uvigo.esei.aed1.iu;
 
+import es.uvigo.esei.aed1.core.Carta;
 import es.uvigo.esei.aed1.core.Jugador;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.InputMismatchException;
+import java.util.Iterator;
+import java.util.Random;
 import java.util.Scanner;
 
 public class IU {
@@ -35,7 +38,7 @@ public class IU {
             }
         } while (true);
     }
-    
+
     /**
      * Lee un string. de teclado
      *
@@ -46,7 +49,7 @@ public class IU {
         System.out.print(msg);
         return teclado.next();
     }
-    
+
     /**
      * Lee un string. de teclado
      *
@@ -57,44 +60,48 @@ public class IU {
     public String leeString(String msg, boolean permiteVacio) {
         String toRet = " ";
         do {
-            if(toRet.isEmpty()){
+            if (toRet.isEmpty()) {
                 System.out.println("La cadena no puede estar vacia");
             }
             toRet = leeString(msg).trim();
         } while (!permiteVacio && toRet.isEmpty());
         return toRet;
     }
-    
+
     /**
      * Lee un string. de teclado
+     *
      * @param msg El mensaje a visualizar con formato
      * @param args Los datos a incluir en el mensaje con formato
-     * @return 
+     * @return
      */
     public String leeString(String msg, Object... args) {
         System.out.printf(msg, args);
         return teclado.next();
     }
-    
+
     /**
      * Muesta un string por pantalla
+     *
      * @param msg El mensaje a mostrar
      */
     public void mostrarMensaje(String msg) {
         System.out.println(msg);
     }
-    
+
     /**
      * Muestra un string con formato por pantalla
+     *
      * @param msg El mensaje a visualizar con formato
      * @param args Los datos a incluir en el mensaje con formato
      */
     public void mostrarMensaje(String msg, Object... args) {
         System.out.printf(msg, args);
     }
-    
+
     /**
      * Pide por pantalla el numero de jugadores y sus datos
+     *
      * @return Una coleccion de jugadores
      */
     public List<Jugador> pedirDatosJugadores() {
@@ -113,22 +120,76 @@ public class IU {
         }
         return jugadores;
     }
-    
+
     /**
      * Muestra un jugador por pantalla
+     *
      * @param jugador El jugador a mostrar
      */
     public void mostrarJugador(Jugador jugador) {
-        //EL toString de jugador ya esta implementado 
+        mostrarMensaje(jugador.toString());
+
         //En vez de usar sout usar la funcion de mostrarMensaje?
     }
-    
+
     /**
      * Muestra una coleccion de jugadores por pantalla
-     * @param jugadores 
+     *
+     * @param listaJugadores
      */
-    public void mostrarJugadores(List<Jugador> jugadores) {
+    public void mostrarJugadores(List<Jugador> listaJugadores) {
+        for (Jugador jugador : listaJugadores) {
+            mostrarJugador(jugador);
+        }
+
         //Recomiendo hacer un bucle con StringBuilder y usar la funcion de arriba 
+    }
+
+    public int numeroRandom(Random rnd, List<Jugador> listaJugadores) {
+        int valor;
+        if (listaJugadores.size() == 3) {
+            valor = rnd.nextInt(3);
+        } else {
+            valor = rnd.nextInt(4);
+        }
+        return valor;
+    }
+
+    public int elegirJugadorInicial(List<Jugador> listaJugadores) {
+
+        Random rnd = new Random(System.currentTimeMillis());
+        int posicion = numeroRandom(rnd, listaJugadores);
+        boolean cinco;
+
+        do {
+
+            cinco = buscarCincos(posicion, listaJugadores);
+
+            try {
+                if (!cinco) {
+                    posicion++;
+                    if (posicion >= listaJugadores.size()) {
+                        throw new IndexOutOfBoundsException();
+                    }
+                }
+            } catch (IndexOutOfBoundsException exc) {
+                posicion = 0;
+            }
+
+        } while (!cinco);
+
+        return posicion;
+    }
+
+    public boolean buscarCincos(int posicion, List<Jugador> listaJugadores) {
+        boolean rep = false;
+        Iterator<Carta> ite = listaJugadores.get(posicion).getManoDeCartas().iterator();
+        while (ite.hasNext() && !rep) {
+            if (ite.next().getNumero() == 5) {
+                rep = true;
+            }
+        }
+        return rep;
     }
 
 }
