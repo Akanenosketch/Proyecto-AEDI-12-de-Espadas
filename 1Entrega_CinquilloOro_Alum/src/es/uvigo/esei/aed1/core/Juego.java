@@ -8,7 +8,10 @@ package es.uvigo.esei.aed1.core;
 import es.uvigo.esei.aed1.iu.IU;
 import java.util.List; 
 
-
+/**
+ * La clase que representa el juego del Cinquillo-Oro
+ * 
+ */
 public class Juego{
     private final IU iu;
     
@@ -17,7 +20,10 @@ public class Juego{
         this.iu = iu;
 
     }
-
+    /**
+     * Inicia el juego
+     * 
+     */
     public void jugar(){
         List<Jugador> listaJugadores = iu.pedirDatosJugadores();
         Baraja baraja = new Baraja();

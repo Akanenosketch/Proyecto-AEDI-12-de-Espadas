@@ -4,12 +4,10 @@
  */
 package es.uvigo.esei.aed1.iu;
 
-import es.uvigo.esei.aed1.core.Carta;
 import es.uvigo.esei.aed1.core.Jugador;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.InputMismatchException;
-import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,10 +18,7 @@ import java.util.Scanner;
 public class IU {
 
     private final Scanner teclado;
-    /**
-     * Inicializa un Scanner para lectura por teclado
-     * 
-     */
+   
     public IU() {
         teclado = new Scanner(System.in).useDelimiter("\r?\n");
     }
@@ -138,9 +133,9 @@ public class IU {
     }
 
     /**
-     * Muestra una coleccion de jugadores por pantalla
+     * Muestra una lista de jugadores por pantalla
      *
-     * @param listaJugadores
+     * @param listaJugadores Los jugadores a mostrar
      */
     public void mostrarJugadores(List<Jugador> listaJugadores) {
         for (Jugador jugador : listaJugadores) {
