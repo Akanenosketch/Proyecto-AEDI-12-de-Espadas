@@ -24,6 +24,8 @@ Para este proyecto la baraja empleada no es la española, sino una baraja random
 La segunda práctica tiene como fecha límite el 24 de abril, y la defenderemos en una tutoría grupal un dia por decidir de esa semana (el martes no u cagamos en AL). Dentro de esa tutoría grupal se valorará también el **grado de implicación de cada miembro del grupo en el proyecto** es decir, las notas de cada uno afecta a la nota grupal. Esta segunda parte consiste en añadir las funcionalidades para hechar una partida .
 
 Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega por pereza):
+  
+  - [] Cambios posibles sugeridos en la tutoria. @DanielFabianRL
 
   - [] Crear la mesa de juego, inicialmente vacía (el fichero con la clase Mesa, inicialmente vacía, se os proporciona). @adrixprietox
 
