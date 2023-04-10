@@ -54,6 +54,6 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
 #### Dependencias de apartados
 
-TODO
+TODO pero primero crear la mesa, luego sin orden mostrarla y la funcion de que el jugador coloque carta, y por ultimo el codigo para ir jugando
 > Gráfica de dependencia de los apartados (si muy simple, pero muy necesario)
 
