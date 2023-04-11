@@ -19,7 +19,6 @@ public class Juego{
     //carta de la mano en la mesa, usando la de cartaValida de la Mesa en un while de busqueda lineal y usando la de buscarincos de la primera entrega primero
     //Un ifelse aqui el juego (colocadlo donde podais y cuando haga mi parte lo meto) que llame a la funcion
     //una funcion para lo de pedir la carta que use la cartaValida de mesa
-    // Por estetica, usar el serr si no puede poner carta
     //lo de pasar turno seguramente lo mire yo en mi parte, pq lo vuestro son funciones y un ifelse metido en mi parte
     
     
@@ -53,7 +52,7 @@ public class Juego{
         //comprobar si un iterador deja hacer ese tipo de modificaciones
         //como lanzar la noguedanexc? hay que parar el juego cuando pase o se puede liar luego con el as
         //sacar y meter una carta para comprobar? no estan ordenadas da igual
-        
+        //Hace falta funcion para que un jugador saque carta, ponerle Nqce
     }
 
         

@@ -6,7 +6,7 @@ package es.uvigo.esei.aed1.core;
  */
 public class NoQuedanCartasExcepcion extends RuntimeException {
     /**
-     * Crea una nuena NoQuedanCartasExcepcion 
+     * Crea una nueva NoQuedanCartasExcepcion 
      * 
      */
     public NoQuedanCartasExcepcion() {
