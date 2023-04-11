@@ -104,7 +104,7 @@ public class IU {
     /**
      * Pide por pantalla el numero de jugadores y sus datos
      *
-     * @return Una coleccion de jugadores
+     * @return Una Lista de jugadores
      */
     public List<Jugador> pedirDatosJugadores() {
         List<Jugador> jugadores = new LinkedList<>();
@@ -145,34 +145,15 @@ public class IU {
     
     /**
      * Genera un entero entre 0 (incluido) y el limite proporcionado (excluido)
-     * Si el limite no es superior a 0 genera 0 
+     * 
      * @param limite el limite del numero a generar
      * @return El numero generado
+     * @throws IllegalArgumentException si el limite no es superior a 0
      */
     public static int numeroRandom(int limite) {
         Random rng = new Random(System.currentTimeMillis());
-        return (limite<=0) ? 0 : rng.nextInt(limite);
+        return rng.nextInt(limite);
     }
     
-    /**
-     * Devuelve la posicion del jugador aleaatorio que comenzara la partida
-     * @param listaJugadores El conjunto de jugadores
-     * @return La posicion del jugador a comenzar
-     */
-    public int elegirJugadorInicial(List<Jugador> listaJugadores) {
-        final int size = listaJugadores.size();
-        int posicion = numeroRandom(size);
-        boolean cinco;
-        do {
-            cinco = listaJugadores.get(posicion).tieneCincos();
-            if (!cinco) {
-                posicion++;
-                if (posicion >= size) {
-                        posicion = 0;
-                }
-            }            
-        } while (!cinco);
-        return posicion;
-    }
     
 }

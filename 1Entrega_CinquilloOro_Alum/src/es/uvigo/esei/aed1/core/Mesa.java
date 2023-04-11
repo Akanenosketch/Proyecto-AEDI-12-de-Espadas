@@ -18,8 +18,8 @@ public class Mesa {
     por ejemplo public void colocarCarta(Carta carta)
     Funcion que muestre la mesa, es el toString, lo hace adri rey
     
-    Para lo del array de doblecolas casi seguro hace falta usar .values en el enum del palo
-    preguntame por el .values y te lo explico, pero es que el indice del array se saca con values
+    Para lo del array de doblecolas casi seguro hace falta usar .ordinal en el enum del palo
+    preguntame por el .ordinal y te lo explico
     */
     
     //constructor
@@ -32,7 +32,8 @@ public class Mesa {
     
     
     // mostrar el estado de la mesa
+    /* COMENTADO PARA PODER COMPILAR EL RESTO
     public String toString(){
         //Esto lo hace adri rey
-    }
+    }*/
 }

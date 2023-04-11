@@ -39,22 +39,15 @@ public class Jugador {
     public String getNombre() {
         return this.nombre;
     }
-   
-    /**
-     * Devuelve la mano de cartas del jugador
-     * 
-     * @return la mano de cartas, como List
-     */
-    public List<Carta> getManoDeCartas() {
-        return this.manoDeCartas;
-    }
+    
     /**
      * Busca si existe un cinco de cualquier palo en la mano del jugador
+     * 
      * @return Un booleano que indica si existe algun 5
      */
     public boolean tieneCincos() {
         boolean encontrado = false;
-        Iterator<Carta> ite = this.getManoDeCartas().iterator();
+        Iterator<Carta> ite = this.manoDeCartas.iterator();
         while (ite.hasNext() && !encontrado) {
             if (ite.next().getNumero() == 5) {
                 encontrado = true;
