@@ -5,6 +5,7 @@ package es.uvigo.esei.aed1.core;
  * 
  */
 public class Carta {
+
     /**
      * Un enumerado que representa los Palos de la baraja española
      */

@@ -1,13 +1,11 @@
 package es.uvigo.esei.aed1.core;
 
 import java.util.Stack;
-import java.util.List;
 import es.uvigo.esei.aed1.iu.IU;
-
  
 /**
  * Representa una Baraja española de 48 cartas con 4 palos y valores de 1 a 12 
- * 
+ *
  */
 public class Baraja {
     private Stack<Carta> cartas; 
@@ -30,14 +28,18 @@ public class Baraja {
      * Saca una carta de la baraja
      * 
      * @return una Carta de la Baraja, como Carta
-     * @throws NoQuedanCartasExcepcion si la Baraja esta vacia
      */
-    public Carta sacarCarta() throws NoQuedanCartasExcepcion{
-        if(this.cartas.empty()){ 
-            throw new NoQuedanCartasExcepcion("No puedes cojer "
-                    + "cartas de una baraja vacia");
-        }
+    public Carta sacarCarta(){
         return this.cartas.pop();
+    }
+  
+    /**
+     * Comprueba si la baraja no tiene cartas
+     * 
+     * @return un booleano segun este vacia 
+     */
+    public boolean isEmpty(){
+        return this.cartas.empty();
     }
     
     /**
@@ -48,49 +50,25 @@ public class Baraja {
         Stack<Carta> aux = new Stack<>();
         Stack<Carta> resultado = new Stack<>();
         int numCartas = 48; //Numero maximo de cartas
-        boolean quedanCartas = true;
         int numCartasAQuitar;
-        while (quedanCartas) {
-            try {
-                numCartasAQuitar = IU.numeroRandom(numCartas);
-       
-                //Quitamos un num aleatorio de cartas entre 0 y el maximo -1
-                for (int i = 0; i < numCartasAQuitar; i++) {
-                    aux.push(this.sacarCarta());
-                }
-                
-                //Ponemos la siguiente carta en una baraja barajada
-                resultado.push(this.sacarCarta());
-                
-                //Devolvemos las cartas quitadas a aux al original
-                while (!aux.empty()) {
-                    this.cartas.push(aux.pop());
-                }
-                //Decrementamos el numero de cartas maximo que podemos quitar 
-                numCartas--;
+        while (!this.isEmpty()) {
+            numCartasAQuitar = IU.numeroRandom(numCartas);
+            //Quitamos un num aleatorio de cartas entre 0 y el maximo -1
+            for (int i = 0; i < numCartasAQuitar; i++) {
+                aux.push(this.sacarCarta());
+            }                
+    
+            //Ponemos la siguiente carta en una baraja barajada
+            resultado.push(this.sacarCarta());  
             
-            } catch (NoQuedanCartasExcepcion exc) {
-                quedanCartas = false;
-                this.cartas = resultado;
+            //Devolvemos las cartas quitadas a aux al original
+            while (!aux.empty()) {
+                this.cartas.push(aux.pop());
             }
+            //Decrementamos el numero de cartas maximo que podemos quitar 
+            numCartas--;
+        
         }
-    }
-
-    /**
-     * Reparte todas las cartas de la baraja a los jugadores
-     * 
-     * @param jugadores Los jugadores que reciben las cartas
-     */
-    public void repartircartas(List<Jugador> jugadores) {
-        boolean quedanCartas = true;
-        while (quedanCartas) {
-            try {
-                for (Jugador jugador : jugadores) {
-                    jugador.insertarCartaALaMano(this.sacarCarta());
-                }
-            } catch (NoQuedanCartasExcepcion exc) {
-                quedanCartas = false;
-            }
-        }
+        this.cartas = resultado;    
     }
 }

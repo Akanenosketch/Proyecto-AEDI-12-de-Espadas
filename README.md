@@ -3,7 +3,7 @@ Este repositorio se empleará para el desarrollo del proyecto de AEDI que es una
 
 **Nota:** Solo los colaboradores tendrán acceso al repositorio (sujeto a cambios a finales de cuatri, el quien lo pase a publico antes del fin del proyecto le damos de hostias).
 
-### **Nota 2:** LEER EL CODIGO Y ENTENDERLO ANTES DE CAMBIAR COSAS
+### **Nota 2:** LEER TODO CODIGO Y ENTENDERLO ANTES DE CAMBIAR COSAS
 
 ### **Nota 3:** Si hay dudas pedir ayuda en el grupo antes de montar la marimorena
 
@@ -19,24 +19,28 @@ En el Cinquillo-Oro el primer jugador es un jugador aleatorio que debe poner un 
 
 Para este proyecto la baraja empleada no es la española, sino una baraja random de los chinos que tiene 12 cartas por mazo, un total de 48 cartas. El primer jugador. que debe poner un 5 cualquiera, se escoge de forma aleatoria y se continuan los turnos en sentido levogiro.
 
-### Primera entrega
+### Segunda entrega
 
-La primera práctica tiene como fecha límite el 10 de abril, y la defenderemos en una tutoría grupal **el martes 11 a las 2:00** (pptx? no? ok boomer, p.s: esto se queda por lo que no touchy). Dentro de esa tutoría grupal se valorará también el **grado de implicación de cada miembro del grupo en el proyecto** es decir, las notas de cada uno afecta a la nota grupal. Esta primera parte consiste en la definición de clases y con el comienzo del juego.
+La segunda práctica tiene como fecha límite el 24 de abril, y la defenderemos en una tutoría grupal un dia por decidir de esa semana (el martes no u cagamos en AL). Dentro de esa tutoría grupal se valorará también el **grado de implicación de cada miembro del grupo en el proyecto** es decir, las notas de cada uno afecta a la nota grupal. Esta segunda parte consiste en añadir las funcionalidades para hechar una partida .
 
 Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega por pereza):
+  
+- [x] Cambios posibles sugeridos en la tutoria. 
 
-  - [x] Crear la baraja de 48 cartas. @DanielFabianRL
+- [ ] Crear la mesa de juego, inicialmente vacía (el fichero con la clase Mesa, inicialmente vacía, se os proporciona). @adrixprietox
 
-  - [x] Preguntar cuántos jugadores/as van a jugar (3 o 4) y, a continuación, crear los/as jugadores/as. Cada jugador/a se identifica por un nombre que se debe saber en el momento de crearlo. @Akanenosketch 
+- [ ] Los/as jugadores/as van jugando por turnos (colocando cartas en la mesa) hastaque la partida termine. La partida termina cuando un/a jugador/a coloca todas sus cartas en la mesa. @DanielFabianRL 
 
-  - [x] Una vez que ya se dispone de la baraja de cartas y los/as jugadores/as, la siguiente tarea es barajar y repartir todas las cartas de la bajara entre los/as jugadores/as. @thekingofwar03 
+- [ ] En cada turno de juego se debe mostrar i) el estado de la mesa y ii) las cartas de la mano del jugador/a activo/a. @thekingofwar03
 
-  - [x] Hecho el reparto, para cada jugador/a se debe mostrar por pantalla su nombre y las cartas que le han tocado para jugar. @adrixprietox 
-
-  - [x] Finalmente, se indicará el nombre del jugador/a que empieza la partida, que será un/a jugador/a elegido/a al azar. @SugarStorm22 
+- [ ] Si el/la jugador/a activo/a puede colocar alguna carta en la mesa, se le debe preguntar qué carta quiere colocar. Si es posible, se coloca en la mesa. Si no es posible, se le informa y se le pide que escoja otra carta. Una vez colocada pasa el turno al siguiente jugador/a. @Akanenosketch & @SugarStorm22
+  
+- [ ] Si el/la jugador/a activo/a no puede colocar ninguna carta en la mesa, se informa y pasa el turno al siguiente jugador/a. @Akanenosketch & @SugarStorm22
+  
+- [ ] Al terminar la partida, se debe indicar el nombre del jugador/a o jugadores/as que ha resultado ganador. @DanielFabianRL
 
 ### Recomendaciones (antes de que alguien la cague y tengamos que dar hostias)
-- Cada punto en una branch y cuando se confirme que funciona se hace pull request al main.
+- Cada punto en la branch de la entrega y cuando se confirme que funciona se hace pull request al main.
 
 - No lo hagais a última hora, un fallo 20 minutos antes de la entrega es un asesinato asegurado.
 
@@ -44,10 +48,9 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
 - Ante la duda pedid ayuda con el codigo, hay que asegurar que funciona. (Si da fallos después de hacer la pull request se revierte y se corrige aunque cada branch contiene una copia del stable).
 
-**Nota:** el que no trabaje o cause bulla, lo más probable es que se le eche del grupo y que se quede solo el resto de la carrera.
 
 #### Dependencias de apartados
 
-![test](https://user-images.githubusercontent.com/90091466/227764158-587736a8-2cec-4e97-a96f-e558a34f22fe.png)
-> Gráfica de dependencia de los apartados (si muy simple, pero muy necesario)
+TODO pero primero crear la mesa, luego sin orden mostrarla y la funcion de que el jugador coloque carta, y por ultimo el codigo para ir jugando
+> Gráfica de dependencia de los apartados (ya lo haré)
 
