@@ -39,14 +39,14 @@ public class Juego{
         baraja.barajar();
         repartircartas();
         iu.mostrarJugadores(listaJugadores);
+        int posInicial = elegirJugadorInicial();
+        iu.mostrarMensaje("El jugador que comenzara la partida es: \n");
+        iu.mostrarMensaje(listaJugadores.get(posInicial).getNombre());
         //Se mueven los jugadores en la lista para que el que inicia este en indice 0
-        for (int i = 0; i < elegirJugadorInicial(); i++) {
+        for (int i = 0; i < posInicial; i++) {
             listaJugadores.add(listaJugadores.remove(0));
         }
-        iu.mostrarMensaje("El jugador que comenzara la partida es: \n");
-        iu.mostrarMensaje(listaJugadores.get(0).getNombre());
         //lo anterior solo se harua al principio, salvo barajar y repartir
-
         
         //Aqui me pongo yo - Fabi
         //Ignorad mis comentarios, estoy haciendo ideas
