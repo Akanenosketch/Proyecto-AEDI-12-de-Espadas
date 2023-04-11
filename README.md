@@ -25,22 +25,22 @@ La segunda práctica tiene como fecha límite el 24 de abril, y la defenderemos 
 
 Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega por pereza):
   
-  - [] Cambios posibles sugeridos en la tutoria. @DanielFabianRL
+  [] Cambios posibles sugeridos en la tutoria. @DanielFabianRL
 
-  - [] Crear la mesa de juego, inicialmente vacía (el fichero con la clase Mesa, inicialmente vacía, se os proporciona). @adrixprietox
+  [] Crear la mesa de juego, inicialmente vacía (el fichero con la clase Mesa, inicialmente vacía, se os proporciona). @adrixprietox
 
-  - [] Los/as jugadores/as van jugando por turnos (colocando cartas en la mesa) hastaque la partida termine. La partida termina 
+  [] Los/as jugadores/as van jugando por turnos (colocando cartas en la mesa) hastaque la partida termine. La partida termina 
        cuando un/a jugador/a coloca todas sus cartas en la mesa. @DanielFabianRL 
 
-  - [] En cada turno de juego se debe mostrar i) el estado de la mesa y ii) las cartas de la mano del jugador/a activo/a. @thekingofwar03
+  [] En cada turno de juego se debe mostrar i) el estado de la mesa y ii) las cartas de la mano del jugador/a activo/a. @thekingofwar03
 
-  - [] Si el/la jugador/a activo/a puede colocar alguna carta en la mesa, se le debe preguntar qué carta quiere colocar. 
+  [] Si el/la jugador/a activo/a puede colocar alguna carta en la mesa, se le debe preguntar qué carta quiere colocar. 
        Si es posible, se coloca en la mesa. Si no es posible, se le informa y se le pide que escoja otra carta. 
-       Una vez colocada pasa el turno al siguiente jugador/a. @Akanenosketch && @SugarStorm22
+       Una vez colocada pasa el turno al siguiente jugador/a. @Akanenosketch & @SugarStorm22
   
-  - [] Si el/la jugador/a activo/a no puede colocar ninguna carta en la mesa, se informa y pasa el turno al siguiente jugador/a. @Akanenosketch && @SugarStorm22
+  [] Si el/la jugador/a activo/a no puede colocar ninguna carta en la mesa, se informa y pasa el turno al siguiente jugador/a. @Akanenosketch & @SugarStorm22
   
-  - [] Al terminar la partida, se debe indicar el nombre del jugador/a o jugadores/as que ha resultado ganador. @DanielFabianRL
+  [] Al terminar la partida, se debe indicar el nombre del jugador/a o jugadores/as que ha resultado ganador. @DanielFabianRL
 
 ### Recomendaciones (antes de que alguien la cague y tengamos que dar hostias)
 - Cada punto en la branch de la entrega y cuando se confirme que funciona se hace pull request al main.
@@ -55,5 +55,5 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 #### Dependencias de apartados
 
 TODO pero primero crear la mesa, luego sin orden mostrarla y la funcion de que el jugador coloque carta, y por ultimo el codigo para ir jugando
-> Gráfica de dependencia de los apartados (si muy simple, pero muy necesario)
+> Gráfica de dependencia de los apartados (ya lo haré)
 
