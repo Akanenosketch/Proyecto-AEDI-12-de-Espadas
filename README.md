@@ -25,7 +25,7 @@ La segunda práctica tiene como fecha límite el 24 de abril, y la defenderemos 
 
 Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega por pereza):
   
-- [ ] Cambios posibles sugeridos en la tutoria. @DanielFabianRL
+- [x] Cambios posibles sugeridos en la tutoria. 
 
 - [ ] Crear la mesa de juego, inicialmente vacía (el fichero con la clase Mesa, inicialmente vacía, se os proporciona). @adrixprietox
 
