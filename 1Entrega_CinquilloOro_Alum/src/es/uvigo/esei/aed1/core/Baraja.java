@@ -49,7 +49,7 @@ public class Baraja {
     public void barajar(){
         Stack<Carta> aux = new Stack<>();
         Stack<Carta> resultado = new Stack<>();
-        int numCartas = 48; //Numero maximo de cartas
+        int numCartas = cartas.size();//Numero maximo de cartas
         int numCartasAQuitar;
         while (!this.isEmpty()) {
             numCartasAQuitar = IU.numeroRandom(numCartas);
