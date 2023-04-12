@@ -18,7 +18,7 @@ public class Baraja {
         this.cartas = new Stack<>();
         Carta.Palos palos[] = Carta.Palos.values();
         for (int i = 1; i <= 12; i++) {
-            for (int j = 0; j < 4; j++) {
+            for (int j = 0; j < palos.length; j++) {
                 this.cartas.push(new Carta(i , palos[j]));
             }
         }

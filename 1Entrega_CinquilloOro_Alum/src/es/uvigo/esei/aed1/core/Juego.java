@@ -18,13 +18,13 @@ public class Juego{
     private Baraja baraja;
     private List<Jugador> listaJugadores;
     //Un par de ideas random para tatiana/natalia
-    // Una funcion booleana en juego? que mire si puede colocar alguna 
-    //carta de la mano en la mesa, usando la de cartaValida de la Mesa en un while de busqueda lineal y usando la de buscarincos de la primera entrega primero
-    //Un ifelse aqui el juego (colocadlo donde podais y cuando haga mi parte lo meto) que llame a la funcion
-    //una funcion para lo de pedir la carta que use la cartaValida de mesa
+    // Una funcion booleana que mire si el jugador puede colocar alguna 
+    //carta de la mano en la mesa, usando la de cartaValida de la Mesa  y la de buscarincos de la primera entrega 
+    //Un ifelse aqui en jugar (colocadlo donde podais y cuando haga mi parte lo meto) que llame a la funcion
+    //una funcion para lo de pedir la carta 
     //lo de pasar turno seguramente lo mire yo en mi parte, pq lo vuestro son funciones y un ifelse metido en mi parte
     
-    
+    //meter aqui variable Mesa
     public Juego(IU iu){
         this.iu = iu;
         this.baraja = new Baraja();
@@ -36,8 +36,10 @@ public class Juego{
      */
     public void jugar(){
         listaJugadores = iu.pedirDatosJugadores();
+        
         baraja.barajar();
         repartircartas();
+        
         iu.mostrarJugadores(listaJugadores);
         int posInicial = elegirJugadorInicial();
         iu.mostrarMensaje("El jugador que comenzara la partida es: \n");
@@ -55,9 +57,8 @@ public class Juego{
 //que la partida termine. La partida termina cuando un/a jugador/a coloca todas sus
 //cartas en la mesa. Al terminar la partida, se debe indicar el nombre del jugador que
 //ha resultado ganador.
-        // while que no pare mientras haya cartas con un fore  que ejecute cosas (reset auto en el fore?)
-        //comprobar si un iterador deja hacer ese tipo de modificaciones
-        //if para parar el bucle, funcion para ver si quedan?
+        // while que no pare mientras haya cartas y se reseete dentro por la posicion
+        //if para parar el bucle cuando no queden cartas
         //Hace falta funcion para que un jugador saque carta,
     }
     
