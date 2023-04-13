@@ -20,10 +20,10 @@ public class IU {
     }
 
     /**
-     * Lee un num. de teclado
+     * Lee un numero del teclado
      *
-     * @param msg El mensaje a visualizar.
-     * @return El num., como entero
+     * @param msg El mensaje a visualizar
+     * @return El numero, como entero
      */
     public int leeNum(String msg) {
         do {
@@ -38,9 +38,9 @@ public class IU {
     }
 
     /**
-     * Lee un string. de teclado
+     * Lee un string del teclado
      *
-     * @param msg El mensaje a visualizar.
+     * @param msg El mensaje a visualizar
      * @return El string
      */
     public String leeString(String msg) {
@@ -49,10 +49,10 @@ public class IU {
     }
 
     /**
-     * Lee un string. de teclado
+     * Lee un string de teclado
      *
-     * @param msg El mensaje a visualizar.
-     * @param permiteVacio Si la string leida puede estar vacia
+     * @param msg El mensaje a visualizar
+     * @param permiteVacio Si el string leida puede estar vacia
      * @return El string
      */
     public String leeString(String msg, boolean permiteVacio) {
@@ -67,11 +67,11 @@ public class IU {
     }
 
     /**
-     * Lee un string. de teclado
+     * Lee un string del teclado
      *
-     * @param msg El mensaje a visualizar con formato
-     * @param args Los datos a incluir en el mensaje con formato
-     * @return
+     * @param msg El mensaje a visualizar, con formato
+     * @param args Los datos a incluir en el mensaje 
+     * @return el string 
      */
     public String leeString(String msg, Object... args) {
         System.out.printf(msg, args);
@@ -96,8 +96,8 @@ public class IU {
     /**
      * Muestra un string con formato por pantalla
      *
-     * @param msg El mensaje a visualizar con formato
-     * @param args Los datos a incluir en el mensaje con formato
+     * @param msg El mensaje a visualizar, con formato
+     * @param args Los datos a incluir en el mensaje
      */
     public void mostrarMensaje(String msg, Object... args) {
         System.out.printf(msg, args);

@@ -8,33 +8,34 @@ package es.uvigo.esei.aed1.core;
 
 
 
-import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Deque;
 
 
 public class Mesa {
     
-    private Deque<Carta>[]palos;
+    private Deque<Carta>[] palos;
     
     /*TOdo esto venia de base menos este gran comentario 
-    la mesa piden que tenga un array con 4 posiciones de DOBLECOLAS, 
-    esto no lo hemos dado nunca, preguntar dudas por el grupo
+X    la mesa piden que tenga un array con 4 posiciones de DOBLECOLAS, 
+X    esto no lo hemos dado nunca, preguntar dudas por el grupo
     Funciones a implementar segun el enunciado:
-    Funcion que diga si es posible colocar una carta
+    Funcion que diga si es posible colocar una carta (natalia & tatiana)
     por ejemplo public boolean cartaValida(Carta carta)
-    Funcion que coloque una carta en la mesa
+    Funcion que coloque una carta en la mesa  
     por ejemplo public void colocarCarta(Carta carta)
     Funcion que muestre la mesa, es el toString, lo hace adri rey
     
     Para lo del array de doblecolas casi seguro hace falta usar .ordinal en el enum del palo
-    preguntame por el .ordinal y te lo explico
+    preguntadme por el .ordinal y os lo explico
     */
     
     //constructor
     public Mesa(){
-       palos = new ArrayDeque [4];
-        for (int i = 0; i < palos.length; i++) {
-            palos[i]= new ArrayDeque<>();   
+        final int SIZE = Carta.Palos.values().length;
+        palos = new Deque[SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            palos[i]= new LinkedList();   
         }
     }
 
@@ -43,7 +44,7 @@ public class Mesa {
         
        
             
-        }
+        
     }
         
    

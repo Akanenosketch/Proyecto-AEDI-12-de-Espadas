@@ -41,7 +41,7 @@ public class Jugador {
     }
     
     /**
-     * Busca si existe un cinco de cualquier palo en la mano del jugador
+     * Comprueba si existe un cinco de cualquier palo en la mano del jugador
      * 
      * @return Un booleano que indica si existe algun 5
      */

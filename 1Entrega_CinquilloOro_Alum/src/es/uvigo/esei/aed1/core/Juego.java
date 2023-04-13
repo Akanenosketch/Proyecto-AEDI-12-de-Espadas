@@ -17,6 +17,7 @@ public class Juego{
     private final IU iu;
     private Baraja baraja;
     private List<Jugador> listaJugadores;
+    private Mesa mesa;
     //Un par de ideas random para tatiana/natalia
     // Una funcion booleana que mire si el jugador puede colocar alguna 
     //carta de la mano en la mesa, usando la de cartaValida de la Mesa  y la de buscarincos de la primera entrega 
@@ -24,11 +25,11 @@ public class Juego{
     //una funcion para lo de pedir la carta 
     //lo de pasar turno seguramente lo mire yo en mi parte, pq lo vuestro son funciones y un ifelse metido en mi parte
     
-    //meter aqui variable Mesa
     public Juego(IU iu){
         this.iu = iu;
         this.baraja = new Baraja();
         this.listaJugadores = new LinkedList();
+        this.mesa = new Mesa();
     }
     /**
      * Inicia el juego
@@ -75,7 +76,7 @@ public class Juego{
     }
         
     /**
-     * Devuelve la posicion del jugador aleaatorio que comenzara la partida
+     * Devuelve la posicion del jugador (aleatorio) que comenzara la partida
      * 
      * @return La posicion del jugador a comenzar
      */
