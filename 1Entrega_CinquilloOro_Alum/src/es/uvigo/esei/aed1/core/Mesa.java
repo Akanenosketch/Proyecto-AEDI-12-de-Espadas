@@ -7,7 +7,15 @@
 package es.uvigo.esei.aed1.core;
 
 
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+
 public class Mesa {
+    
+    private Deque<Carta>[]palos;
+    
     /*TOdo esto venia de base menos este gran comentario 
     la mesa piden que tenga un array con 4 posiciones de DOBLECOLAS, 
     esto no lo hemos dado nunca, preguntar dudas por el grupo
@@ -24,13 +32,21 @@ public class Mesa {
     
     //constructor
     public Mesa(){
-     
+       palos = new ArrayDeque [4];
+        for (int i = 0; i < palos.length; i++) {
+            palos[i]= new ArrayDeque<>();   
+        }
     }
 
     //a�adir m�s funcionalidades
-
-    
-    
+    public void insertar ( Carta carta) {
+        
+       
+            
+        }
+    }
+        
+   
     // mostrar el estado de la mesa
     /* COMENTADO PARA PODER COMPILAR EL RESTO
     public String toString(){
