@@ -35,15 +35,15 @@ public class Juego{
      * 
      */
     public void jugar(){
+        iu.mostrarMensaje("Comenzando juego de Cinquillo Oro");
         listaJugadores = iu.pedirDatosJugadores();
-        
+        iu.mostrarMensaje("Repartiendo cartas, por favor espere");        
         baraja.barajar();
         repartircartas();
-        
         iu.mostrarJugadores(listaJugadores);
         int posInicial = elegirJugadorInicial();
-        iu.mostrarMensaje("El jugador que comenzara la partida es: \n");
-        iu.mostrarMensaje(listaJugadores.get(posInicial).getNombre());
+        iu.mostrarMensaje("El jugador que comenzara la partida es:\t"
+                +listaJugadores.get(posInicial).getNombre());
         //Se mueven los jugadores en la lista para que el que inicia este en indice 0
         for (int i = 0; i < posInicial; i++) {
             listaJugadores.add(listaJugadores.remove(0));

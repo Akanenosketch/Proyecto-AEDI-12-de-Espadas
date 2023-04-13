@@ -18,8 +18,8 @@ public class Baraja {
         this.cartas = new Stack<>();
         Carta.Palos palos[] = Carta.Palos.values();
         for (int i = 1; i <= 12; i++) {
-            for (int j = 0; j < palos.length; j++) {
-                this.cartas.push(new Carta(i , palos[j]));
+            for (Carta.Palos palo : palos) {
+                this.cartas.push(new Carta(i, palo));
             }
         }
     }
@@ -66,8 +66,7 @@ public class Baraja {
                 this.cartas.push(aux.pop());
             }
             //Decrementamos el numero de cartas maximo que podemos quitar 
-            numCartas--;
-        
+            numCartas--;        
         }
         this.cartas = resultado;    
     }
