@@ -14,20 +14,18 @@ public class Mesa {
     private Deque<Carta>[] palos;
 
     /*TOdo esto venia de base menos este gran comentario 
-X    la mesa piden que tenga un array con 4 posiciones de DOBLECOLAS, 
-X    esto no lo hemos dado nunca, preguntar dudas por el grupo
     Funciones a implementar segun el enunciado:
     Funcion que diga si es posible colocar una carta (natalia & tatiana)
     por ejemplo public boolean cartaValida(Carta carta)
-    Funcion que coloque una carta en la mesa  
-    por ejemplo public void colocarCarta(Carta carta)
-x    Funcion que muestre la mesa, es el toString, lo hace adri rey
     
     Para lo del array de doblecolas casi seguro hace falta usar .ordinal en el enum del palo
     preguntadme por el .ordinal y os lo explico
      */
  
-    //constructor
+    /**
+     * Crea la Mesa vacia
+     * 
+     */
     public Mesa() {
         final int SIZE = Carta.Palos.values().length;
         palos = new Deque[SIZE];
@@ -36,21 +34,26 @@ x    Funcion que muestre la mesa, es el toString, lo hace adri rey
         }
     }
 
-    //a�adir m�s funcionalidades
-    public void insertar ( Carta carta) {
-        
-        
-            if (carta.getNumero()<5) {
-                palos[carta.getPalo().ordinal()].addFirst(carta);
-            }
-            else {
-                palos[carta.getPalo().ordinal()].addLast(carta);
+    /**
+     * Inserta una carta en la mesa
+     * 
+     * @param carta La carta a colocar
+     */
+    public void insertar( Carta carta) {
+        int PALO = carta.getPalo().ordinal();
+        if (carta.getNumero()<5) {
+            palos[PALO].addFirst(carta);
         }
-            
+        else {
+            palos[PALO].addLast(carta);
         }
     }
 
-    // mostrar el estado de la mesa
+    /**
+     * Devuelve el estado de la mesa, como String
+     * 
+     * @return La mesa comoString
+     */
     public String toString() {
         Carta.Palos[] palo = Carta.Palos.values();
         final int SIZE = palo.length;
