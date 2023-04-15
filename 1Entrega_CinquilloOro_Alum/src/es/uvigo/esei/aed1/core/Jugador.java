@@ -56,6 +56,10 @@ public class Jugador {
         return encontrado;
     }
     
+    public boolean noTieneCartas(){
+        return manoDeCartas.isEmpty();
+    }
+    
     @Override
     /**
      * Devuelve el nombre del jugador y las cartas de su mano, como string

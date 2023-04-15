@@ -36,32 +36,45 @@ public class Juego{
      * 
      */
     public void jugar(){
-        iu.mostrarMesa(mesa); //BORRAR ESTO LUEGO
         iu.mostrarMensaje("Comenzando juego de Cinquillo Oro");
         listaJugadores = iu.pedirDatosJugadores();
-        iu.mostrarMensaje("Repartiendo cartas, por favor espere");        
+       
+        iu.mostrarMensaje("Preparando la partida y "
+                + "repartiendo cartas, por favor espere");        
         baraja.barajar();
         repartircartas();
         iu.mostrarJugadores(listaJugadores);
-        int posInicial = elegirJugadorInicial();
+        int pos = elegirJugadorInicial();
         iu.mostrarMensaje("El jugador que comenzara la partida es:\t"
-                +listaJugadores.get(posInicial).getNombre());
-        //Se mueven los jugadores en la lista para que el que inicia este en indice 0
-        for (int i = 0; i < posInicial; i++) {
-            listaJugadores.add(listaJugadores.remove(0));
-        }
+                +listaJugadores.get(pos).getNombre());
         //lo anterior solo se harua al principio, salvo barajar y repartir
         
-        //Aqui me pongo yo - Fabi
-        //Ignorad mis comentarios, estoy haciendo ideas
-        
-//Los/as jugadores/as van jugando por turnos (colocando cartas en la mesa) hasta
-//que la partida termine. La partida termina cuando un/a jugador/a coloca todas sus
-//cartas en la mesa. Al terminar la partida, se debe indicar el nombre del jugador que
-//ha resultado ganador.
-        // while que no pare mientras haya cartas y se reseete dentro por la posicion
-        //if para parar el bucle cuando no queden cartas
-        //Hace falta funcion para que un jugador saque carta,
+        boolean continuar = true;
+        Jugador jugador;
+        while (continuar) {
+            if(pos >= listaJugadores.size()){
+                pos = 0;
+            }
+            jugador = listaJugadores.get(pos);
+            iu.mostrarMensaje("Estado de la Mesa");
+            iu.mostrarMesa(mesa);
+            iu.mostrarMensaje("Juega: ");
+            iu.mostrarJugador(jugador);
+            
+            //INSERTAR CODIGO INSERTAR CARTA TODO AQUI
+            //Borrar la linea siguiente
+            if(pos == 0) throw new RuntimeException("Bucle infinito momento");
+            
+            
+            
+            
+            if (jugador.noTieneCartas()) { //Acaba la partida
+                continuar = false;
+                iu.mostrarMensaje("El jugador %s ha ganado la partida",jugador.getNombre() );
+            } else { //Continua al siguiente jugador
+                pos++;
+            }
+        }
     }
     
     /**
