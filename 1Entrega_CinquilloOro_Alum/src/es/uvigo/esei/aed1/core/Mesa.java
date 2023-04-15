@@ -41,7 +41,13 @@ public class Mesa {
     //a�adir m�s funcionalidades
     public void insertar ( Carta carta) {
         
-       
+        
+            if (carta.getNumero()<5) {
+                palos[carta.getPalo().ordinal()].addFirst(carta);
+            }
+            else {
+                palos[carta.getPalo().ordinal()].addLast(carta);
+        }
             
         }
     }
@@ -52,4 +58,4 @@ public class Mesa {
     public String toString(){
         //Esto lo hace adri rey
     }*/
-}
+
