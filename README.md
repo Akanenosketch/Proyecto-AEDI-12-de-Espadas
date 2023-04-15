@@ -27,11 +27,11 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
   
 - [x] Cambios posibles sugeridos en la tutoria. 
 
-- [ ] Crear la mesa de juego, inicialmente vacía (el fichero con la clase Mesa, inicialmente vacía, se os proporciona). @adrixprietox
+- [x] Crear la mesa de juego, inicialmente vacía (el fichero con la clase Mesa, inicialmente vacía, se os proporciona). @adrixprietox
 
 - [ ] Los/as jugadores/as van jugando por turnos (colocando cartas en la mesa) hastaque la partida termine. La partida termina cuando un/a jugador/a coloca todas sus cartas en la mesa. @DanielFabianRL 
 
-- [ ] En cada turno de juego se debe mostrar i) el estado de la mesa y ii) las cartas de la mano del jugador/a activo/a. @thekingofwar03
+- [x] En cada turno de juego se debe mostrar i) el estado de la mesa y ii) las cartas de la mano del jugador/a activo/a. @thekingofwar03
 
 - [ ] Si el/la jugador/a activo/a puede colocar alguna carta en la mesa, se le debe preguntar qué carta quiere colocar. Si es posible, se coloca en la mesa. Si no es posible, se le informa y se le pide que escoja otra carta. Una vez colocada pasa el turno al siguiente jugador/a. @Akanenosketch & @SugarStorm22
   
