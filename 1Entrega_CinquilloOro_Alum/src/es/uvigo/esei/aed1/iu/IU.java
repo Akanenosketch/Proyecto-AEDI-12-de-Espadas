@@ -1,6 +1,7 @@
 package es.uvigo.esei.aed1.iu;
 
 import es.uvigo.esei.aed1.core.Jugador;
+import es.uvigo.esei.aed1.core.Mesa;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.InputMismatchException;
@@ -163,5 +164,13 @@ public class IU {
         return rng.nextInt(limite);
     }
     
+    /**
+     * Muestra una mesa por pantalla
+     *
+     * @param mesa La mesa a mostrar
+     */
+    public void mostrarMesa(Mesa mesa) {
+        mostrarMensaje(mesa.toString());
+    }
     
 }

@@ -36,6 +36,7 @@ public class Juego{
      * 
      */
     public void jugar(){
+        iu.mostrarMesa(mesa); //BORRAR ESTO LUEGO
         iu.mostrarMensaje("Comenzando juego de Cinquillo Oro");
         listaJugadores = iu.pedirDatosJugadores();
         iu.mostrarMensaje("Repartiendo cartas, por favor espere");        
