@@ -1,10 +1,7 @@
-/**
- * Representa la interfaz del juego del Cinquillo-Oro, en este proyecto va a ser una entrada/salida en modo texto
- * Se recomienda una implementación modular.
- */
 package es.uvigo.esei.aed1.iu;
 
 import es.uvigo.esei.aed1.core.Jugador;
+import es.uvigo.esei.aed1.core.Mesa;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.InputMismatchException;
@@ -12,7 +9,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Representacion de la interfaz de usuario
+ * Representacion de la interfaz de usuario del juego Cinquillo-Oro
  * 
  */
 public class IU {
@@ -24,10 +21,10 @@ public class IU {
     }
 
     /**
-     * Lee un num. de teclado
+     * Lee un numero del teclado
      *
-     * @param msg El mensaje a visualizar.
-     * @return El num., como entero
+     * @param msg El mensaje a visualizar
+     * @return El numero, como entero
      */
     public int leeNum(String msg) {
         do {
@@ -36,15 +33,15 @@ public class IU {
                 return teclado.nextInt();
             } catch (InputMismatchException exc) {
                 teclado.next();
-                System.out.println("Entrada no válida. Debe ser un entero.");
+                System.out.println("Entrada no valida. Debe ser un entero.");
             }
         } while (true);
     }
 
     /**
-     * Lee un string. de teclado
+     * Lee un string del teclado
      *
-     * @param msg El mensaje a visualizar.
+     * @param msg El mensaje a visualizar
      * @return El string
      */
     public String leeString(String msg) {
@@ -53,10 +50,10 @@ public class IU {
     }
 
     /**
-     * Lee un string. de teclado
+     * Lee un string de teclado
      *
-     * @param msg El mensaje a visualizar.
-     * @param permiteVacio Si la string leida puede estar vacia
+     * @param msg El mensaje a visualizar
+     * @param permiteVacio Si el string leida puede estar vacia
      * @return El string
      */
     public String leeString(String msg, boolean permiteVacio) {
@@ -71,11 +68,11 @@ public class IU {
     }
 
     /**
-     * Lee un string. de teclado
+     * Lee un string del teclado
      *
-     * @param msg El mensaje a visualizar con formato
-     * @param args Los datos a incluir en el mensaje con formato
-     * @return
+     * @param msg El mensaje a visualizar, con formato
+     * @param args Los datos a incluir en el mensaje 
+     * @return el string 
      */
     public String leeString(String msg, Object... args) {
         System.out.printf(msg, args);
@@ -89,16 +86,28 @@ public class IU {
      */
     public void mostrarMensaje(String msg) {
         System.out.println(msg);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            // Codigo para que tarde 1s entre lineas
+            //Simplemente para que no ponga 10 lineas en 1s
+        }
     }
 
     /**
      * Muestra un string con formato por pantalla
      *
-     * @param msg El mensaje a visualizar con formato
-     * @param args Los datos a incluir en el mensaje con formato
+     * @param msg El mensaje a visualizar, con formato
+     * @param args Los datos a incluir en el mensaje
      */
     public void mostrarMensaje(String msg, Object... args) {
         System.out.printf(msg, args);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            // Codigo para que tarde 1s entre lineas
+            //Simplemente para que no ponga 10 lineas en 1s
+        }
     }
 
     /**
@@ -111,12 +120,12 @@ public class IU {
         int numJugadores;
         String nombre;
         do {
-            numJugadores = leeNum("Introduce el numero "
+            numJugadores = leeNum("Introduzca el numero "
                     + "de jugadores(3 o 4): ");
         } while (numJugadores < 3 || numJugadores > 4);
 
         for (int i = 0; i < numJugadores; i++) {
-            nombre = leeString("Introduce el nombre del jugador " + (i + 1)+": ", false);
+            nombre = leeString("Introduzca el nombre del jugador " + (i + 1)+": ", false);
             Jugador nuevo = new Jugador(nombre);
             jugadores.add(nuevo);
         }
@@ -129,7 +138,7 @@ public class IU {
      * @param jugador El jugador a mostrar
      */
     public void mostrarJugador(Jugador jugador) {
-        mostrarMensaje(jugador.toString());
+        mostrarMensaje(jugador.toString()+"\n");
     }
 
     /**
@@ -155,5 +164,13 @@ public class IU {
         return rng.nextInt(limite);
     }
     
+    /**
+     * Muestra una mesa por pantalla
+     *
+     * @param mesa La mesa a mostrar
+     */
+    public void mostrarMesa(Mesa mesa) {
+        mostrarMensaje(mesa.toString());
+    }
     
 }
