@@ -37,8 +37,17 @@ x    Funcion que muestre la mesa, es el toString, lo hace adri rey
     }
 
     //a�adir m�s funcionalidades
-    public void insertar(Carta carta) {
-
+    public void insertar ( Carta carta) {
+        
+        
+            if (carta.getNumero()<5) {
+                palos[carta.getPalo().ordinal()].addFirst(carta);
+            }
+            else {
+                palos[carta.getPalo().ordinal()].addLast(carta);
+        }
+            
+        }
     }
 
     // mostrar el estado de la mesa
