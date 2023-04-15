@@ -29,7 +29,7 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
 
 - [x] Crear la mesa de juego, inicialmente vacía (el fichero con la clase Mesa, inicialmente vacía, se os proporciona). @adrixprietox
 
-- [ ] Los/as jugadores/as van jugando por turnos (colocando cartas en la mesa) hastaque la partida termine. La partida termina cuando un/a jugador/a coloca todas sus cartas en la mesa. @DanielFabianRL 
+- [x] Los/as jugadores/as van jugando por turnos (colocando cartas en la mesa) hastaque la partida termine. La partida termina cuando un/a jugador/a coloca todas sus cartas en la mesa. @DanielFabianRL 
 
 - [x] En cada turno de juego se debe mostrar i) el estado de la mesa y ii) las cartas de la mano del jugador/a activo/a. @thekingofwar03
 
@@ -37,7 +37,7 @@ Los puntos a trabajar durante esta entrega son los siguientes (hago copia-pega p
   
 - [ ] Si el/la jugador/a activo/a no puede colocar ninguna carta en la mesa, se informa y pasa el turno al siguiente jugador/a. @Akanenosketch & @SugarStorm22
   
-- [ ] Al terminar la partida, se debe indicar el nombre del jugador/a o jugadores/as que ha resultado ganador. @DanielFabianRL
+- [x] Al terminar la partida, se debe indicar el nombre del jugador/a o jugadores/as que ha resultado ganador. @DanielFabianRL
 
 ### Recomendaciones (antes de que alguien la cague y tengamos que dar hostias)
 - Cada punto en la branch de la entrega y cuando se confirme que funciona se hace pull request al main.
