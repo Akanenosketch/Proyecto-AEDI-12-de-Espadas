@@ -105,4 +105,16 @@ public class Juego{
         }
         return posicion;
     }
+    
+    public boolean tieneCartasValidas(Jugador jugador){
+        List<Carta> cartas = jugador.getManoDeCartas();
+        boolean cartaValida = false;
+        for (Carta c : cartas){
+            if(mesa.cartaValida(c) || jugador.tieneCincos()){
+                cartaValida=true;
+            }
+        }       
+        return cartaValida;
+    }
+    
 }

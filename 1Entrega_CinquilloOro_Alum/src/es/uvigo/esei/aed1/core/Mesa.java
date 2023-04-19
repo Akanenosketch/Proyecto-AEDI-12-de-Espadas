@@ -8,6 +8,7 @@ package es.uvigo.esei.aed1.core;
 
 import java.util.LinkedList;
 import java.util.Deque;
+import java.util.Iterator;
 
 public class Mesa {
 
@@ -21,7 +22,16 @@ public class Mesa {
     Para lo del array de doblecolas casi seguro hace falta usar .ordinal en el enum del palo
     preguntadme por el .ordinal y os lo explico
      */
- 
+    public boolean cartaValida (Carta carta){
+        
+        Iterator<Carta> it = palos [carta.getPalo().ordinal()].iterator();
+        
+        while (!it.equals(carta) && it!=null){
+            it.next();
+        }
+        return it.equals(carta);
+  
+    }
     /**
      * Crea la Mesa vacia
      * 

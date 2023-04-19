@@ -12,6 +12,10 @@ public class Jugador {
     private String nombre;
     private List<Carta> manoDeCartas;
 
+    public List<Carta> getManoDeCartas() {
+        return manoDeCartas;
+    }
+
     /**
      * Crea un jugador sin cartas
      * 
