@@ -62,18 +62,24 @@ public class Juego{
             iu.mostrarJugador(jugador);
             
             //INSERTAR CODIGO INSERTAR CARTA TODO AQUI
-            //Borrar la linea siguiente
-            if(pos == 0) throw new RuntimeException("Bucle infinito momento");
+            if(tieneCartasValidas(jugador)){
+                int opt;
+                do{
+                    iu.mostrarMensaje("Cartas activas : \n %s", jugador.cartasActivas(jugador));
+                    do{
+                        opt= iu.leeNum("Introduce la carta a usar (el numero mostrado antes de la carta):");
+                    }while((opt-1)<0||(opt-1)>=jugador.getManoDeCartas().size());
+                }while(!mesa.cartaValida(jugador.getManoDeCartas().get(opt)));
             
-            
-            
-            
-            if (jugador.noTieneCartas()) { //Acaba la partida
+            }else if (jugador.noTieneCartas()){ //Acaba la partida
                 continuar = false;
-                iu.mostrarMensaje("El jugador %s ha ganado la partida",jugador.getNombre() );
-            } else { //Continua al siguiente jugador
+                iu.mostrarMensaje("El jugador %s ha ganado la partida", jugador.getNombre());                
+            } else{ //Continua el siguiente jugador
+                iu.mostrarMensaje("El jugador %s no tiene cartas válidas", jugador.getNombre());
                 pos++;
             }
+            //Borrar la linea siguiente
+            //if(pos == 0) throw new RuntimeException("Bucle infinito momento");            
         }
     }
     

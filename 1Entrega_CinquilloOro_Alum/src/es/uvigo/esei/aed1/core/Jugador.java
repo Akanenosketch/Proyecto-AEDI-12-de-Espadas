@@ -78,4 +78,14 @@ public class Jugador {
         }
         return sb.toString();
     }
+    
+    public String cartasActivas (Jugador jugador){
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i< jugador.getManoDeCartas().size()-1;i++){
+            sb.append(i+1).append(".-");
+            sb.append(jugador.getManoDeCartas().get(i).toString());
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 }
