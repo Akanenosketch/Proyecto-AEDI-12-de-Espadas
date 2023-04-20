@@ -6,9 +6,10 @@ import java.util.List;
 
 /**
  * Representa un jugador, identificado por su nombre y su mano de cartas
- * 
+ *
  */
 public class Jugador {
+
     private String nombre;
     private List<Carta> manoDeCartas;
 
@@ -18,7 +19,7 @@ public class Jugador {
 
     /**
      * Crea un jugador sin cartas
-     * 
+     *
      * @param nombre el nombre del jugador
      */
     public Jugador(String nombre) {
@@ -28,25 +29,29 @@ public class Jugador {
 
     /**
      * Añade una carta a la mano del jugador
-     * 
+     *
      * @param carta la carta a añadir
      */
     public void insertarCartaALaMano(Carta carta) {
         this.manoDeCartas.add(carta);
     }
 
+    public void borrarCarta(Carta carta) {
+        this.manoDeCartas.remove(carta);
+    }
+
     /**
      * Devuelve el nombre del jugador
-     * 
+     *
      * @return el nombre, como String
      */
     public String getNombre() {
         return this.nombre;
     }
-    
+
     /**
      * Comprueba si existe un cinco de cualquier palo en la mano del jugador
-     * 
+     *
      * @return Un booleano que indica si existe algun 5
      */
     public boolean tieneCincos() {
@@ -56,18 +61,18 @@ public class Jugador {
             if (ite.next().getNumero() == 5) {
                 encontrado = true;
             }
-        }        
+        }
         return encontrado;
     }
-    
-    public boolean noTieneCartas(){
+
+    public boolean noTieneCartas() {
         return manoDeCartas.isEmpty();
     }
-    
+
     @Override
     /**
      * Devuelve el nombre del jugador y las cartas de su mano, como string
-     * 
+     *
      * @return los datos del jugador como String
      */
     public String toString() {
@@ -78,11 +83,11 @@ public class Jugador {
         }
         return sb.toString();
     }
-    
-    public String cartasActivas (Jugador jugador){
+
+    public String cartasActivas(Jugador jugador) {
         StringBuilder sb = new StringBuilder();
-        for (int i=0; i< jugador.getManoDeCartas().size()-1;i++){
-            sb.append(i+1).append(".-");
+        for (int i = 0; i < jugador.getManoDeCartas().size() - 1; i++) {
+            sb.append(i + 1).append(".-");
             sb.append(jugador.getManoDeCartas().get(i).toString());
             sb.append("\n");
         }

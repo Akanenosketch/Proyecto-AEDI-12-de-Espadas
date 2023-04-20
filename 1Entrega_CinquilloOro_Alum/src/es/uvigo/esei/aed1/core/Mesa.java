@@ -8,7 +8,7 @@ package es.uvigo.esei.aed1.core;
 
 import java.util.LinkedList;
 import java.util.Deque;
-import java.util.Iterator;
+
 
 public class Mesa {
 
@@ -37,7 +37,7 @@ public class Mesa {
             }else{
                 num--;   
             }
-            toRet = palos[palo.ordinal()].contains(new Carta(num,palo));
+            toRet = palos[palo.ordinal()].contains(new Carta(num,palo)); //posible fallo aquí
         }
         return toRet;
     }
