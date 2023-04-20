@@ -24,14 +24,24 @@ public class Mesa {
      */
     public boolean cartaValida (Carta carta){
         
-        Iterator<Carta> it = palos [carta.getPalo().ordinal()].iterator();
-        
-        while (!it.equals(carta) && it!=null){
-            it.next();
+        boolean toRet;
+        int num = carta.getNumero();
+        //Si es 5 siempre es válido
+        if(num ==5){
+            toRet = true;
+        } else {
+            Carta.Palos palo= carta.getPalo();
+            
+            if(num<5){
+                num++;
+            }else{
+                num--;   
+            }
+            toRet = palos[palo.ordinal()].contains(new Carta(num,palo));
         }
-        return it.equals(carta);
-  
+        return toRet;
     }
+    
     /**
      * Crea la Mesa vacia
      * 

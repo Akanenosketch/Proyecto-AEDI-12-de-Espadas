@@ -78,8 +78,7 @@ public class Juego{
                 iu.mostrarMensaje("El jugador %s no tiene cartas válidas", jugador.getNombre());
                 pos++;
             }
-            //Borrar la linea siguiente
-            //if(pos == 0) throw new RuntimeException("Bucle infinito momento");            
+                       
         }
     }
     
