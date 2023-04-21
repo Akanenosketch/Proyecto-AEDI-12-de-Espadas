@@ -86,7 +86,7 @@ public class Mesa {
         final int SIZE = palo.length;
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < SIZE; i++) {
-            sb.append(String.format("Palo de %8s" ,palo[i].name()+":" ));
+            sb.append(String.format("%8s" ,palo[i].name()+":" ));
             sb.append("  ");
             if (!palos[i].isEmpty()) {
                 //Pone espacios en blanco en las posiciones sin carta
