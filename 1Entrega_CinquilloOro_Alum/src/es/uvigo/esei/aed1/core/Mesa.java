@@ -88,9 +88,23 @@ public class Mesa {
         for (int i = 0; i < SIZE; i++) {
             sb.append(String.format("Palo de %8s" ,palo[i].name()+":" ));
             sb.append("  ");
-            for (Carta carta : palos[i]) {
-                sb.append(carta.getNumero()).append(" ");
+            if (!palos[i].isEmpty()) {
+                //Pone espacios en blanco en las posiciones sin carta
+                int vacios = palos[i].peekFirst().getNumero() -1;
+                for (int j = 0; j < vacios; j++) {
+                    sb.append(" ").append(" ");                     
+                }
+                //Pone las cartas
+                for (Carta carta : palos[i]) {
+                    sb.append(carta.getNumero()).append(" ");
+                }
+                //Pone espacios en blanco en las posiciones sin cartas
+                vacios = 12 - palos[i].peekLast().getNumero();
+                for (int j = 0; j < vacios; j++) {
+                    sb.append(" ").append(" ");                     
+                }
             }
+            
             sb.append("\n");
         }
         return sb.toString();

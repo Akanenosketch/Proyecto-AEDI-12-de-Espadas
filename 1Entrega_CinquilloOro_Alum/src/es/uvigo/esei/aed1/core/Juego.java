@@ -61,7 +61,7 @@ public class Juego {
                 mesa.insertar(actual);
             } else {
                 iu.mostrarMensaje("El jugador %s no tiene cartas validas,"
-                        + " pasando turno", jugador.getNombre());
+                        + " pasando turno\n", jugador.getNombre());
             } 
             
             if (jugador.noTieneCartas()) { //Acaba la partida
