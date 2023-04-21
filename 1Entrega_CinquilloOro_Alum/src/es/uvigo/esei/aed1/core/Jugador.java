@@ -35,9 +35,18 @@ public class Jugador {
     public void insertarCartaALaMano(Carta carta) {
         this.manoDeCartas.add(carta);
     }
-
-    public void borrarCarta(Carta carta) {
-        this.manoDeCartas.remove(carta);
+    
+    /**
+     * Quita una carta de la mano
+     * 
+     * @param pos La posicion de la carta a quitar en la mano
+     * @return La carta cojida
+     */
+    public Carta cojerCarta(int pos) {
+        Carta toRet = manoDeCartas.get(pos);
+        manoDeCartas.remove(toRet);
+        return toRet;
+    
     }
 
     /**
@@ -86,11 +95,13 @@ public class Jugador {
 
     public String cartasActivas(Jugador jugador) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < jugador.getManoDeCartas().size() - 1; i++) {
-            sb.append(i + 1).append(".-");
+        int size = jugador.getManoDeCartas().size();
+        for (int i = 0; i < size; i++) {
+            sb.append(i + 1).append(") ");
             sb.append(jugador.getManoDeCartas().get(i).toString());
-            sb.append("\n");
+            sb.append("   ");
         }
+        sb.append("\n");
         return sb.toString();
     }
 }

@@ -41,7 +41,18 @@ public class Carta {
     public Palos getPalo() {
         return this.palo;
     }
-
+    
+    /**
+     * Compara this con otra carta
+     * 
+     * @param otra La carta a comparar
+     * @return devuelve true si y solo si el numero y el palo son iguales
+     */
+    public boolean iguales(Carta otra){
+        return this.getNumero()==otra.getNumero() 
+                && this.getPalo() == otra.getPalo();
+    }
+    
     @Override
     /**
      * Devuelve la carta como un string "Numero de Palo"

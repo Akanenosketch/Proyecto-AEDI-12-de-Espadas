@@ -53,7 +53,7 @@ public class IU {
      * Lee un string de teclado
      *
      * @param msg El mensaje a visualizar
-     * @param permiteVacio Si el string leida puede estar vacia
+     * @param permiteVacio Si el string leido puede estar vacia
      * @return El string
      */
     public String leeString(String msg, boolean permiteVacio) {
@@ -170,7 +170,7 @@ public class IU {
      * @param mesa La mesa a mostrar
      */
     public void mostrarMesa(Mesa mesa) {
-        mostrarMensaje(mesa.toString());
+        mostrarMensaje("Estado de la mesa:\n"+mesa.toString());
     }
     
 }

@@ -1,47 +1,14 @@
-/*
-* Representa la Mesa de juego. 
-* Estructura: se utilizar� un TAD adecuado. Piensa que hay 4 palos y de cada palo se pueden colocar cartas 
-* por cualquiera de los dos extremos (un array con 4 doblescolas parece lo m�s adecuado). La DobleCola se coment� en clase de teor�a
-* Funcionalidad: saber si es posible colocar una carta en la mesa, colocar una carta en la mesa, mostrar la mesa
- */
 package es.uvigo.esei.aed1.core;
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Iterator;
 
 
 public class Mesa {
 
     private Deque<Carta>[] palos;
 
-    /*TOdo esto venia de base menos este gran comentario 
-    Funciones a implementar segun el enunciado:
-    Funcion que diga si es posible colocar una carta (natalia & tatiana)
-    por ejemplo public boolean cartaValida(Carta carta)
-    
-    Para lo del array de doblecolas casi seguro hace falta usar .ordinal en el enum del palo
-    preguntadme por el .ordinal y os lo explico
-     */
-    public boolean cartaValida (Carta carta){
-        
-        boolean toRet;
-        int num = carta.getNumero();
-        //Si es 5 siempre es válido
-        if(num ==5){
-            toRet = true;
-        } else {
-            Carta.Palos palo= carta.getPalo();
-            
-            if(num<5){
-                num++;
-            }else{
-                num--;   
-            }
-            toRet = palos[palo.ordinal()].contains(new Carta(num,palo)); //posible fallo aquí
-        }
-        return toRet;
-    }
-    
     /**
      * Crea la Mesa vacia
      * 
@@ -50,12 +17,12 @@ public class Mesa {
         final int SIZE = Carta.Palos.values().length;
         palos = new Deque[SIZE];
         for (int i = 0; i < SIZE; i++) {
-            palos[i] = new LinkedList();
+            palos[i] = new ArrayDeque(12);
         }
     }
 
     /**
-     * Inserta una carta en la mesa
+     * Inserta una carta en la mesa SIN COMPROBAR VALIDEZ
      * 
      * @param carta La carta a colocar
      */
@@ -68,18 +35,59 @@ public class Mesa {
             palos[PALO].addLast(carta);
         }
     }
-
+   
+    /**
+     * Comprueba si la carta se puede insertar
+     * 
+     * @param carta La carta a insertar
+     * @return si se puede insertar
+     */
+    public boolean cartaValida (Carta carta){
+        boolean toRet;
+        int num = carta.getNumero();
+        if(num ==5){
+            toRet = true;
+        } else {
+            Carta.Palos palo= carta.getPalo();
+            if(num<5){
+                num++;
+            }else{
+                num--;   
+            }
+            toRet = this.contiene(new Carta(num,palo));
+        }
+        return toRet;
+    }
+    
+    /**
+     * Metodo privado para comprobar si una carta esta en la mesa
+     * 
+     * @param carta la carta a comprobar
+     * @return Si la carta esta en la mesa o no
+     */
+    private boolean contiene(Carta carta){
+        boolean toRet = false;
+        Iterator<Carta> it = palos[carta.getPalo().ordinal()].iterator();
+        while (!toRet && it.hasNext()) {
+            toRet = carta.iguales(it.next());
+        }
+        return toRet;
+    }
+    
+    
     /**
      * Devuelve el estado de la mesa, como String
      * 
-     * @return La mesa comoString
+     * @return La mesa como String
      */
+    @Override
     public String toString() {
         Carta.Palos[] palo = Carta.Palos.values();
         final int SIZE = palo.length;
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < SIZE; i++) {
-            sb.append("Palo de ").append(palo[i].name()).append(":\t");
+            sb.append(String.format("Palo de %8s" ,palo[i].name()+":" ));
+            sb.append("  ");
             for (Carta carta : palos[i]) {
                 sb.append(carta.getNumero()).append(" ");
             }

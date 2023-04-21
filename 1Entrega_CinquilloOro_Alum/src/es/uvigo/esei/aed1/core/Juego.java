@@ -5,6 +5,7 @@
 package es.uvigo.esei.aed1.core;
 
 import es.uvigo.esei.aed1.iu.IU;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,12 +19,6 @@ public class Juego {
     private Baraja baraja;
     private List<Jugador> listaJugadores;
     private Mesa mesa;
-    //Un par de ideas random para tatiana/natalia
-    // Una funcion booleana que mire si el jugador puede colocar alguna 
-    //carta de la mano en la mesa, usando la de cartaValida de la Mesa  y la de buscarincos de la primera entrega 
-    //Un ifelse aqui en jugar (colocadlo donde podais y cuando haga mi parte lo meto) que llame a la funcion
-    //una funcion para lo de pedir la carta 
-    //lo de pasar turno seguramente lo mire yo en mi parte, pq lo vuestro son funciones y un ifelse metido en mi parte
 
     public Juego(IU iu) {
         this.iu = iu;
@@ -37,7 +32,8 @@ public class Juego {
      *
      */
     public void jugar() {
-        iu.mostrarMensaje("Comenzando juego de Cinquillo Oro");
+        iu.mostrarMensaje("Comenzando juego de Cinquillo Oro"
+                +"\nSe recomienda jugar en pantalla completa");
         listaJugadores = iu.pedirDatosJugadores();
 
         iu.mostrarMensaje("Preparando la partida y "
@@ -48,8 +44,6 @@ public class Juego {
         int pos = elegirJugadorInicial();
         iu.mostrarMensaje("El jugador que comenzara la partida es:\t"
                 + listaJugadores.get(pos).getNombre());
-        //lo anterior solo se harua al principio, salvo barajar y repartir
-
         boolean continuar = true;
         Jugador jugador;
         while (continuar) {
@@ -57,35 +51,54 @@ public class Juego {
                 pos = 0;
             }
             jugador = listaJugadores.get(pos);
-            iu.mostrarMensaje("Estado de la Mesa");
-            iu.mostrarMesa(mesa);
+
             iu.mostrarMensaje("Juega: ");
             iu.mostrarJugador(jugador);
-
-            //INSERTAR CODIGO INSERTAR CARTA TODO AQUI
-            if (tieneCartasValidas(jugador)) {
-                int opt;
-                do {
-                    iu.mostrarMensaje("Cartas activas : \n %s", jugador.cartasActivas(jugador));
-                    do {
-                        opt = iu.leeNum("Introduce la carta a usar (el numero mostrado antes de la carta):");
-                    } while ((opt - 1) < 0 || (opt - 1) >= jugador.getManoDeCartas().size());
-                    System.out.println(mesa.cartaValida(jugador.getManoDeCartas().get(opt - 1))); //borrar cuando funcione
-                } while (!mesa.cartaValida(jugador.getManoDeCartas().get(opt - 1)));
-                mesa.insertar(jugador.getManoDeCartas().get(opt - 1));
-                jugador.borrarCarta(jugador.getManoDeCartas().get(opt - 1));
-                pos++;
-            } else if (jugador.noTieneCartas()) { //Acaba la partida
+            iu.mostrarMesa(mesa);
+            
+            if (tieneCartasValidas(jugador)) {   
+                Carta actual = leerCarta(jugador);
+                mesa.insertar(actual);
+            } else {
+                iu.mostrarMensaje("El jugador %s no tiene cartas validas,"
+                        + " pasando turno", jugador.getNombre());
+            } 
+            
+            if (jugador.noTieneCartas()) { //Acaba la partida
                 continuar = false;
-                iu.mostrarMensaje("El jugador %s ha ganado la partida", jugador.getNombre());
+                iu.mostrarMensaje("\n\nEl jugador %s ha ganado la partida", jugador.getNombre());
             } else { //Continua el siguiente jugador
-                iu.mostrarMensaje("El jugador %s no tiene cartas válidas", jugador.getNombre());
                 pos++;
             }
-
         }
     }
-
+    
+    
+    public Carta leerCarta(Jugador jugador){
+        Carta toRet = null;
+        do {
+            if(toRet != null){
+                iu.mostrarMensaje("La carta seleccionada no es valida");
+                iu.mostrarMesa(mesa);
+                iu.mostrarMensaje("Seleccione una carta valida");
+                jugador.insertarCartaALaMano(toRet);
+            }
+            int opt = -1234; //valor a reemplazar
+        
+            do {
+                if(opt != -1234){
+                        iu.mostrarMensaje("No se ha seleccionado una carta");
+                }
+                iu.mostrarMensaje("Cartas de la mano : \n %s", jugador.cartasActivas(jugador));
+                opt = iu.leeNum("Introduzca la carta a colocar"
+                            + " (el numero mostrado antes de la carta): ") - 1;
+            } while (opt < 0 || opt >= jugador.getManoDeCartas().size());         
+            toRet = jugador.cojerCarta(opt);
+            
+        } while (!mesa.cartaValida(toRet));
+        return toRet;
+    }
+    
     /**
      * Reparte todas las cartas de la baraja a los jugadores
      *
@@ -115,15 +128,13 @@ public class Juego {
         return posicion;
     }
 
-    public boolean tieneCartasValidas(Jugador jugador) {
-        List<Carta> cartas = jugador.getManoDeCartas();
-        boolean cartaValida = false;
-        for (Carta c : cartas) {
-            if (mesa.cartaValida(c) || jugador.tieneCincos()) {
-                cartaValida = true;
-            }
+    public boolean tieneCartasValidas(Jugador jugador){
+        boolean cartaValida = jugador.tieneCincos();
+        Iterator<Carta> it= jugador.getManoDeCartas().iterator();
+        while (!cartaValida && it.hasNext()) {
+           cartaValida = mesa.cartaValida(it.next());
         }
+
         return cartaValida;
     }
-
 }
