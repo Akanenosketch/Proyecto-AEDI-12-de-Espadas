@@ -14,9 +14,9 @@ public class Mesa {
      * 
      */
     public Mesa() {
-        final int SIZE = Carta.Palos.values().length;
-        palos = new Deque[SIZE];
-        for (int i = 0; i < SIZE; i++) {
+        int size = Carta.Palos.values().length;
+        palos = new Deque[size];
+        for (int i = 0; i < size; i++) {
             palos[i] = new ArrayDeque(12);
         }
     }
@@ -27,12 +27,12 @@ public class Mesa {
      * @param carta La carta a colocar
      */
     public void insertar( Carta carta) {
-        int PALO = carta.getPalo().ordinal();
+        int palo = carta.getPalo().ordinal();
         if (carta.getNumero()<5) {
-            palos[PALO].addFirst(carta);
+            palos[palo].addFirst(carta);
         }
         else {
-            palos[PALO].addLast(carta);
+            palos[palo].addLast(carta);
         }
     }
    
@@ -83,9 +83,9 @@ public class Mesa {
     @Override
     public String toString() {
         Carta.Palos[] palo = Carta.Palos.values();
-        final int SIZE = palo.length;
+        int size = palo.length;
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < SIZE; i++) {
+        for (int i = 0; i < size; i++) {
             sb.append(String.format("%8s" ,palo[i].name()+":" ));
             sb.append("  ");
             if (!palos[i].isEmpty()) {

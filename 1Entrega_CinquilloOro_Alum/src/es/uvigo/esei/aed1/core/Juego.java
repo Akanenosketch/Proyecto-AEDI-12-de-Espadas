@@ -66,19 +66,25 @@ public class Juego {
             
             if (jugador.noTieneCartas()) { //Acaba la partida
                 continuar = false;
-                iu.mostrarMensaje("\n\nEl jugador %s ha ganado la partida", jugador.getNombre());
+                iu.mostrarMensaje("\n\nEl jugador %s ha ganado la partida\n", jugador.getNombre());
             } else { //Continua el siguiente jugador
                 pos++;
             }
         }
     }
     
-    
+    /**
+     * Muestra todas las cartas del jugador y da a elegir cual poner en la mesa.
+     * Se comprobara que la carta elegida se puede colocar en la mesa
+     * 
+     * @param jugador El jugador a insertar carta
+     * @return La carta a insertar
+     */
     public Carta leerCarta(Jugador jugador){
         Carta toRet = null;
         do {
             if(toRet != null){
-                iu.mostrarMensaje("La carta seleccionada no es valida");
+                iu.mostrarMensaje("LA CARTA SELECCIONADA NO ES VALIDA\n");
                 iu.mostrarMesa(mesa);
                 iu.mostrarMensaje("Seleccione una carta valida");
                 jugador.insertarCartaALaMano(toRet);
@@ -89,8 +95,8 @@ public class Juego {
                 if(opt != -1234){
                         iu.mostrarMensaje("No se ha seleccionado una carta");
                 }
-                iu.mostrarMensaje("Cartas de la mano : \n %s", jugador.cartasActivas(jugador));
-                opt = iu.leeNum("Introduzca la carta a colocar"
+                iu.mostrarMensaje("Cartas de la mano : \n %s", jugador.cartasActivas());
+                opt = iu.leeNum(jugador.getNombre()+ " ,introduzca la carta a colocar"
                             + " (el numero mostrado antes de la carta): ") - 1;
             } while (opt < 0 || opt >= jugador.getManoDeCartas().size());         
             toRet = jugador.cojerCarta(opt);
@@ -127,7 +133,12 @@ public class Juego {
         }
         return posicion;
     }
-
+    /**
+     * Comprueba si el jugador tiene cartas validas, esto es, si alguna es colocable en la mesa
+     * 
+     * @param jugador El jugador del que se comprobaran las cartas
+     * @return true si puede colocar alguna carta
+     */
     public boolean tieneCartasValidas(Jugador jugador){
         boolean cartaValida = jugador.tieneCincos();
         Iterator<Carta> it= jugador.getManoDeCartas().iterator();

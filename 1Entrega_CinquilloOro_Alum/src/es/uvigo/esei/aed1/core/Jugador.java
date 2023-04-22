@@ -93,12 +93,17 @@ public class Jugador {
         return sb.toString();
     }
 
-    public String cartasActivas(Jugador jugador) {
+    /**
+     * Muestra las cartas del jugador
+     * 
+     * @return 
+     */
+    public String cartasActivas() {
         StringBuilder sb = new StringBuilder();
-        int size = jugador.getManoDeCartas().size();
+        int size = manoDeCartas.size();
         for (int i = 0; i < size; i++) {
             sb.append(i + 1).append(") ");
-            sb.append(jugador.getManoDeCartas().get(i).toString());
+            sb.append(manoDeCartas.get(i).toString());
             sb.append("   ");
         }
         sb.append("\n");
