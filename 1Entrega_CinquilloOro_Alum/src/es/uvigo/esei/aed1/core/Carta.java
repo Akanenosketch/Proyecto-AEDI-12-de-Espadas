@@ -1,5 +1,7 @@
 package es.uvigo.esei.aed1.core;
 
+import es.uvigo.esei.aed1.iu.Color;
+
 /**
  * Representa una carta de la baraja española, con valor y palo
  * 
@@ -63,6 +65,6 @@ public class Carta {
         StringBuilder sb = new StringBuilder();
         sb.append(this.getNumero()).append(" de ");
         sb.append(this.getPalo().name().toLowerCase());
-        return sb.toString();
+        return Color.colorizar(sb.toString(), palo.ordinal());
     }   
 }

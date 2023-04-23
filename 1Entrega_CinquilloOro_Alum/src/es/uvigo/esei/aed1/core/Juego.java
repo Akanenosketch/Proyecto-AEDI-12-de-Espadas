@@ -60,8 +60,8 @@ public class Juego {
                 Carta actual = leerCarta(jugador);
                 mesa.insertar(actual);
             } else {
-                iu.mostrarMensaje("El jugador %s no tiene cartas validas,"
-                        + " pasando turno\n", jugador.getNombre());
+                iu.mostrarMensajeDestacado("El jugador " + jugador.getNombre() 
+                        + " no tiene cartas validas, pasando turno\n");
             } 
             
             if (jugador.noTieneCartas()) { //Acaba la partida
@@ -84,7 +84,7 @@ public class Juego {
         Carta toRet = null;
         do {
             if(toRet != null){
-                iu.mostrarMensaje("LA CARTA SELECCIONADA NO ES VALIDA\n");
+                iu.mostrarMensajeDestacado("LA CARTA SELECCIONADA NO ES VALIDA\n");
                 iu.mostrarMesa(mesa);
                 iu.mostrarMensaje("Seleccione una carta valida");
                 jugador.insertarCartaALaMano(toRet);
@@ -93,7 +93,7 @@ public class Juego {
         
             do {
                 if(opt != -1234){
-                        iu.mostrarMensaje("No se ha seleccionado una carta");
+                        iu.mostrarMensajeDestacado("No se ha seleccionado una carta");
                 }
                 iu.mostrarMensaje("Cartas de la mano : \n %s", jugador.cartasActivas());
                 opt = iu.leeNum(jugador.getNombre()+ " ,introduzca la carta a colocar"

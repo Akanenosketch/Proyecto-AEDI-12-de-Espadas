@@ -33,7 +33,7 @@ public class IU {
                 return teclado.nextInt();
             } catch (InputMismatchException exc) {
                 teclado.next();
-                System.out.println("Entrada no valida. Debe ser un entero.");
+                mostrarMensajeDestacado("Entrada no valida. Debe ser un entero.");
             }
         } while (true);
     }
@@ -60,7 +60,7 @@ public class IU {
         String toRet = " ";
         do {
             if (toRet.isEmpty()) {
-                System.out.println("La cadena no puede estar vacia");
+                mostrarMensajeDestacado("La cadena no puede estar vacia");
             }
             toRet = leeString(msg).trim();
         } while (!permiteVacio && toRet.isEmpty());
@@ -108,6 +108,15 @@ public class IU {
             // Codigo para que tarde 1s entre lineas
             //Simplemente para que no ponga 10 lineas en 1s
         }
+    }
+    
+    /**
+     * Muesta un string por pantalla, pero con color rojo
+     *
+     * @param msg El mensaje a mostrar
+     */
+    public void mostrarMensajeDestacado(String msg){
+        mostrarMensaje(Color.colorizar(msg, Color.ROJO));
     }
 
     /**

@@ -3,7 +3,7 @@ package es.uvigo.esei.aed1.core;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
-
+import es.uvigo.esei.aed1.iu.Color;
 
 public class Mesa {
 
@@ -84,8 +84,9 @@ public class Mesa {
     public String toString() {
         Carta.Palos[] palo = Carta.Palos.values();
         int size = palo.length;
-        StringBuilder sb = new StringBuilder();
+        StringBuilder toRet = new StringBuilder();
         for (int i = 0; i < size; i++) {
+            StringBuilder sb = new StringBuilder();
             sb.append(String.format("%8s" ,palo[i].name()+":" ));
             sb.append("  ");
             if (!palos[i].isEmpty()) {
@@ -104,9 +105,10 @@ public class Mesa {
                     sb.append(" ").append(" ");                     
                 }
             }
-            
-            sb.append("\n");
+            //Pone sb con color en toRet
+            toRet.append(Color.colorizar(sb.toString(), i));
+            toRet.append("\n");
         }
-        return sb.toString();
+        return toRet.toString();
     }
 }
