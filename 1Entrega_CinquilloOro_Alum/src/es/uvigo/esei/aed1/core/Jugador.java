@@ -6,15 +6,20 @@ import java.util.List;
 
 /**
  * Representa un jugador, identificado por su nombre y su mano de cartas
- * 
+ *
  */
 public class Jugador {
+
     private String nombre;
     private List<Carta> manoDeCartas;
 
+    public List<Carta> getManoDeCartas() {
+        return manoDeCartas;
+    }
+
     /**
      * Crea un jugador sin cartas
-     * 
+     *
      * @param nombre el nombre del jugador
      */
     public Jugador(String nombre) {
@@ -24,7 +29,7 @@ public class Jugador {
 
     /**
      * Añade una carta a la mano del jugador
-     * 
+     *
      * @param carta la carta a añadir
      */
     public void insertarCartaALaMano(Carta carta) {
@@ -32,17 +37,30 @@ public class Jugador {
     }
 
     /**
+     * Quita una carta de la mano
+     *
+     * @param pos La posicion de la carta a quitar en la mano
+     * @return La carta cojida
+     */
+    public Carta cojerCarta(int pos) {
+        Carta toRet = manoDeCartas.get(pos);
+        manoDeCartas.remove(toRet);
+        return toRet;
+
+    }
+
+    /**
      * Devuelve el nombre del jugador
-     * 
+     *
      * @return el nombre, como String
      */
     public String getNombre() {
         return this.nombre;
     }
-    
+
     /**
      * Comprueba si existe un cinco de cualquier palo en la mano del jugador
-     * 
+     *
      * @return Un booleano que indica si existe algun 5
      */
     public boolean tieneCincos() {
@@ -52,18 +70,18 @@ public class Jugador {
             if (ite.next().getNumero() == 5) {
                 encontrado = true;
             }
-        }        
+        }
         return encontrado;
     }
-    
-    public boolean noTieneCartas(){
+
+    public boolean noTieneCartas() {
         return manoDeCartas.isEmpty();
     }
-    
+
     @Override
     /**
      * Devuelve el nombre del jugador y las cartas de su mano, como string
-     * 
+     *
      * @return los datos del jugador como String
      */
     public String toString() {
@@ -72,6 +90,23 @@ public class Jugador {
         for (Carta i : this.manoDeCartas) {
             sb.append(i.toString()).append("\t");
         }
+        return sb.toString();
+    }
+
+    /**
+     * Muestra las cartas del jugador
+     *
+     * @return
+     */
+    public String cartasActivas() {
+        StringBuilder sb = new StringBuilder();
+        int size = manoDeCartas.size();
+        for (int i = 0; i < size; i++) {
+            sb.append(i + 1).append(") ");
+            sb.append(manoDeCartas.get(i).toString());
+            sb.append("   ");
+        }
+        sb.append("\n");
         return sb.toString();
     }
 }

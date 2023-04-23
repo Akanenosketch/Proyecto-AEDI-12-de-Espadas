@@ -10,12 +10,12 @@ import java.util.Scanner;
 
 /**
  * Representacion de la interfaz de usuario del juego Cinquillo-Oro
- * 
+ *
  */
 public class IU {
 
     private final Scanner teclado;
-   
+
     public IU() {
         teclado = new Scanner(System.in).useDelimiter("\r?\n");
     }
@@ -33,7 +33,7 @@ public class IU {
                 return teclado.nextInt();
             } catch (InputMismatchException exc) {
                 teclado.next();
-                System.out.println("Entrada no valida. Debe ser un entero.");
+                mostrarMensajeDestacado("Entrada no valida. Debe ser un entero.");
             }
         } while (true);
     }
@@ -53,14 +53,14 @@ public class IU {
      * Lee un string de teclado
      *
      * @param msg El mensaje a visualizar
-     * @param permiteVacio Si el string leida puede estar vacia
+     * @param permiteVacio Si el string leido puede estar vacia
      * @return El string
      */
     public String leeString(String msg, boolean permiteVacio) {
         String toRet = " ";
         do {
             if (toRet.isEmpty()) {
-                System.out.println("La cadena no puede estar vacia");
+                mostrarMensajeDestacado("La cadena no puede estar vacia");
             }
             toRet = leeString(msg).trim();
         } while (!permiteVacio && toRet.isEmpty());
@@ -71,8 +71,8 @@ public class IU {
      * Lee un string del teclado
      *
      * @param msg El mensaje a visualizar, con formato
-     * @param args Los datos a incluir en el mensaje 
-     * @return el string 
+     * @param args Los datos a incluir en el mensaje
+     * @return el string
      */
     public String leeString(String msg, Object... args) {
         System.out.printf(msg, args);
@@ -109,6 +109,15 @@ public class IU {
             //Simplemente para que no ponga 10 lineas en 1s
         }
     }
+    
+    /**
+     * Muesta un string por pantalla, pero con color rojo
+     *
+     * @param msg El mensaje a mostrar
+     */
+    public void mostrarMensajeDestacado(String msg){
+        mostrarMensaje(Color.colorizar(msg, Color.ROJO));
+    }
 
     /**
      * Pide por pantalla el numero de jugadores y sus datos
@@ -125,7 +134,7 @@ public class IU {
         } while (numJugadores < 3 || numJugadores > 4);
 
         for (int i = 0; i < numJugadores; i++) {
-            nombre = leeString("Introduzca el nombre del jugador " + (i + 1)+": ", false);
+            nombre = leeString("Introduzca el nombre del jugador " + (i + 1) + ": ", false);
             Jugador nuevo = new Jugador(nombre);
             jugadores.add(nuevo);
         }
@@ -138,7 +147,7 @@ public class IU {
      * @param jugador El jugador a mostrar
      */
     public void mostrarJugador(Jugador jugador) {
-        mostrarMensaje(jugador.toString()+"\n");
+        mostrarMensaje(jugador.toString() + "\n");
     }
 
     /**
@@ -151,10 +160,10 @@ public class IU {
             mostrarJugador(jugador);
         }
     }
-    
+
     /**
      * Genera un entero entre 0 (incluido) y el limite proporcionado (excluido)
-     * 
+     *
      * @param limite el limite del numero a generar
      * @return El numero generado
      * @throws IllegalArgumentException si el limite no es superior a 0
@@ -163,14 +172,14 @@ public class IU {
         Random rng = new Random(System.currentTimeMillis());
         return rng.nextInt(limite);
     }
-    
+
     /**
      * Muestra una mesa por pantalla
      *
      * @param mesa La mesa a mostrar
      */
     public void mostrarMesa(Mesa mesa) {
-        mostrarMensaje(mesa.toString());
+        mostrarMensaje("Estado de la mesa:\n" + mesa.toString());
     }
-    
+
 }
