@@ -41,7 +41,7 @@ public class Color {
      * Pone color a la carta
      * 
      * @param mensaje la carta como String
-     * @param int el palo a colorizar
+     * @param numPalo el palo a colorizarsería 
      * @return La carta con colores
      */
     public static String colorizar(String mensaje, int numPalo){
