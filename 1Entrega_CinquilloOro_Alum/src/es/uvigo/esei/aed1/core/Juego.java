@@ -33,10 +33,10 @@ public class Juego {
      */
     public void jugar() {
         iu.mostrarMensaje("Comenzando juego de Cinquillo Oro"
-                + "\nSe recomienda jugar en pantalla completa");
+                + "\nSe recomienda jugar en pantalla completa\n");
         listaJugadores = iu.pedirDatosJugadores();
 
-        iu.mostrarMensaje("Preparando la partida y "
+        iu.mostrarMensaje("\nPreparando la partida y "
                 + "repartiendo cartas, por favor espere");
         baraja.barajar();
         repartircartas();

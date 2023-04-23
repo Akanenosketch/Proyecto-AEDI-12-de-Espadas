@@ -14,6 +14,7 @@ public class Carta {
     public static enum Palos {
         OROS, ESPADAS, COPAS, BASTOS
     };
+    
     private int numero;
     private Palos palo;
 

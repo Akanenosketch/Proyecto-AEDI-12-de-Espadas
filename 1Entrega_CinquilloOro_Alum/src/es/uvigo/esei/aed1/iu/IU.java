@@ -115,7 +115,7 @@ public class IU {
      *
      * @param msg El mensaje a mostrar
      */
-    public void mostrarMensajeDestacado(String msg){
+    public void mostrarMensajeDestacado(String msg) {
         mostrarMensaje(Color.colorizar(msg, Color.ROJO));
     }
 
