@@ -33,7 +33,7 @@ public class Juego {
      */
     public void jugar() {
         iu.mostrarMensaje("Comenzando juego de Cinquillo Oro"
-                +"\nSe recomienda jugar en pantalla completa");
+                + "\nSe recomienda jugar en pantalla completa");
         listaJugadores = iu.pedirDatosJugadores();
 
         iu.mostrarMensaje("Preparando la partida y "
@@ -55,15 +55,15 @@ public class Juego {
             iu.mostrarMensaje("Juega: ");
             iu.mostrarJugador(jugador);
             iu.mostrarMesa(mesa);
-            
-            if (tieneCartasValidas(jugador)) {   
+
+            if (tieneCartasValidas(jugador)) {
                 Carta actual = leerCarta(jugador);
                 mesa.insertar(actual);
             } else {
                 iu.mostrarMensaje("El jugador %s no tiene cartas validas,"
                         + " pasando turno\n", jugador.getNombre());
-            } 
-            
+            }
+
             if (jugador.noTieneCartas()) { //Acaba la partida
                 continuar = false;
                 iu.mostrarMensaje("\n\nEl jugador %s ha ganado la partida\n", jugador.getNombre());
@@ -72,39 +72,39 @@ public class Juego {
             }
         }
     }
-    
+
     /**
      * Muestra todas las cartas del jugador y da a elegir cual poner en la mesa.
      * Se comprobara que la carta elegida se puede colocar en la mesa
-     * 
+     *
      * @param jugador El jugador a insertar carta
      * @return La carta a insertar
      */
-    public Carta leerCarta(Jugador jugador){
+    public Carta leerCarta(Jugador jugador) {
         Carta toRet = null;
         do {
-            if(toRet != null){
+            if (toRet != null) {
                 iu.mostrarMensaje("LA CARTA SELECCIONADA NO ES VALIDA\n");
                 iu.mostrarMesa(mesa);
                 iu.mostrarMensaje("Seleccione una carta valida");
                 jugador.insertarCartaALaMano(toRet);
             }
             int opt = -1234; //valor a reemplazar
-        
+
             do {
-                if(opt != -1234){
-                        iu.mostrarMensaje("No se ha seleccionado una carta");
+                if (opt != -1234) {
+                    iu.mostrarMensaje("No se ha seleccionado una carta");
                 }
                 iu.mostrarMensaje("Cartas de la mano : \n %s", jugador.cartasActivas());
-                opt = iu.leeNum(jugador.getNombre()+ " ,introduzca la carta a colocar"
-                            + " (el numero mostrado antes de la carta): ") - 1;
-            } while (opt < 0 || opt >= jugador.getManoDeCartas().size());         
+                opt = iu.leeNum(jugador.getNombre() + " ,introduzca la carta a colocar"
+                        + " (el numero mostrado antes de la carta): ") - 1;
+            } while (opt < 0 || opt >= jugador.getManoDeCartas().size());
             toRet = jugador.cojerCarta(opt);
-            
+
         } while (!mesa.cartaValida(toRet));
         return toRet;
     }
-    
+
     /**
      * Reparte todas las cartas de la baraja a los jugadores
      *
@@ -133,17 +133,19 @@ public class Juego {
         }
         return posicion;
     }
+
     /**
-     * Comprueba si el jugador tiene cartas validas, esto es, si alguna es colocable en la mesa
-     * 
+     * Comprueba si el jugador tiene cartas validas, esto es, si alguna es
+     * colocable en la mesa
+     *
      * @param jugador El jugador del que se comprobaran las cartas
      * @return true si puede colocar alguna carta
      */
-    public boolean tieneCartasValidas(Jugador jugador){
+    public boolean tieneCartasValidas(Jugador jugador) {
         boolean cartaValida = jugador.tieneCincos();
-        Iterator<Carta> it= jugador.getManoDeCartas().iterator();
+        Iterator<Carta> it = jugador.getManoDeCartas().iterator();
         while (!cartaValida && it.hasNext()) {
-           cartaValida = mesa.cartaValida(it.next());
+            cartaValida = mesa.cartaValida(it.next());
         }
 
         return cartaValida;

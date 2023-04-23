@@ -35,10 +35,10 @@ public class Jugador {
     public void insertarCartaALaMano(Carta carta) {
         this.manoDeCartas.add(carta);
     }
-    
+
     /**
      * Quita una carta de la mano
-     * 
+     *
      * @param pos La posicion de la carta a quitar en la mano
      * @return La carta cojida
      */
@@ -46,7 +46,7 @@ public class Jugador {
         Carta toRet = manoDeCartas.get(pos);
         manoDeCartas.remove(toRet);
         return toRet;
-    
+
     }
 
     /**
@@ -95,8 +95,8 @@ public class Jugador {
 
     /**
      * Muestra las cartas del jugador
-     * 
-     * @return 
+     *
+     * @return
      */
     public String cartasActivas() {
         StringBuilder sb = new StringBuilder();

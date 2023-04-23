@@ -10,12 +10,12 @@ import java.util.Scanner;
 
 /**
  * Representacion de la interfaz de usuario del juego Cinquillo-Oro
- * 
+ *
  */
 public class IU {
 
     private final Scanner teclado;
-   
+
     public IU() {
         teclado = new Scanner(System.in).useDelimiter("\r?\n");
     }
@@ -71,8 +71,8 @@ public class IU {
      * Lee un string del teclado
      *
      * @param msg El mensaje a visualizar, con formato
-     * @param args Los datos a incluir en el mensaje 
-     * @return el string 
+     * @param args Los datos a incluir en el mensaje
+     * @return el string
      */
     public String leeString(String msg, Object... args) {
         System.out.printf(msg, args);
@@ -125,7 +125,7 @@ public class IU {
         } while (numJugadores < 3 || numJugadores > 4);
 
         for (int i = 0; i < numJugadores; i++) {
-            nombre = leeString("Introduzca el nombre del jugador " + (i + 1)+": ", false);
+            nombre = leeString("Introduzca el nombre del jugador " + (i + 1) + ": ", false);
             Jugador nuevo = new Jugador(nombre);
             jugadores.add(nuevo);
         }
@@ -138,7 +138,7 @@ public class IU {
      * @param jugador El jugador a mostrar
      */
     public void mostrarJugador(Jugador jugador) {
-        mostrarMensaje(jugador.toString()+"\n");
+        mostrarMensaje(jugador.toString() + "\n");
     }
 
     /**
@@ -151,10 +151,10 @@ public class IU {
             mostrarJugador(jugador);
         }
     }
-    
+
     /**
      * Genera un entero entre 0 (incluido) y el limite proporcionado (excluido)
-     * 
+     *
      * @param limite el limite del numero a generar
      * @return El numero generado
      * @throws IllegalArgumentException si el limite no es superior a 0
@@ -163,14 +163,14 @@ public class IU {
         Random rng = new Random(System.currentTimeMillis());
         return rng.nextInt(limite);
     }
-    
+
     /**
      * Muestra una mesa por pantalla
      *
      * @param mesa La mesa a mostrar
      */
     public void mostrarMesa(Mesa mesa) {
-        mostrarMensaje("Estado de la mesa:\n"+mesa.toString());
+        mostrarMensaje("Estado de la mesa:\n" + mesa.toString());
     }
-    
+
 }
