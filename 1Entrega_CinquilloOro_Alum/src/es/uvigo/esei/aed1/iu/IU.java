@@ -33,7 +33,7 @@ public class IU {
                 return teclado.nextInt();
             } catch (InputMismatchException exc) {
                 teclado.next();
-                mostrarMensajeDestacado("Entrada no valida. Debe ser un entero.");
+                mostrarMensajeError("Entrada no valida. Debe ser un entero.");
             }
         } while (true);
     }
@@ -60,7 +60,7 @@ public class IU {
         String toRet = " ";
         do {
             if (toRet.isEmpty()) {
-                mostrarMensajeDestacado("La cadena no puede estar vacia");
+                mostrarMensajeError("La cadena no puede estar vacia");
             }
             toRet = leeString(msg).trim();
         } while (!permiteVacio && toRet.isEmpty());
@@ -115,8 +115,17 @@ public class IU {
      *
      * @param msg El mensaje a mostrar
      */
-    public void mostrarMensajeDestacado(String msg){
+    public void mostrarMensajeError(String msg){
         mostrarMensaje(Color.colorizar(msg, Color.ROJO));
+    }
+    
+    /**
+     * Muesta un string por pantalla, pero con color violeta
+     *
+     * @param msg El mensaje a mostrar
+     */
+    public void mostrarMensajeDestacado(String msg){
+        mostrarMensaje(Color.colorizar(msg, Color.VIOLETA));
     }
 
     /**
@@ -182,4 +191,17 @@ public class IU {
         mostrarMensaje("Estado de la mesa:\n" + mesa.toString());
     }
 
+    public int leerCarta(Jugador jugador) {
+        int opt = -1234; //valor a reemplazar
+        do {
+            if (opt != -1234) {
+                this.mostrarMensajeError("No se ha seleccionado una carta");
+            }
+            this.mostrarMensaje("Cartas de la mano : \n %s", jugador.cartasActivas());
+            opt = this.leeNum(jugador.getNombre() + " ,introduzca la carta a colocar"
+                    + " (el numero mostrado antes de la carta): ") - 1;
+        } while (opt < 0 || opt >= jugador.getNumCartas());
+        return opt;
+    }
+    
 }

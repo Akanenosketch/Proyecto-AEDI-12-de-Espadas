@@ -22,17 +22,23 @@ public class Mesa {
     }
 
     /**
-     * Inserta una carta en la mesa SIN COMPROBAR VALIDEZ
+     * Inserta una carta en la mesa comprobando su validez
      *
      * @param carta La carta a colocar
+     * @return Devuelve true si la carta se inserto correctamente,false si la carta no es insertada por ser invalida
      */
-    public void insertar(Carta carta) {
-        int palo = carta.getPalo().ordinal();
-        if (carta.getNumero() < 5) {
-            palos[palo].addFirst(carta);
-        } else {
-            palos[palo].addLast(carta);
+    public boolean insertar(Carta carta) {
+        boolean toRet = cartaValida(carta);
+        //si es valida la inserta
+        if (toRet) {
+            int palo = carta.getPalo().ordinal();
+            if (carta.getNumero() < 5) {
+                palos[palo].addFirst(carta);
+            } else {
+                palos[palo].addLast(carta);
+            }
         }
+        return toRet;
     }
 
     /**
@@ -42,29 +48,36 @@ public class Mesa {
      * @return si se puede insertar
      */
     public boolean cartaValida(Carta carta) {
-        boolean toRet;
-        int num = carta.getNumero();
-        if (num == 5) {
-            toRet = true;
-        } else {
-            Carta.Palos palo = carta.getPalo();
-            if (num < 5) {
-                num++;
+        //Si la carta ya esta en la mesa no se puede insertar
+        boolean toRet = ! this.contiene(carta);
+        
+        //si no esta en la mesa la comprueba
+        if (toRet) {
+            int num = carta.getNumero();
+            //si es 5 es valida
+            if (num == 5) {
+                toRet = true;
             } else {
-                num--;
-            }
-            toRet = this.contiene(new Carta(num, palo));
+                //si no es 5 comprueba la que va antes en la mesa
+                Carta.Palos palo = carta.getPalo();
+                if (num < 5) {
+                    num++;
+                } else {
+                    num--;
+                }
+                toRet = this.contiene(new Carta(num, palo));
+            } 
         }
         return toRet;
     }
 
     /**
-     * Metodo privado para comprobar si una carta esta en la mesa
+     * Metodo para comprobar si una carta esta en la mesa
      *
      * @param carta la carta a comprobar
      * @return Si la carta esta en la mesa o no
      */
-    private boolean contiene(Carta carta) {
+    public boolean contiene(Carta carta) {
         boolean toRet = false;
         Iterator<Carta> it = palos[carta.getPalo().ordinal()].iterator();
         while (!toRet && it.hasNext()) {

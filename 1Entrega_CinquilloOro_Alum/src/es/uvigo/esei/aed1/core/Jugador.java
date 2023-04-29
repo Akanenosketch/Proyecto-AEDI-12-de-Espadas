@@ -13,9 +13,6 @@ public class Jugador {
     private String nombre;
     private List<Carta> manoDeCartas;
 
-    public List<Carta> getManoDeCartas() {
-        return manoDeCartas;
-    }
 
     /**
      * Crea un jugador sin cartas
@@ -43,10 +40,9 @@ public class Jugador {
      * @return La carta cojida
      */
     public Carta cojerCarta(int pos) {
-        Carta toRet = manoDeCartas.get(pos);
-        manoDeCartas.remove(toRet);
+        Carta toRet = this.manoDeCartas.get(pos);
+        this.manoDeCartas.remove(toRet);
         return toRet;
-
     }
 
     /**
@@ -74,10 +70,41 @@ public class Jugador {
         return encontrado;
     }
 
+    /**
+     * Comprueba si el jugador no tiene mas cartas
+     * 
+     * @return true si el jugador no tiene cartas 
+     */
     public boolean noTieneCartas() {
-        return manoDeCartas.isEmpty();
+        return this.manoDeCartas.isEmpty();
+    }
+    
+    /**
+     * Cuenta el numero de cartas del jugador
+     * 
+     * @return El numero de cartas de la mano
+     */
+    public int getNumCartas(){
+        return this.manoDeCartas.size();
     }
 
+    /**
+     * Comprueba si el jugador tiene cartas validas, esto es, si alguna es
+     * colocable en la mesa
+     * 
+     * @param mesa la mesa de juego donde se comprueba la validez de las cartas
+     * @return true si puede colocar alguna carta
+     */
+    public boolean tieneCartasValidas(Mesa mesa) {
+        boolean cartaValida = this.tieneCincos();
+        Iterator<Carta> it = this.manoDeCartas.iterator();
+        while (!cartaValida && it.hasNext()) {
+            cartaValida = mesa.cartaValida(it.next());
+        }
+        return cartaValida;
+    }
+    
+    
     @Override
     /**
      * Devuelve el nombre del jugador y las cartas de su mano, como string
@@ -96,7 +123,7 @@ public class Jugador {
     /**
      * Muestra las cartas del jugador
      *
-     * @return
+     * @return las cartas activas
      */
     public String cartasActivas() {
         StringBuilder sb = new StringBuilder();

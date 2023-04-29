@@ -10,12 +10,15 @@ package es.uvigo.esei.aed1.iu;
  * @author Daniel Fabian Rodriguez Lorenzo
  */
 public class Color {
-    public static final String RESET = "\033[0m";  //Resetea el cambio de color
-    public static final String ORO = "\033[0;33m"; //Amarillo
-    public static final String BASTOS = "\033[0;32m"; //Verde
+    private static final String RESET = "\033[0m";  //Resetea el cambio de color, NO SE USA PUBLICO
+
     public static final String ROJO = "\033[0;31m"; //Rojo
-    public static final String ESPADAS = "\033[0;34m";// azul
+    public static final String VIOLETA = "\033[0;35m"; //Violeta
+
     public static final String COPAS = "\033[1;31m"; //rojo anaranjado, tecnicamente rojo bold
+    public static final String BASTOS = "\033[0;32m"; //Verde
+    public static final String ORO = "\033[0;33m"; //Amarillo
+    public static final String ESPADAS = "\033[0;34m";// azul
     
     
     /**
@@ -28,7 +31,7 @@ public class Color {
     public static String colorizar(String mensaje, String color){
         if(!color.equals(ORO) && !color.equals(BASTOS)
                 && !color.equals(ROJO) && !color.equals(ESPADAS) 
-                && !color.equals(COPAS)){
+                && !color.equals(COPAS) && !color.equals(VIOLETA)){
             //Si color no es uno valido
             return mensaje;
         }
