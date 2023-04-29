@@ -25,9 +25,9 @@ La tercera práctica tiene como fecha límite el 8 de mayo, y la defenderemos en
 
 Los puntos a trabajar durante esta entrega son los siguientes (no son los directos de la entrega para separar mas):
   
-- [ ] Cambios posibles sugeridos en la tutoria. @???
+- [ ] Cambios posibles sugeridos en la tutoria y mantenimiento del codigo. @DanielFabianRL
 
-- [ ] Un bucle que continue jugando muentras no se haya puesto el as, con un if para comprobar si se puso el as (hacer un asDeOros static? Hacer una funcion         esAsDeOros?) que sume los puntos y mande que pare la partida.  @DanielFabianRL 
+- [ ] Un bucle que continue jugando muentras no se haya puesto el as, con un if para comprobar si se puso el as (hacer un asDeOros static? Hacer una funcion         esAsDeOros?) que sume los puntos y mande que pare la partida.  @??? 
 
 - [ ] Hacer funcion prepararBaraja?, que vacie la mesa y las manos de los jugadores y las meta en la baraja (Hace falta funcion para meter cartas a la baraja y para sacarlas de la mesa seguramente). @Akanenosketch
 
