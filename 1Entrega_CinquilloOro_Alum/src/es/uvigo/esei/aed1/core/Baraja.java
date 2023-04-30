@@ -21,7 +21,7 @@ public class Baraja {
         Carta.Palos palos[] = Carta.Palos.values();
         for (Carta.Palos palo : palos) {
             for (int i = 1; i <= 12; i++) {
-                this.meterCarta(new Carta(i, palo));
+                this.cartas.push(new Carta(i, palo));
             }
         }
     }
@@ -33,14 +33,6 @@ public class Baraja {
      */
     public Carta sacarCarta() {
         return this.cartas.pop();
-    }
-
-    /**
-     * Mete una carta en la baraja
-     * @param c La Carta a meter en la baraja
-     */
-    public void meterCarta(Carta c){
-        this.cartas.push(c);
     }
     
     /**
@@ -69,7 +61,7 @@ public class Baraja {
             int numCartasLista = aux.size(); //numero de cartas en la lista auxiliar
             //la carta que se va a cojer, elegida aleatoriamente, limitado por el numero maximo
             int cartaACojer = IU.numeroRandom(numCartasLista);
-            this.meterCarta(aux.remove(cartaACojer));        
+            this.cartas.push(aux.remove(cartaACojer));        
         }
     }
     

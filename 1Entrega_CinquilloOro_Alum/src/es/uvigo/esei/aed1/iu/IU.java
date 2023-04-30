@@ -116,16 +116,21 @@ public class IU {
      * @param msg El mensaje a mostrar
      */
     public void mostrarMensajeError(String msg){
+        System.out.println();
         mostrarMensaje(Color.colorizar(msg, Color.ROJO));
+        System.out.println();
     }
     
     /**
-     * Muesta un string por pantalla, pero con color violeta
-     *
+     * Muesta un string por pantalla, pero con color violeta y con saltos de linea
+     * antes y despues. 
+     * Nota, no poner saltos de linea al principio del mensaje a imprimir.
      * @param msg El mensaje a mostrar
      */
     public void mostrarMensajeDestacado(String msg){
+        System.out.println();
         mostrarMensaje(Color.colorizar(msg, Color.VIOLETA));
+        System.out.println();
     }
 
     /**
@@ -135,9 +140,12 @@ public class IU {
      */
     public List<Jugador> pedirDatosJugadores() {
         List<Jugador> jugadores = new LinkedList<>();
-        int numJugadores;
+        int numJugadores = -1;
         String nombre;
         do {
+            if (numJugadores != -1) {
+                mostrarMensajeError("Debe haber entre 3 y 4 jugadores");
+            }
             numJugadores = leeNum("Introduzca el numero "
                     + "de jugadores(3 o 4): ");
         } while (numJugadores < 3 || numJugadores > 4);

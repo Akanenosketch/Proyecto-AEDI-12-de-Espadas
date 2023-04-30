@@ -40,9 +40,7 @@ public class Jugador {
      * @return La carta cojida
      */
     public Carta cojerCarta(int pos) {
-        Carta toRet = this.manoDeCartas.get(pos);
-        this.manoDeCartas.remove(toRet);
-        return toRet;
+        return this.manoDeCartas.remove(pos);
     }
 
     /**
@@ -113,7 +111,7 @@ public class Jugador {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Jugador :  ").append(this.nombre).append("\n");
+        sb.append("Jugador :  ").append(this.getNombre()).append("\n");
         for (Carta i : this.manoDeCartas) {
             sb.append(i.toString()).append("\t");
         }

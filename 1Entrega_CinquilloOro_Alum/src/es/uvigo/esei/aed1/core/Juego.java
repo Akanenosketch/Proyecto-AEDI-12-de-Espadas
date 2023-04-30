@@ -35,7 +35,7 @@ public class Juego {
         iu.mostrarMensaje("Comenzando juego de Cinquillo Oro"
                 + "\nSe recomienda jugar en pantalla completa");
         listaJugadores = iu.pedirDatosJugadores();
-
+        
         //A partir de aqui es una partida
         
         //Preparacion partida
@@ -48,12 +48,12 @@ public class Juego {
         int pos = -1;
         do {            
             if (pos != -1) {
-                iu.mostrarMensajeError("El jugador" + listaJugadores.get(pos).getNombre()
-                        + " no tiene cartas validas\n"
+                iu.mostrarMensajeError("El jugador seleccionado ( " + listaJugadores.get(pos).getNombre()
+                        + " ) no tiene cartas validas\n"
                         + "Seleccionando otro jugador inicial ");
             }
             pos =  elegirJugadorInicial();
-        } while (!listaJugadores.get(pos).tieneCincos());
+        } while (!listaJugadores.get(pos).tieneCartasValidas(mesa));
         
         iu.mostrarMensajeDestacado("El jugador que comenzara la partida es:\t"
                 + listaJugadores.get(pos).getNombre());
@@ -81,12 +81,13 @@ public class Juego {
                 iu.mostrarMensajeError("El jugador " + jugador.getNombre() 
                         + " no tiene cartas validas, pasando turno\n");
             }
+           
             
             if (jugador.noTieneCartas()) { //Acaba la partida
                 continuar = false;
                 //este no funciona
-                iu.mostrarMensajeDestacado("\n\nEl jugador "+jugador.getNombre()
-                        +" ha ganado la partida\n");
+                iu.mostrarMensajeDestacado("El jugador "+jugador.getNombre()
+                        +" ha ganado la partida");
             } else { //Continua el siguiente jugador
                 pos++;
             }

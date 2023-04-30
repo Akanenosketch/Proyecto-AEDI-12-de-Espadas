@@ -22,10 +22,10 @@ public class Mesa {
     }
 
     /**
-     * Inserta una carta en la mesa comprobando su validez
+     * Inserta una carta en la mesa, comprobando su validez previamente
      *
      * @param carta La carta a colocar
-     * @return Devuelve true si la carta se inserto correctamente,false si la carta no es insertada por ser invalida
+     * @return Devuelve true si la carta se inserto o false si la carta no es valida
      */
     public boolean insertar(Carta carta) {
         boolean toRet = cartaValida(carta);
