@@ -12,7 +12,8 @@ public class Jugador {
 
     private String nombre;
     private List<Carta> manoDeCartas;
-
+    private int puntosJugadores;
+       
     public List<Carta> getManoDeCartas() {
         return manoDeCartas;
     }
@@ -25,6 +26,7 @@ public class Jugador {
     public Jugador(String nombre) {
         this.nombre = nombre;
         this.manoDeCartas = new LinkedList<>();// crea una mano vacía
+        this.puntosJugadores=0;//estructura con puntos vacios
     }
 
     /**
@@ -56,6 +58,15 @@ public class Jugador {
      */
     public String getNombre() {
         return this.nombre;
+    }
+
+    /**
+     * Devuelve los puntos de un jugador
+     *
+     * @return los puntos , como entero
+     */
+    public int getPuntosJugadores() {
+        return puntosJugadores;
     }
 
     /**
@@ -109,4 +120,20 @@ public class Jugador {
         sb.append("\n");
         return sb.toString();
     }
+    
+    
+    /**
+     * Añade puntos al jugador 
+     *
+     */
+    
+    public void addPuntos(int x){
+        
+        this.puntosJugadores += x;
+        
+      
+    }
+    
+     
+   
 }
