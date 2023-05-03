@@ -34,7 +34,7 @@ public class Baraja {
     public Carta sacarCarta() {
         return this.cartas.pop();
     }
-    
+
     /**
      * Comprueba si la baraja no tiene cartas
      *
@@ -45,24 +45,36 @@ public class Baraja {
     }
 
     /**
+     * Inserta las cartas de la mesa y de los jugadores que aun tengan cartas a
+     * la baraja
+     *
+     * @param cartasMesa las cartas que provienen de la mesa
+     * @param cartasMano las cartas que provienen de la mano de los jugadores
+     */
+    public void prepararBaraja(Stack<Carta> cartasMesa, Stack<Carta> cartasMano) {
+        this.cartas.addAll(cartasMesa);
+        this.cartas.addAll(cartasMano);
+    }
+
+    /**
      * Baraja la baraja
      *
      */
     public void barajar() {
         //Creamos una lista auxiliar 
         LinkedList<Carta> aux = new LinkedList<>();
-        
+
         //Vaciamos la baraja a la lista auxiliar
         while (!this.isEmpty()) {
             aux.add(this.sacarCarta());
         }
-        
+
         while (!aux.isEmpty()) {
             int numCartasLista = aux.size(); //numero de cartas en la lista auxiliar
             //la carta que se va a cojer, elegida aleatoriamente, limitado por el numero maximo
             int cartaACojer = IU.numeroRandom(numCartasLista);
-            this.cartas.push(aux.remove(cartaACojer));        
+            this.cartas.push(aux.remove(cartaACojer));
         }
     }
-    
+
 }

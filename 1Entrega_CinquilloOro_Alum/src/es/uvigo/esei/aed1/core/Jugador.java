@@ -3,6 +3,7 @@ package es.uvigo.esei.aed1.core;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Representa un jugador, identificado por su nombre y su mano de cartas
@@ -12,7 +13,6 @@ public class Jugador {
 
     private String nombre;
     private List<Carta> manoDeCartas;
-
 
     /**
      * Crea un jugador sin cartas
@@ -70,26 +70,26 @@ public class Jugador {
 
     /**
      * Comprueba si el jugador no tiene mas cartas
-     * 
-     * @return true si el jugador no tiene cartas 
+     *
+     * @return true si el jugador no tiene cartas
      */
     public boolean noTieneCartas() {
         return this.manoDeCartas.isEmpty();
     }
-    
+
     /**
      * Cuenta el numero de cartas del jugador
-     * 
+     *
      * @return El numero de cartas de la mano
      */
-    public int getNumCartas(){
+    public int getNumCartas() {
         return this.manoDeCartas.size();
     }
 
     /**
      * Comprueba si el jugador tiene cartas validas, esto es, si alguna es
      * colocable en la mesa
-     * 
+     *
      * @param mesa la mesa de juego donde se comprueba la validez de las cartas
      * @return true si puede colocar alguna carta
      */
@@ -101,8 +101,21 @@ public class Jugador {
         }
         return cartaValida;
     }
-    
-    
+
+    /**
+     * Quita las cartas que queden en la mano del jugador
+     *
+     * @return las cartas restantes de la mano del jugador en forma de Stack
+     */
+    public Stack quitarCartasManoDeCartas() {
+        Stack<Carta> cartasMano = new Stack<>();
+        //Tirando tripletes 101
+        while (!this.noTieneCartas()) {
+            cartasMano.push(this.manoDeCartas.remove(0));
+        }
+        return cartasMano;
+    }
+
     @Override
     /**
      * Devuelve el nombre del jugador y las cartas de su mano, como string

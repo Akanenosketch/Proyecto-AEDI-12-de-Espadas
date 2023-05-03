@@ -4,6 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
 import es.uvigo.esei.aed1.iu.Color;
+import java.util.Stack;
 
 public class Mesa {
 
@@ -25,7 +26,8 @@ public class Mesa {
      * Inserta una carta en la mesa, comprobando su validez previamente
      *
      * @param carta La carta a colocar
-     * @return Devuelve true si la carta se inserto o false si la carta no es valida
+     * @return Devuelve true si la carta se inserto o false si la carta no es
+     * valida
      */
     public boolean insertar(Carta carta) {
         boolean toRet = cartaValida(carta);
@@ -49,8 +51,8 @@ public class Mesa {
      */
     public boolean cartaValida(Carta carta) {
         //Si la carta ya esta en la mesa no se puede insertar
-        boolean toRet = ! this.contiene(carta);
-        
+        boolean toRet = !this.contiene(carta);
+
         //si no esta en la mesa la comprueba
         if (toRet) {
             int num = carta.getNumero();
@@ -66,7 +68,7 @@ public class Mesa {
                     num--;
                 }
                 toRet = this.contiene(new Carta(num, palo));
-            } 
+            }
         }
         return toRet;
     }
@@ -87,6 +89,22 @@ public class Mesa {
     }
 
     /**
+     * Vacía la mesa y almacena las cartas en un Stack
+     *
+     * @return las cartas de la mesa
+     */
+    public Stack quitarCartasDeLaMesa() {
+        int size = palos.length;
+        Stack<Carta> cartas = new Stack<>();
+        for (int i = 0; i < size; i++) {
+            while (!palos[i].isEmpty()) {
+                cartas.push(palos[i].removeFirst());
+            }
+        }
+        return cartas;
+    }
+
+    /**
      * Devuelve el estado de la mesa, como String
      *
      * @return La mesa como String
@@ -98,7 +116,7 @@ public class Mesa {
         StringBuilder toRet = new StringBuilder();
         for (int i = 0; i < size; i++) {
             StringBuilder sb = new StringBuilder();
-            sb.append(String.format("%8s" ,palo[i].name()+":" ));
+            sb.append(String.format("%8s", palo[i].name() + ":"));
             sb.append("  ");
             if (!palos[i].isEmpty()) {
                 //Pone espacios en blanco en las posiciones sin carta

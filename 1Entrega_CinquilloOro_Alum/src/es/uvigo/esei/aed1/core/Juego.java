@@ -7,6 +7,7 @@ package es.uvigo.esei.aed1.core;
 import es.uvigo.esei.aed1.iu.IU;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * La clase que representa el juego del Cinquillo-Oro
@@ -88,6 +89,12 @@ public class Juego {
                 //este no funciona
                 iu.mostrarMensajeDestacado("El jugador "+jugador.getNombre()
                         +" ha ganado la partida");
+                //quitamos las cartas todas para devolverlas a la mesa(colo funciona cuando se implemente el bucle)
+                Stack<Carta> cartas = new Stack<>();
+                for (Jugador jugadores : listaJugadores) {
+                   cartas.addAll(jugadores.quitarCartasManoDeCartas());
+                }
+                baraja.prepararBaraja(mesa.quitarCartasDeLaMesa(), cartas);
             } else { //Continua el siguiente jugador
                 pos++;
             }
