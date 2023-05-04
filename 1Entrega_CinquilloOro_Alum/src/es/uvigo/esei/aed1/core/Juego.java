@@ -19,8 +19,6 @@ public class Juego {
     private Baraja baraja;
     private List<Jugador> listaJugadores;
     private Mesa mesa;
-    private final int puntosPartida=4;
-    private  int puntosAsDeOro=2;
 
     public Juego(IU iu) {
         this.iu = iu;
@@ -152,14 +150,4 @@ public class Juego {
 
         return cartaValida;
     }
-    
-    
-     /**
-     * Incrementa los puntos que da el As de Oros 2 unidades
-     *
-     */
-      public void incrementarPuntosAsDeOros() {
-        this.puntosAsDeOro += 2;
-    
-      }
 }
