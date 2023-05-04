@@ -19,12 +19,15 @@ public class Juego {
     private Baraja baraja;
     private List<Jugador> listaJugadores;
     private Mesa mesa;
-
+    private final int puntosPartida = 4;
+    private int puntosAsDeOros;
+    
     public Juego(IU iu) {
         this.iu = iu;
         this.baraja = new Baraja();
         this.listaJugadores = new LinkedList();
         this.mesa = new Mesa();
+        puntosAsDeOros = 0; //Se incrementan antes de la primera partida
     }
 
     /**
@@ -46,15 +49,14 @@ public class Juego {
         repartircartas();
         iu.mostrarJugadores(listaJugadores);
         
-        int pos = -1;
-        do {            
-            if (pos != -1) {
-                iu.mostrarMensajeError("El jugador seleccionado ( " + listaJugadores.get(pos).getNombre()
+        int pos = elegirJugadorInicial();
+        
+        while (!listaJugadores.get(pos).tieneCartasValidas(mesa)) {
+            iu.mostrarMensajeError("El jugador seleccionado ( " + listaJugadores.get(pos).getNombre()
                         + " ) no tiene cartas validas\n"
                         + "Seleccionando otro jugador inicial ");
-            }
-            pos =  elegirJugadorInicial();
-        } while (!listaJugadores.get(pos).tieneCartasValidas(mesa));
+            pos++;
+        }
         
         iu.mostrarMensajeDestacado("El jugador que comenzara la partida es:\t"
                 + listaJugadores.get(pos).getNombre());
@@ -145,5 +147,14 @@ public class Juego {
         final int size = listaJugadores.size();
         return IU.numeroRandom(size);
     }
+    
+    /**
+     * Incrementa los puntos que da el As de Oros en 2 unidades
+     *
+     */
+      public void incrementarPuntosAsDeOros() {
+        this.puntosAsDeOros += 2;
+
+      }
     
 }

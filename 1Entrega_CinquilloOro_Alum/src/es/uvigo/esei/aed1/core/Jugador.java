@@ -13,15 +13,17 @@ public class Jugador {
 
     private String nombre;
     private List<Carta> manoDeCartas;
+    private int puntos;
 
     /**
-     * Crea un jugador sin cartas
+     * Crea un jugador sin cartas y con 0 puntos
      *
      * @param nombre el nombre del jugador
      */
     public Jugador(String nombre) {
         this.nombre = nombre;
         this.manoDeCartas = new LinkedList<>();// crea una mano vacía
+        this.puntos = 0;
     }
 
     /**
@@ -52,6 +54,24 @@ public class Jugador {
         return this.nombre;
     }
 
+    /**
+     * Devuelve los puntos del jugador.
+     * 
+     * @return Los puntos, como entero
+     */
+    public int getPuntos(){
+        return this.puntos;
+    }
+    
+    /**
+     * Incrementa los puntos del jugador.
+     * 
+     * @param puntos los puntos a añadir
+     */
+    public void addPuntos(int puntos){
+        this.puntos += puntos;
+    }
+    
     /**
      * Comprueba si existe un cinco de cualquier palo en la mano del jugador
      *
@@ -109,7 +129,6 @@ public class Jugador {
      */
     public Stack quitarCartasManoDeCartas() {
         Stack<Carta> cartasMano = new Stack<>();
-        //Tirando tripletes 101
         while (!this.noTieneCartas()) {
             cartasMano.push(this.manoDeCartas.remove(0));
         }
@@ -124,7 +143,8 @@ public class Jugador {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Jugador :  ").append(this.getNombre()).append("\n");
+        sb.append("Jugador :  ").append(this.getNombre()).append("\t");
+        sb.append("Numero de Puntos: ").append(this.getPuntos()).append("\n");
         for (Carta i : this.manoDeCartas) {
             sb.append(i.toString()).append("\t");
         }

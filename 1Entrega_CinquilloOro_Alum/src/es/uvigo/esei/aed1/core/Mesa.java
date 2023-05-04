@@ -23,7 +23,7 @@ public class Mesa {
     }
 
     /**
-     * Inserta una carta en la mesa, comprobando su validez previamente
+     * Inserta una carta en la mesa, comprobando su validez previamente.
      *
      * @param carta La carta a colocar
      * @return Devuelve true si la carta se inserto o false si la carta no es

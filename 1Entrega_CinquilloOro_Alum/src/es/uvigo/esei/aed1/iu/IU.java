@@ -109,27 +109,29 @@ public class IU {
             //Simplemente para que no ponga 10 lineas en 1s
         }
     }
-    
+
     /**
      * Muesta un string por pantalla, pero con color rojo
      *
      * @param msg El mensaje a mostrar
      */
-    public void mostrarMensajeError(String msg){
+    public void mostrarMensajeError(String msg) {
         System.out.println();
         mostrarMensaje(Color.colorizar(msg, Color.ROJO));
         System.out.println();
     }
-    
+
     /**
-     * Muesta un string por pantalla, pero con color violeta y con saltos de linea
-     * antes y despues. 
-     * Nota, no poner saltos de linea al principio del mensaje a imprimir.
+     * Muesta un string por pantalla, pero con color violeta y con saltos de
+     * linea antes y despues. Nota, no poner saltos de linea al principio del
+     * mensaje a imprimir.
+     *
      * @param msg El mensaje a mostrar
      */
-    public void mostrarMensajeDestacado(String msg){
+    public void mostrarMensajeDestacado(String msg) {
         System.out.println();
         mostrarMensaje(Color.colorizar(msg, Color.VIOLETA));
+        System.out.println();
         System.out.println();
     }
 
@@ -211,5 +213,5 @@ public class IU {
         } while (opt < 0 || opt >= jugador.getNumCartas());
         return opt;
     }
-    
+
 }

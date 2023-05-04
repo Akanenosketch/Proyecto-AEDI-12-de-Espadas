@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package es.uvigo.esei.aed1.iu;
 
 
@@ -10,28 +6,30 @@ package es.uvigo.esei.aed1.iu;
  * @author Daniel Fabian Rodriguez Lorenzo
  */
 public class Color {
+    
     private static final String RESET = "\033[0m";  //Resetea el cambio de color, NO SE USA PUBLICO
 
-    public static final String ROJO = "\033[0;31m"; //Rojo
+    public static final String ROJO = "\033[0;31m";    //Rojo
     public static final String VIOLETA = "\033[0;35m"; //Violeta
 
-    public static final String COPAS = "\033[1;31m"; //rojo anaranjado, tecnicamente rojo bold
-    public static final String BASTOS = "\033[0;32m"; //Verde
-    public static final String ORO = "\033[0;33m"; //Amarillo
-    public static final String ESPADAS = "\033[0;34m";// azul
-    
-    
+    public static final String COPAS = "\033[1;31m";   //rojo anaranjado, tecnicamente rojo bold
+    public static final String BASTOS = "\033[0;32m";  //Verde
+    public static final String ORO = "\033[0;33m";     //Amarillo
+    public static final String ESPADAS = "\033[0;34m"; //Azul
+
+
     /**
      * Pone color al mensaje
-     * 
+     *
      * @param mensaje el mensaje a colorizar
-     * @param color el color a usar, USAR LOS STATIC DE LA CLASE COLOR 
+     * @param color el color a usar, USAR LOS STATIC DE LA CLASE COLOR
      * @return el mensaje colorizado
      */
-    public static String colorizar(String mensaje, String color){
+    public static String colorizar(String mensaje, String color) {
         if(!color.equals(ORO) && !color.equals(BASTOS)
-                && !color.equals(ROJO) && !color.equals(ESPADAS) 
-                && !color.equals(COPAS) && !color.equals(VIOLETA)){
+                && !color.equals(ROJO) && !color.equals(ESPADAS)
+                && !color.equals(COPAS) && !color.equals(VIOLETA) )
+        {
             //Si color no es uno valido
             return mensaje;
         }
@@ -42,12 +40,12 @@ public class Color {
     
     /**
      * Pone color a la carta
-     * 
+     *
      * @param mensaje la carta como String
-     * @param numPalo el palo a colorizarsería 
+     * @param numPalo el palo a colorizarsería
      * @return La carta con colores
      */
-    public static String colorizar(String mensaje, int numPalo){
+    public static String colorizar(String mensaje, int numPalo) {
         String toRet;
         switch (numPalo) {
             case 0:
