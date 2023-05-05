@@ -60,47 +60,58 @@ public class Juego {
         
         iu.mostrarMensajeDestacado("El jugador que comenzara la partida es:\t"
                 + listaJugadores.get(pos).getNombre());
+               
+        boolean as=false;
         
-        
+        do{
+                        
         //Partida en si
-        boolean continuar = true;
-        Jugador jugador;
-        while (continuar) {
-            if (pos >= listaJugadores.size()) {
-                pos = 0;
-            }
-            jugador = listaJugadores.get(pos);
-
-            iu.mostrarMensaje("Juega: ");
-            iu.mostrarJugador(jugador);
-            iu.mostrarMesa(mesa);
-
-            //meter en algun sitio por aqui la comprobacion del as usando actual?
-            
-            if (jugador.tieneCartasValidas(mesa)) {
-                Carta actual = leerCarta(jugador);
-                mesa.insertar(actual);
-            } else {
-                iu.mostrarMensajeError("El jugador " + jugador.getNombre() 
-                        + " no tiene cartas validas, pasando turno\n");
-            }
-           
-            
-            if (jugador.noTieneCartas()) { //Acaba la partida
-                continuar = false;
-                //este no funciona
-                iu.mostrarMensajeDestacado("El jugador "+jugador.getNombre()
-                        +" ha ganado la partida");
-                //quitamos las cartas todas para devolverlas a la mesa(colo funciona cuando se implemente el bucle)
-                Stack<Carta> cartas = new Stack<>();
-                for (Jugador jugadores : listaJugadores) {
-                   cartas.addAll(jugadores.quitarCartasManoDeCartas());
+            boolean continuar = true;
+            Jugador jugador;
+            while (continuar) {
+                if (pos >= listaJugadores.size()) {
+                    pos = 0;
                 }
-                baraja.prepararBaraja(mesa.quitarCartasDeLaMesa(), cartas);
-            } else { //Continua el siguiente jugador
-                pos++;
+                jugador = listaJugadores.get(pos);
+
+                iu.mostrarMensaje("Juega: ");
+                iu.mostrarJugador(jugador);
+                iu.mostrarMesa(mesa);
+
+                //meter en algun sitio por aqui la comprobacion del as usando actual?
+            
+                              
+                if (jugador.tieneCartasValidas(mesa)) {
+                    
+                    Carta actual = leerCarta(jugador);
+                    mesa.insertar(actual);
+                    if(actual.iguales(new Carta (1,Carta.Palos.OROS))){
+                        as=true;
+                        incrementarPuntosAsDeOros();
+                        jugador.addPuntos(this.puntosAsDeOros);
+                    }
+                } else {
+                    iu.mostrarMensajeError("El jugador " + jugador.getNombre() 
+                        + " no tiene cartas validas, pasando turno\n");
+                }
+                
+                                        
+                if (jugador.noTieneCartas()) { //Acaba la partida
+                    continuar = false;
+                    //este no funciona
+                    iu.mostrarMensajeDestacado("El jugador "+jugador.getNombre()
+                        +" ha ganado la partida");
+                    //quitamos las cartas todas para devolverlas a la mesa(colo funciona cuando se implemente el bucle)
+                    Stack<Carta> cartas = new Stack<>();
+                    for (Jugador jugadores : listaJugadores) {
+                        cartas.addAll(jugadores.quitarCartasManoDeCartas());
+                    }
+                    baraja.prepararBaraja(mesa.quitarCartasDeLaMesa(), cartas);
+                } else { //Continua el siguiente jugador
+                    pos++;
+                }
             }
-        }
+        }while(!as);
     }
 
     /**
