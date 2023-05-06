@@ -9,7 +9,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Representacion de la interfaz de usuario del juego Cinquillo-Oro
+ * Representacion de la interfaz de usuario del juego Cinquillo-Oro.
  *
  */
 public class IU {
@@ -21,10 +21,10 @@ public class IU {
     }
 
     /**
-     * Lee un numero del teclado
+     * Lee un numero del teclado.
      *
-     * @param msg El mensaje a visualizar
-     * @return El numero, como entero
+     * @param msg El mensaje a visualizar.
+     * @return El numero, como entero.
      */
     public int leeNum(String msg) {
         do {
@@ -39,10 +39,10 @@ public class IU {
     }
 
     /**
-     * Lee un string del teclado
+     * Lee un string del teclado.
      *
-     * @param msg El mensaje a visualizar
-     * @return El string
+     * @param msg El mensaje a visualizar.
+     * @return El string.
      */
     public String leeString(String msg) {
         System.out.print(msg);
@@ -50,11 +50,11 @@ public class IU {
     }
 
     /**
-     * Lee un string de teclado
+     * Lee un string de teclado.
      *
-     * @param msg El mensaje a visualizar
-     * @param permiteVacio Si el string leido puede estar vacia
-     * @return El string
+     * @param msg El mensaje a visualizar.
+     * @param permiteVacio Si el string leido puede estar vacia.
+     * @return El string.
      */
     public String leeString(String msg, boolean permiteVacio) {
         String toRet = " ";
@@ -68,11 +68,11 @@ public class IU {
     }
 
     /**
-     * Lee un string del teclado
+     * Lee un string del teclado.
      *
-     * @param msg El mensaje a visualizar, con formato
-     * @param args Los datos a incluir en el mensaje
-     * @return el string
+     * @param msg El mensaje a visualizar, con formato.
+     * @param args Los datos a incluir en el mensaje.
+     * @return el string.
      */
     public String leeString(String msg, Object... args) {
         System.out.printf(msg, args);
@@ -80,65 +80,56 @@ public class IU {
     }
 
     /**
-     * Muesta un string por pantalla
+     * Muesta un string por pantalla.
      *
-     * @param msg El mensaje a mostrar
+     * @param msg El mensaje a mostrar.
      */
     public void mostrarMensaje(String msg) {
         System.out.println(msg);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            // Codigo para que tarde 1s entre lineas
-            //Simplemente para que no ponga 10 lineas en 1s
-        }
+        Decorador.delay();
     }
 
     /**
-     * Muestra un string con formato por pantalla
+     * Muestra un string con formato por pantalla.
      *
-     * @param msg El mensaje a visualizar, con formato
-     * @param args Los datos a incluir en el mensaje
+     * @param msg El mensaje a visualizar, con formato.
+     * @param args Los datos a incluir en el mensaje.
      */
     public void mostrarMensaje(String msg, Object... args) {
         System.out.printf(msg, args);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            // Codigo para que tarde 1s entre lineas
-            //Simplemente para que no ponga 10 lineas en 1s
-        }
+        Decorador.delay();
     }
 
     /**
-     * Muesta un string por pantalla, pero con color rojo
-     *
-     * @param msg El mensaje a mostrar
+     * Muesta un string por pantalla, pero con color rojo.
+     * Nota, no poner saltos de linea al principio del mensaje a imprimir.
+     * 
+     * @param msg El mensaje a mostrar.
      */
     public void mostrarMensajeError(String msg) {
         System.out.println();
-        mostrarMensaje(Color.colorizar(msg, Color.ROJO));
+        mostrarMensaje(Decorador.colorizar(msg, Decorador.ROJO));
         System.out.println();
     }
 
     /**
      * Muesta un string por pantalla, pero con color violeta y con saltos de
-     * linea antes y despues. Nota, no poner saltos de linea al principio del
-     * mensaje a imprimir.
+     * linea antes y despues.
+     * Nota, no poner saltos de linea al principio del mensaje a imprimir.
      *
      * @param msg El mensaje a mostrar
      */
     public void mostrarMensajeDestacado(String msg) {
         System.out.println();
-        mostrarMensaje(Color.colorizar(msg, Color.VIOLETA));
+        mostrarMensaje(Decorador.colorizar(msg, Decorador.VIOLETA));
         System.out.println();
         System.out.println();
     }
 
     /**
-     * Pide por pantalla el numero de jugadores y sus datos
+     * Pide por pantalla el numero de jugadores y sus datos.
      *
-     * @return Una Lista de jugadores
+     * @return Una Lista de jugadores.
      */
     public List<Jugador> pedirDatosJugadores() {
         List<Jugador> jugadores = new LinkedList<>();
@@ -161,18 +152,18 @@ public class IU {
     }
 
     /**
-     * Muestra un jugador por pantalla
+     * Muestra un jugador por pantalla.
      *
-     * @param jugador El jugador a mostrar
+     * @param jugador El jugador a mostrar.
      */
     public void mostrarJugador(Jugador jugador) {
         mostrarMensaje(jugador.toString() + "\n");
     }
 
     /**
-     * Muestra una lista de jugadores por pantalla
+     * Muestra una lista de jugadores por pantalla.
      *
-     * @param listaJugadores Los jugadores a mostrar
+     * @param listaJugadores Los jugadores a mostrar.
      */
     public void mostrarJugadores(List<Jugador> listaJugadores) {
         for (Jugador jugador : listaJugadores) {
@@ -181,11 +172,11 @@ public class IU {
     }
 
     /**
-     * Genera un entero entre 0 (incluido) y el limite proporcionado (excluido)
+     * Genera un entero entre 0 (incluido) y el limite proporcionado (excluido).
      *
-     * @param limite el limite del numero a generar
-     * @return El numero generado
-     * @throws IllegalArgumentException si el limite no es superior a 0
+     * @param limite el limite del numero a generar.
+     * @return El numero generado.
+     * @throws IllegalArgumentException si el limite no es superior a 0.
      */
     public static int numeroRandom(int limite) {
         Random rng = new Random(System.currentTimeMillis());
@@ -193,19 +184,25 @@ public class IU {
     }
 
     /**
-     * Muestra una mesa por pantalla
+     * Muestra una mesa por pantalla.
      *
-     * @param mesa La mesa a mostrar
+     * @param mesa La mesa a mostrar.
      */
     public void mostrarMesa(Mesa mesa) {
         mostrarMensaje("Estado de la mesa:\n" + mesa.toString());
     }
 
+    /**
+     * Lee la posicion de una carta por teclado.
+     * 
+     * @param jugador el jugador que escoje la carta.
+     * @return la posicion de la carta en la mano del jugador.
+     */
     public int leerCarta(Jugador jugador) {
         int opt = -1234; //valor a reemplazar
         do {
             if (opt != -1234) {
-                this.mostrarMensajeError("No se ha seleccionado una carta");
+                mostrarMensajeError("No se ha seleccionado una carta");
             }
             this.mostrarMensaje("Cartas de la mano : \n %s", jugador.cartasActivas());
             opt = this.leeNum(jugador.getNombre() + " ,introduzca la carta a colocar"

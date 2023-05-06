@@ -5,7 +5,7 @@ import es.uvigo.esei.aed1.iu.IU;
 import java.util.LinkedList;
 
 /**
- * Representa una Baraja española de 48 cartas con 4 palos y valores de 1 a 12
+ * Representa una Baraja española de 48 cartas con 4 palos y valores de 1 a 12.
  *
  */
 public class Baraja {
@@ -13,7 +13,7 @@ public class Baraja {
     private Stack<Carta> cartas;
 
     /**
-     * Crea una nueva Baraja con las 48 cartas
+     * Crea una nueva Baraja con las 48 cartas.
      *
      */
     public Baraja() {
@@ -27,18 +27,18 @@ public class Baraja {
     }
 
     /**
-     * Saca una carta de la baraja
+     * Saca una carta de la baraja.
      *
-     * @return una Carta de la Baraja, como Carta
+     * @return una Carta de la Baraja, como Carta.
      */
     public Carta sacarCarta() {
         return this.cartas.pop();
     }
 
     /**
-     * Comprueba si la baraja no tiene cartas
+     * Comprueba si la baraja no tiene cartas.
      *
-     * @return un booleano segun este vacia
+     * @return un booleano segun este vacia.
      */
     public boolean isEmpty() {
         return this.cartas.empty();
@@ -46,10 +46,10 @@ public class Baraja {
 
     /**
      * Inserta las cartas de la mesa y de los jugadores que aun tengan cartas a
-     * la baraja
+     * la baraja.
      *
-     * @param cartasMesa las cartas que provienen de la mesa
-     * @param cartasMano las cartas que provienen de la mano de los jugadores
+     * @param cartasMesa las cartas que provienen de la mesa.
+     * @param cartasMano las cartas que provienen de la mano de los jugadores.
      */
     public void prepararBaraja(Stack<Carta> cartasMesa, Stack<Carta> cartasMano) {
         this.cartas.addAll(cartasMesa);
@@ -57,7 +57,7 @@ public class Baraja {
     }
 
     /**
-     * Baraja la baraja
+     * Baraja la baraja.
      *
      */
     public void barajar() {

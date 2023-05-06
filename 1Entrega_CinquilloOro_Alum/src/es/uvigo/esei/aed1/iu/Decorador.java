@@ -1,12 +1,11 @@
 package es.uvigo.esei.aed1.iu;
 
-
 /**
- * Clase completamente auxiliar para meter colores decorativos
- * @author Daniel Fabian Rodriguez Lorenzo
+ * Clase completamente auxiliar para meter cosas decorativas.
+ *
  */
-public class Color {
-    
+public class Decorador {
+
     private static final String RESET = "\033[0m";  //Resetea el cambio de color, NO SE USA PUBLICO
 
     public static final String ROJO = "\033[0;31m";    //Rojo
@@ -17,19 +16,18 @@ public class Color {
     public static final String ORO = "\033[0;33m";     //Amarillo
     public static final String ESPADAS = "\033[0;34m"; //Azul
 
-
     /**
-     * Pone color al mensaje
-     *
-     * @param mensaje el mensaje a colorizar
-     * @param color el color a usar, USAR LOS STATIC DE LA CLASE COLOR
-     * @return el mensaje colorizado
+     * Pone color al mensaje.
+     * No funciona si el mensaje tiene un \n.
+     * 
+     * @param mensaje el mensaje a colorizar.
+     * @param color el color a usar, USAR LOS STATIC DE LA CLASE.
+     * @return el mensaje colorizado.
      */
     public static String colorizar(String mensaje, String color) {
-        if(!color.equals(ORO) && !color.equals(BASTOS)
+        if (!color.equals(ORO) && !color.equals(BASTOS)
                 && !color.equals(ROJO) && !color.equals(ESPADAS)
-                && !color.equals(COPAS) && !color.equals(VIOLETA) )
-        {
+                && !color.equals(COPAS) && !color.equals(VIOLETA)) {
             //Si color no es uno valido
             return mensaje;
         }
@@ -37,13 +35,13 @@ public class Color {
         sb.append(color).append(mensaje).append(RESET);
         return sb.toString();
     }
-    
+
     /**
-     * Pone color a la carta
+     * Pone color a la carta.
      *
-     * @param mensaje la carta como String
-     * @param numPalo el palo a colorizarsería
-     * @return La carta con colores
+     * @param mensaje la carta como String.
+     * @param numPalo el palo a colorizar.
+     * @return La carta con colores.
      */
     public static String colorizar(String mensaje, int numPalo) {
         String toRet;
@@ -64,5 +62,19 @@ public class Color {
                 toRet = mensaje;
         }
         return toRet;
+    }
+
+    /**
+     * Añade un retardo de 1s.
+     * 
+     */
+    public static void delay() {
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            // Codigo para que tarde 1s entre lineas
+            //Simplemente para que no ponga 10 lineas en 1s
+        }
     }
 }
