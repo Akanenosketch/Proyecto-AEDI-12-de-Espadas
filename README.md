@@ -27,13 +27,13 @@ Los puntos a trabajar durante esta entrega son los siguientes (no son los direct
   
 - [X] Cambios posibles sugeridos en la tutoria y mantenimiento del codigo. @DanielFabianRL
 
-- [ ] Un bucle que continue jugando muentras no se haya puesto el as, con un if para comprobar si se puso el as (hacer un asDeOros static? Hacer una funcion         esAsDeOros?) que sume los puntos y mande que pare la partida.  @SugarStorm22 
+- [x] Un bucle que continue jugando muentras no se haya puesto el as, con un if para comprobar si se puso el as (hacer un asDeOros static? Hacer una funcion         esAsDeOros?) que sume los puntos y mande que pare la partida.  @SugarStorm22 
 
 - [X] Hacer funcion prepararBaraja?, que vacie la mesa y las manos de los jugadores y las meta en la baraja (Hace falta funcion para meter cartas a la baraja y para sacarlas de la mesa seguramente). @Akanenosketch
 
 - [X] Crear puntosPartida (siempre sera 4) y puntosAsDeOros (empieza en 2 y aumenta en 2 cada partida). Al ganador de la partida se le suman puntosPartida, y a quien ponga el as se le suman los del as. Meter atributo puntos en jugador y metodos necesarios. @adrixprietox
 
-- [ ] mostrar ganador/es al acabar (con funcion mostrarJugadores?). @thekingofwar03
+- [x] mostrar ganador/es al acabar (con funcion mostrarJugadores?). @thekingofwar03
 
 
 ### Recomendaciones (antes de que alguien la cague y tengamos que dar hostias)
