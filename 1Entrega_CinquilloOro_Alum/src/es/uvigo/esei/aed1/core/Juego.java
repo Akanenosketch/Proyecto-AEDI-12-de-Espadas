@@ -107,19 +107,17 @@ public class Juego {
                 posActual++;
             }
         } while (continuar);
-
-        devolverABaraja();
-        incrementarPuntosAsDeOros();
+        finalizarPartida();
         return asEnMesa;
     }
 
-    private void devolverABaraja() {
-
-        Stack<Carta> cartas = new Stack<>();
-        for (Jugador jugadores : listaJugadores) {
-            cartas.addAll(jugadores.quitarCartasManoDeCartas());
-        }
-        baraja.prepararBaraja(mesa.quitarCartasDeLaMesa(), cartas);
+    /**
+     * Finaliza la partida.
+     * 
+     */
+    private void finalizarPartida() {
+        devolverABaraja();
+        incrementarPuntosAsDeOros();
     }
 
     /**
@@ -149,7 +147,7 @@ public class Juego {
 
         return posInicial;
     }
-
+    
     /**
      * Muestra todas las cartas del jugador y da a elegir cual poner en la mesa.
      * Se comprobara que la carta elegida se puede colocar en la mesa.
@@ -202,6 +200,19 @@ public class Juego {
     private void incrementarPuntosAsDeOros() {
         this.puntosAsDeOros += 2;
     }
+    
+    /**
+     * Devuelve las cartas de los jugadores y la mesa a la baraja.
+     * 
+     */
+    private void devolverABaraja() {
+
+        Stack<Carta> cartas = new Stack<>();
+        for (Jugador jugadores : listaJugadores) {
+            cartas.addAll(jugadores.quitarCartasManoDeCartas());
+        }
+        baraja.prepararBaraja(mesa.quitarCartasDeLaMesa(), cartas);
+    }
 
     /**
      * Muestra por pantalla al ganador/es de la partida.
@@ -234,7 +245,7 @@ public class Juego {
         while (it.hasNext() && numGanadores > 0) {
             jugador = it.next();
             if (maxPuntos == jugador.getPuntos()) {
-                ganadores.append(Decorador.colorizar(jugador.getNombre(),Decorador.VIOLETA));
+                ganadores.append(Decorador.colorizar(jugador.getNombre(), Decorador.VIOLETA));
                 ganadores.append("\n");
                 numGanadores--;
             }

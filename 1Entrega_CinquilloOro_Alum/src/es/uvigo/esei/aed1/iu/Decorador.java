@@ -17,14 +17,23 @@ public class Decorador {
     public static final String ESPADAS = "\033[0;34m"; //Azul
 
     /**
-     * Pone color al mensaje.
-     * No funciona si el mensaje tiene un \n.
-     * 
+     * Flag para activar las Decoraciones
+     */
+    private static final boolean ACTIVAR_DECORAROR = true;
+
+    /**
+     * Pone color al mensaje. No funciona si el mensaje tiene un \n. Si el
+     * decorador esta deshabilitado devuelve el mensaje como esta.
+     *
      * @param mensaje el mensaje a colorizar.
      * @param color el color a usar, USAR LOS STATIC DE LA CLASE.
      * @return el mensaje colorizado.
      */
     public static String colorizar(String mensaje, String color) {
+
+        if (!ACTIVAR_DECORAROR) {
+            return mensaje;
+        }
         if (!color.equals(ORO) && !color.equals(BASTOS)
                 && !color.equals(ROJO) && !color.equals(ESPADAS)
                 && !color.equals(COPAS) && !color.equals(VIOLETA)) {
@@ -37,7 +46,8 @@ public class Decorador {
     }
 
     /**
-     * Pone color a la carta.
+     * Pone color a la carta. Si el decorador esta deshabilitado devuelve el
+     * mensaje como esta.
      *
      * @param mensaje la carta como String.
      * @param numPalo el palo a colorizar.
@@ -45,6 +55,9 @@ public class Decorador {
      */
     public static String colorizar(String mensaje, int numPalo) {
         String toRet;
+        if (!ACTIVAR_DECORAROR) {
+            return mensaje;
+        }
         switch (numPalo) {
             case 0:
                 toRet = colorizar(mensaje, ORO);
@@ -65,16 +78,18 @@ public class Decorador {
     }
 
     /**
-     * Añade un retardo de 1s.
-     * 
+     * Añade un retardo de 1s. Si el decorador esta deshabilitado no hace nada.
+     *
      */
     public static void delay() {
+        if (ACTIVAR_DECORAROR) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                // Codigo para que tarde 1s entre lineas
+                //Simplemente para que no ponga 10 lineas en 1s
+            }
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            // Codigo para que tarde 1s entre lineas
-            //Simplemente para que no ponga 10 lineas en 1s
         }
     }
 }
