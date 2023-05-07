@@ -2,9 +2,10 @@ package es.uvigo.esei.aed1.core;
 
 import java.util.Stack;
 import es.uvigo.esei.aed1.iu.IU;
+import java.util.LinkedList;
 
 /**
- * Representa una Baraja española de 48 cartas con 4 palos y valores de 1 a 12
+ * Representa una Baraja española de 48 cartas con 4 palos y valores de 1 a 12.
  *
  */
 public class Baraja {
@@ -12,7 +13,7 @@ public class Baraja {
     private Stack<Carta> cartas;
 
     /**
-     * Crea una nueva Baraja con las 48 cartas
+     * Crea una nueva Baraja con las 48 cartas.
      *
      */
     public Baraja() {
@@ -26,49 +27,54 @@ public class Baraja {
     }
 
     /**
-     * Saca una carta de la baraja
+     * Saca una carta de la baraja.
      *
-     * @return una Carta de la Baraja, como Carta
+     * @return una Carta de la Baraja, como Carta.
      */
     public Carta sacarCarta() {
         return this.cartas.pop();
     }
 
     /**
-     * Comprueba si la baraja no tiene cartas
+     * Comprueba si la baraja no tiene cartas.
      *
-     * @return un booleano segun este vacia
+     * @return un booleano segun este vacia.
      */
     public boolean isEmpty() {
         return this.cartas.empty();
     }
 
     /**
-     * Baraja la baraja
+     * Inserta las cartas de la mesa y de los jugadores que aun tengan cartas a
+     * la baraja.
+     *
+     * @param cartasMesa las cartas que provienen de la mesa.
+     * @param cartasMano las cartas que provienen de la mano de los jugadores.
+     */
+    public void prepararBaraja(Stack<Carta> cartasMesa, Stack<Carta> cartasMano) {
+        this.cartas.addAll(cartasMesa);
+        this.cartas.addAll(cartasMano);
+    }
+
+    /**
+     * Baraja la baraja.
      *
      */
     public void barajar() {
-        Stack<Carta> aux = new Stack<>();
-        Stack<Carta> resultado = new Stack<>();
-        int numCartas = cartas.size();//Numero maximo de cartas
-        int numCartasAQuitar;
+        //Creamos una lista auxiliar 
+        LinkedList<Carta> aux = new LinkedList<>();
+
+        //Vaciamos la baraja a la lista auxiliar
         while (!this.isEmpty()) {
-            numCartasAQuitar = IU.numeroRandom(numCartas);
-            //Quitamos un num aleatorio de cartas entre 0 y el maximo -1
-            for (int i = 0; i < numCartasAQuitar; i++) {
-                aux.push(this.sacarCarta());
-            }
-
-            //Ponemos la siguiente carta en una baraja barajada
-            resultado.push(this.sacarCarta());
-
-            //Devolvemos las cartas quitadas a aux al original
-            while (!aux.empty()) {
-                this.cartas.push(aux.pop());
-            }
-            //Decrementamos el numero de cartas maximo que podemos quitar 
-            numCartas--;
+            aux.add(this.sacarCarta());
         }
-        this.cartas = resultado;
+
+        while (!aux.isEmpty()) {
+            int numCartasLista = aux.size(); //numero de cartas en la lista auxiliar
+            //la carta que se va a cojer, elegida aleatoriamente, limitado por el numero maximo
+            int cartaACojer = IU.numeroRandom(numCartasLista);
+            this.cartas.push(aux.remove(cartaACojer));
+        }
     }
+
 }

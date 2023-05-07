@@ -3,14 +3,19 @@ package es.uvigo.esei.aed1.core;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
-import es.uvigo.esei.aed1.iu.Color;
+import es.uvigo.esei.aed1.iu.Decorador;
+import java.util.Stack;
 
+/**
+ * Representa la mesa de juego.
+ * 
+ */
 public class Mesa {
 
     private Deque<Carta>[] palos;
 
     /**
-     * Crea la Mesa vacia
+     * Crea la Mesa vacia.
      *
      */
     public Mesa() {
@@ -22,89 +27,125 @@ public class Mesa {
     }
 
     /**
-     * Inserta una carta en la mesa SIN COMPROBAR VALIDEZ
+     * Inserta una carta en la mesa, comprobando su validez previamente.
      *
-     * @param carta La carta a colocar
+     * @param carta La carta a colocar.
+     * @return Devuelve true si la carta se inserto o false si la carta no es
+     * valida.
      */
-    public void insertar(Carta carta) {
-        int palo = carta.getPalo().ordinal();
-        if (carta.getNumero() < 5) {
-            palos[palo].addFirst(carta);
-        } else {
-            palos[palo].addLast(carta);
+    public boolean insertar(Carta carta) {
+        boolean esValida = cartaValida(carta);
+        //si es valida la inserta
+        if (esValida) {
+            int palo = carta.getPalo().ordinal();
+            if (carta.getNumero() < 5) {
+                palos[palo].addFirst(carta);
+            } else {
+                palos[palo].addLast(carta);
+            }
         }
+        return esValida;
     }
 
     /**
-     * Comprueba si la carta se puede insertar
+     * Comprueba si la carta se puede insertar.
      *
-     * @param carta La carta a insertar
-     * @return si se puede insertar
+     * @param carta La carta a insertar.
+     * @return si se puede insertar.
      */
     public boolean cartaValida(Carta carta) {
-        boolean toRet;
-        int num = carta.getNumero();
-        if (num == 5) {
-            toRet = true;
-        } else {
-            Carta.Palos palo = carta.getPalo();
-            if (num < 5) {
-                num++;
+        //Si la carta ya esta en la mesa no se puede insertar
+        boolean esValida = !this.contiene(carta);
+
+        //si no esta en la mesa la comprueba
+        if (esValida) {
+            int numCartaPrevia = carta.getNumero();
+            //si es 5 es valida
+            if (numCartaPrevia == 5) {
+                esValida = true;
             } else {
-                num--;
+                //si no es 5 comprueba la que va antes en la mesa
+                Carta.Palos palo = carta.getPalo();
+                if (numCartaPrevia < 5) {
+                    numCartaPrevia++;
+                } else {
+                    numCartaPrevia--;
+                }
+                esValida = this.contiene(new Carta(numCartaPrevia, palo));
             }
-            toRet = this.contiene(new Carta(num, palo));
         }
-        return toRet;
+        return esValida;
     }
 
     /**
-     * Metodo privado para comprobar si una carta esta en la mesa
+     * Metodo para comprobar si una carta esta en la mesa.
      *
-     * @param carta la carta a comprobar
-     * @return Si la carta esta en la mesa o no
+     * @param carta la carta a comprobar.
+     * @return Si la carta esta en la mesa o no.
      */
-    private boolean contiene(Carta carta) {
-        boolean toRet = false;
+    public boolean contiene(Carta carta) {
+        boolean cartaEnMesa = false;
         Iterator<Carta> it = palos[carta.getPalo().ordinal()].iterator();
-        while (!toRet && it.hasNext()) {
-            toRet = carta.iguales(it.next());
+        while (!cartaEnMesa && it.hasNext()) {
+            cartaEnMesa = carta.iguales(it.next());
         }
-        return toRet;
+        return cartaEnMesa;
     }
 
     /**
-     * Devuelve el estado de la mesa, como String
+     * Vacía la mesa y almacena las cartas en un Stack.
      *
-     * @return La mesa como String
+     * @return las cartas de la mesa.
+     */
+    public Stack quitarCartasDeLaMesa() {
+        int numPalos = palos.length;
+        Stack<Carta> cartas = new Stack<>();
+        for (int i = 0; i < numPalos; i++) {
+            while (!palos[i].isEmpty()) {
+                cartas.push(palos[i].removeFirst());
+            }
+        }
+        return cartas;
+    }
+
+    /**
+     * Devuelve el estado de la mesa, como String.
+     *
+     * @return La mesa como String.
      */
     @Override
     public String toString() {
         Carta.Palos[] palo = Carta.Palos.values();
-        int size = palo.length;
+        int numPalos = palo.length;
         StringBuilder toRet = new StringBuilder();
-        for (int i = 0; i < size; i++) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(String.format("%8s" ,palo[i].name()+":" ));
-            sb.append("  ");
+        
+        //Para cada palo, mete sus datos en un SB, luego lo coloriza, y lo mete en 
+        //el SB que se devuelve
+        for (int i = 0; i < numPalos; i++) {
+            //Resetea el sb actual
+            StringBuilder sbPaloActual = new StringBuilder();
+            //Nombre del palo
+            sbPaloActual.append(String.format("%8s", palo[i].name() + ":"));
+            sbPaloActual.append("  ");
+            
             if (!palos[i].isEmpty()) {
                 //Pone espacios en blanco en las posiciones sin carta
                 int vacios = palos[i].peekFirst().getNumero() - 1;
                 for (int j = 0; j < vacios; j++) {
-                    sb.append(" ").append(" ");
+                    sbPaloActual.append(" ").append(" ");
                 }
                 //Pone las cartas
                 for (Carta carta : palos[i]) {
-                    sb.append(carta.getNumero()).append(" ");
+                    sbPaloActual.append(carta.getNumero()).append(" ");
                 }
                 //Pone espacios en blanco en las posiciones sin cartas
                 vacios = 12 - palos[i].peekLast().getNumero();
                 for (int j = 0; j < vacios; j++) {
-                    sb.append(" ").append(" ");
+                    sbPaloActual.append(" ").append(" ");
                 }
             }
-            //Pone sb con color en toRet
-            toRet.append(Color.colorizar(sb.toString(), i));
+            //Pone el sb actual con color en toRet
+            toRet.append(Decorador.colorizar(sbPaloActual.toString(), i));
             toRet.append("\n");
         }
         return toRet.toString();
