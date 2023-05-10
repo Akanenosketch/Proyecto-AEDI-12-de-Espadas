@@ -77,7 +77,7 @@ public class Jugador {
      *
      * @return las cartas restantes de la mano del jugador en forma de Stack.
      */
-    public Stack quitarCartasManoDeCartas() {
+    public Stack<Carta> quitarCartasManoDeCartas() {
         Stack<Carta> cartasMano = new Stack<>();
         while (!this.noTieneCartas()) {
             cartasMano.push(this.cojerCarta(0));

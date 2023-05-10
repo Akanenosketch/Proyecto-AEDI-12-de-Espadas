@@ -97,7 +97,7 @@ public class Mesa {
      *
      * @return las cartas de la mesa.
      */
-    public Stack quitarCartasDeLaMesa() {
+    public Stack<Carta> quitarCartasDeLaMesa() {
         int numPalos = palos.length;
         Stack<Carta> cartas = new Stack<>();
         for (int i = 0; i < numPalos; i++) {
