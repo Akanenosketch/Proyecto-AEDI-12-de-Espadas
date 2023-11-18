@@ -4,6 +4,7 @@ Este repositorio se ha empleado para el desarrollo del proyecto de AEDI que es u
 ## ¿En qué consiste el juego?
 
 Si muy bien, ¿qué diablos hace esto aquí? Para ahorrarte buscar en internet que diablos es la variante que hemos creado (que nos han obligado a crear porque menuda amalgama jefe).
+
 El juego que hubo que elaborar es una variante del cinquillo, denominada ***Cinquillo-Oro*** y consiste en abrir los mazos que tenemos dentro de una baraja española con los 5's de cada mazo (espadas, oros, palos, copas para el que no sepa). Los jugadores deberán de colocar una carta con un valor inmediatamente superior o inferior a las que se encuentran en la mesa de juego o, si tienen un cinco, abrir otro mazo.
 
 ![image](https://user-images.githubusercontent.com/90091466/226657303-e5799d83-6f5b-4176-85d0-ff8396225b81.png)
